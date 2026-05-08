@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kara Clan — Professional Windows Optimizer</title>
-    <meta name="description" content="Professional-grade Windows optimization scripts. Free, open-source, and community-driven.">
+    <meta name="description" content="Professional-grade Windows optimization scripts. Free, open-source, and community-driven. Boost gaming, network, and system performance.">
+    <meta name="theme-color" content="#000000">
+    <meta name="author" content="Kara Clan">
+    <meta property="og:title" content="Kara Clan — Windows Optimizer">
+    <meta property="og:description" content="Professional Windows optimization scripts. Free and open-source.">
+    <meta property="og:type" content="website">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -150,7 +155,6 @@
         .form-card input:focus, .form-card select:focus, .form-card textarea:focus {
             outline: none; border-color: var(--gold);
         }
-        /* Sliders */
         .toggle-group { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
         .toggle-label { color: var(--text-primary); font-size: 0.82rem; font-weight: 600; }
         .toggle-label small { color: var(--text-secondary); font-weight: 400; display: block; font-size: 0.7rem; margin-top: 0.15rem; }
@@ -169,7 +173,6 @@
         .switch input:checked + .slider { border-color: var(--gold); background: rgba(201,168,76,0.1); }
         .switch input:checked + .slider::before { background: var(--gold); transform: translateX(22px); }
         .switch input:disabled + .slider { opacity: 0.5; cursor: not-allowed; }
-        /* Cookies */
         .cookie-banner {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             width: 92%; max-width: 700px; background: var(--surface-elevated); border: 1px solid var(--border);
@@ -214,6 +217,12 @@
         .support-btn-clan { border-color: #fff; color: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.3); }
         .support-btn-clan:hover { background: #fff; color: #0a0a0a; box-shadow: 0 0 24px rgba(255,255,255,0.6); }
         .support-btn:hover { background: var(--gold); color: #0a0a0a; }
+        .compare-table-wrapper { overflow-x: auto; margin-bottom: 2rem; }
+        .compare-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; }
+        .compare-table th { padding: 0.8rem; text-align: left; color: var(--gold); font-family: var(--font-display); font-size: 0.85rem; background: var(--surface-elevated); }
+        .compare-table td { padding: 0.7rem; color: var(--text-primary); border-top: 1px solid var(--border); text-align: center; }
+        .compare-table td:first-child { text-align: left; }
+        .ping-test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; max-width: 600px; margin: 0 auto 2rem; text-align: center; }
         footer { text-align: center; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; }
         footer a { color: var(--gold); text-decoration: none; }
         @media (max-width: 640px) {
@@ -238,195 +247,6 @@
                 <p>Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p>
                 <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v1.bat" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> Download .bat</a>
             </div>
-            <!-- Dashboard de versiones -->
-<h2 class="section-title"><i class="fas fa-balance-scale"></i> Compare Versions</h2>
-<div class="compare-table-wrapper" style="overflow-x:auto; margin-bottom:2rem;">
-    <table class="compare-table" style="width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden;">
-        <thead>
-            <tr style="background:var(--surface-elevated);">
-                <th style="padding:0.8rem; text-align:left; color:var(--gold); font-family:var(--font-display); font-size:0.85rem;">Feature</th>
-                <th style="padding:0.8rem; text-align:center; color:var(--info);">Vol.1 Essential</th>
-                <th style="padding:0.8rem; text-align:center; color:var(--success);">Vol.2 Advanced</th>
-                <th style="padding:0.8rem; text-align:center; color:#ff8c00;">Vol.3 Complete</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Total Tweaks</td>
-                <td style="text-align:center; color:var(--gold-bright);">8</td>
-                <td style="text-align:center; color:var(--gold-bright);">17</td>
-                <td style="text-align:center; color:var(--gold-bright);">20</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Network (Nagle, DNS)</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">QoS DSCP 46 (Gaming)</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">GPU Priority</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Game Mode + SysMain</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Services optimization</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Registry tweaks</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Disk cleanup</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Memory optimization</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">❌</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Reversible</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-            <tr style="border-top:1px solid var(--border);">
-                <td style="padding:0.7rem; color:var(--text-primary);">Portable version (.ps1)</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-                <td style="text-align:center;">✅</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-            <!-- Live Ping Test -->
-<h2 class="section-title"><i class="fas fa-tachometer-alt"></i> Test Your Connection</h2>
-<div class="ping-test-card" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:2rem; max-width:600px; margin:0 auto 2rem; text-align:center;">
-    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Measure your current latency. If your ping is high, our optimizer can help.</p>
-    <button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()">
-        <i class="fas fa-play"></i> Start Ping Test
-    </button>
-    <div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div>
-    <div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div>
-</div>
-
-<script>
-    async function runPingTest() {
-        const btn = document.getElementById('ping-test-btn');
-        const resultEl = document.getElementById('ping-result');
-        const recEl = document.getElementById('ping-recommendation');
-        
-        btn.disabled = true;
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing...';
-        resultEl.textContent = '';
-        recEl.textContent = '';
-        
-        const startTime = performance.now();
-        try {
-            await fetch('https://api.cloudflare.com/cdn-cgi/trace');
-            const endTime = performance.now();
-            const ping = Math.round(endTime - startTime);
-            
-            let color, recommendation;
-            if (ping < 50) {
-                color = 'var(--success)';
-                recommendation = '🔥 Excellent! Your connection is already optimized.';
-            } else if (ping < 100) {
-                color = 'var(--gold)';
-                recommendation = '👍 Good, but you could gain a few ms with our optimizer.';
-            } else if (ping < 150) {
-                color = '#ff8c00';
-                recommendation = '⚠️ Average. Try Vol.1 to improve your ping.';
-            } else {
-                color = 'var(--danger)';
-                recommendation = '🐌 Slow connection detected. We strongly recommend Vol.2 or Vol.3.';
-            }
-            
-            resultEl.innerHTML = `<span style="color:${color}; font-size:2.5rem;">${ping}ms</span>`;
-            recEl.innerHTML = `<span style="color:${color};">${recommendation}</span>`;
-        } catch (e) {
-            resultEl.innerHTML = '<span style="color:var(--danger);">Connection failed</span>';
-            recEl.innerHTML = '<span style="color:var(--text-secondary);">Could not reach the test server. Check your internet.</span>';
-        } finally {
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-redo"></i> Test Again';
-        }
-    }
-    // Botón de notificaciones
-const notifyBtn = document.createElement('button');
-notifyBtn.className = 'btn btn-outline';
-notifyBtn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
-notifyBtn.style.cssText = 'display:block; margin:1rem auto;';
-notifyBtn.onclick = subscribeToNotifications;
-
-// Añadir el botón donde quieras (por ejemplo, después del newsletter)
-document.querySelector('.ping-test-card').after(notifyBtn);
-
-async function subscribeToNotifications() {
-    if (!('Notification' in window) || !('serviceWorker' in navigator)) {
-        alert('Push notifications are not supported in your browser.');
-        return;
-    }
-    
-    const permission = await Notification.requestPermission();
-    if (permission !== 'granted') {
-        alert('You need to allow notifications to receive updates.');
-        return;
-    }
-    
-    // Registrar Service Worker
-    const registration = await navigator.serviceWorker.register('/sw.js');
-    
-    // Suscribirse
-    const subscription = await registration.pushManager.subscribe({
-        userVisibleOnly: true,
-        applicationServerKey: urlBase64ToUint8Array('YOUR_VAPID_PUBLIC_KEY')
-    });
-    
-    // Enviar suscripción al Worker
-    await fetch('https://kara-notify.tusubdominio.workers.dev', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ subscription })
-    });
-    
-    alert('✅ You will be notified of new updates!');
-    notifyBtn.textContent = '🔔 Subscribed!';
-    notifyBtn.disabled = true;
-}
-
-function urlBase64ToUint8Array(base64String) {
-    const padding = '='.repeat((4 - base64String.length % 4) % 4);
-    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
-    const rawData = window.atob(base64);
-    const outputArray = new Uint8Array(rawData.length);
-    for (let i = 0; i < rawData.length; ++i) {
-        outputArray[i] = rawData.charCodeAt(i);
-    }
-    return outputArray;
-}
-</script>
             <div class="card">
                 <div class="vol-badge">VOL.2</div>
                 <h3>Advanced</h3>
@@ -444,24 +264,49 @@ function urlBase64ToUint8Array(base64String) {
             <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Revert_Optimizer.bat" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> Reset Optimizer</a>
         </div>
 
+        <!-- Dashboard de versiones -->
+        <h2 class="section-title"><i class="fas fa-balance-scale"></i> Compare Versions</h2>
+        <div class="compare-table-wrapper">
+            <table class="compare-table">
+                <thead>
+                    <tr>
+                        <th>Feature</th>
+                        <th>Vol.1 Essential</th>
+                        <th>Vol.2 Advanced</th>
+                        <th>Vol.3 Complete</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>Total Tweaks</td><td>8</td><td>17</td><td>20</td></tr>
+                    <tr><td>Network (Nagle, DNS)</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                    <tr><td>QoS DSCP 46 (Gaming)</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                    <tr><td>GPU Priority</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                    <tr><td>Game Mode + SysMain</td><td>❌</td><td>✅</td><td>✅</td></tr>
+                    <tr><td>Services optimization</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>Registry tweaks</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>Disk cleanup</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>Memory optimization</td><td>❌</td><td>❌</td><td>✅</td></tr>
+                    <tr><td>Reversible</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                    <tr><td>Portable version (.ps1)</td><td>✅</td><td>✅</td><td>✅</td></tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Live Ping Test -->
+        <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> Test Your Connection</h2>
+        <div class="ping-test-card">
+            <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Measure your current latency. If your ping is high, our optimizer can help.</p>
+            <button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> Start Ping Test</button>
+            <div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div>
+            <div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div>
+        </div>
+
         <!-- Versiones portables -->
         <h2 class="section-title"><i class="fas fa-code"></i> Portable Versions (Direct .ps1)</h2>
         <div class="download-grid">
-            <div class="card">
-                <h3>Vol.1 Essential (.ps1)</h3>
-                <p>Direct PowerShell script. Run as Administrator.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v1.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a>
-            </div>
-            <div class="card">
-                <h3>Vol.2 Advanced (.ps1)</h3>
-                <p>Direct PowerShell script. Run as Administrator.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v2.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a>
-            </div>
-            <div class="card">
-                <h3>Vol.3 Complete (.ps1)</h3>
-                <p>Direct PowerShell script. Run as Administrator.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v3.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a>
-            </div>
+            <div class="card"><h3>Vol.1 Essential (.ps1)</h3><p>Direct PowerShell script. Run as Administrator.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v1.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.2 Advanced (.ps1)</h3><p>Direct PowerShell script. Run as Administrator.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v2.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.3 Complete (.ps1)</h3><p>Direct PowerShell script. Run as Administrator.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v3.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
         </div>
 
         <!-- Instrucciones -->
@@ -501,91 +346,26 @@ function urlBase64ToUint8Array(base64String) {
         <div style="text-align:center; margin:1rem 0;">
             <button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> Leave a Review</button>
         </div>
-        <!-- Hall of Fame -->
-<div id="hall-of-fame" style="margin-top:2rem;">
-    <h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;">
-        <i class="fas fa-crown"></i> Hall of Fame
-    </h3>
-    <div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
-        <p style="color:var(--muted);">Loading top reviewers…</p>
-    </div>
-</div>
-
-<script>
-    async function loadHallOfFame() {
-        const container = document.getElementById('hof-container');
-        try {
-            const res = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=100');
-            if (!res.ok) throw new Error('API error');
-            let issues = await res.json();
-            issues = issues.filter(i => i.labels.some(l => l.name === 'review'));
-            
-            // Contar reseñas por usuario
-            const userCount = {};
-            issues.forEach(issue => {
-                const title = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'');
-                const name = title.split('—')[0].trim().replace(/⭐+/g,'').trim() || 'User';
-                userCount[name] = (userCount[name] || 0) + 1;
-            });
-            
-            // Ordenar y tomar top 5
-            const topUsers = Object.entries(userCount)
-                .sort((a,b) => b[1] - a[1])
-                .slice(0, 5);
-            
-            if (topUsers.length === 0) {
-                container.innerHTML = '<p style="color:var(--muted);">No reviewers yet. Be the first!</p>';
-                return;
-            }
-            
-            container.innerHTML = '';
-            topUsers.forEach(([name, count], index) => {
-                const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐';
-                const avatar = name.charAt(0).toUpperCase();
-                const div = document.createElement('div');
-                div.style.cssText = 'background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem 1.5rem; text-align:center; min-width:120px;';
-                div.innerHTML = `
-                    <div style="font-size:2rem;">${medal}</div>
-                    <div class="review-avatar" style="margin:0.5rem auto;">${avatar}</div>
-                    <div style="color:var(--text-primary); font-weight:600;">${name}</div>
-                    <div style="color:var(--gold); font-size:0.8rem;">${count} review${count>1?'s':''}</div>
-                `;
-                container.appendChild(div);
-            });
-        } catch(e) {
-            container.innerHTML = '<p style="color:var(--muted);">Hall of Fame unavailable.</p>';
-        }
-    }
-    
-    // Añadir a la carga inicial
-    document.addEventListener('DOMContentLoaded', () => {
-        // ... tus otras inicializaciones ...
-        loadHallOfFame();
-    });
-</script>
         <div id="review-form-wrapper" style="display:none;">
             <form class="form-card" onsubmit="submitReview(event)">
                 <h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;">Your Review</h4>
                 <input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40">
-                <select id="review-volume" required>
-                    <option value="">Select version</option>
-                    <option value="Vol.1 Essential">Vol.1 Essential</option>
-                    <option value="Vol.2 Advanced">Vol.2 Advanced</option>
-                    <option value="Vol.3 Complete">Vol.3 Complete</option>
-                </select>
+                <select id="review-volume" required><option value="">Select version</option><option value="Vol.1 Essential">Vol.1 Essential</option><option value="Vol.2 Advanced">Vol.2 Advanced</option><option value="Vol.3 Complete">Vol.3 Complete</option></select>
                 <textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea>
                 <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button>
             </form>
+        </div>
+        <!-- Hall of Fame -->
+        <div id="hall-of-fame" style="margin-top:2rem;">
+            <h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;"><i class="fas fa-crown"></i> Hall of Fame</h3>
+            <div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;"><p style="color:var(--muted);">Loading top reviewers…</p></div>
         </div>
     </div>
 
     <!-- Cookies -->
     <div id="cookie-banner" class="cookie-banner" role="dialog" aria-hidden="false">
         <div class="cookie-banner-content">
-            <div class="cookie-banner-text">
-                <h3>🍪 We value your privacy</h3>
-                <p>We use cookies to improve your experience. You can customize your preferences.</p>
-            </div>
+            <div class="cookie-banner-text"><h3>🍪 We value your privacy</h3><p>We use cookies to improve your experience. You can customize your preferences.</p></div>
             <div class="cookie-banner-actions">
                 <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">Customize</button>
                 <button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()">Reject All</button>
@@ -597,18 +377,9 @@ function urlBase64ToUint8Array(base64String) {
         <div class="cookie-settings-panel">
             <h2 style="font-family:var(--font-display);color:var(--gold);">Cookie Settings</h2>
             <p style="color:var(--text-secondary);font-size:0.8rem;margin-bottom:1.5rem;">Select which cookies you allow.</p>
-            <div class="toggle-group">
-                <div><span class="toggle-label">Necessary</span><small>Essential for the site.</small></div>
-                <label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label>
-            </div>
-            <div class="toggle-group">
-                <div><span class="toggle-label">Analytics</span><small>Help us improve.</small></div>
-                <label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label>
-            </div>
-            <div class="toggle-group">
-                <div><span class="toggle-label">Marketing</span><small>Personalized ads.</small></div>
-                <label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label>
-            </div>
+            <div class="toggle-group"><div><span class="toggle-label">Necessary</span><small>Essential for the site.</small></div><label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label></div>
+            <div class="toggle-group"><div><span class="toggle-label">Analytics</span><small>Help us improve.</small></div><label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label></div>
+            <div class="toggle-group"><div><span class="toggle-label">Marketing</span><small>Personalized ads.</small></div><label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label></div>
             <button class="cookie-btn cookie-btn-accept" style="width:100%;margin-top:1rem;" onclick="saveCookieSettings()">Save Preferences</button>
             <button style="background:none;border:none;color:var(--muted);width:100%;margin-top:0.5rem;cursor:pointer;" onclick="closeCookieSettings()">Close</button>
         </div>
@@ -624,15 +395,13 @@ function urlBase64ToUint8Array(base64String) {
 
     <footer>
         <p>© 2026 Kara Clan — Free & Open Source. Compatible with Windows 10/11.</p>
-        <p style="margin-top:0.5rem;">
-            <a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank">Support</a> ·
-            <a href="https://discord.gg/cVRWR7cbUt" target="_blank">Community</a> ·
-            <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank">Telegram</a>
-        </p>
+        <p style="margin-top:0.5rem;"><a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank">Support</a> · <a href="https://discord.gg/cVRWR7cbUt" target="_blank">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank">Telegram</a></p>
     </footer>
 
     <script>
         const WORKER_URL = 'https://kara-clan-official-web.marcos238gn.workers.dev';
+        const NOTIFY_WORKER = 'https://kara-notify.marcos238gn.workers.dev';
+        const VAPID_PUBLIC_KEY = 'BGNlKi-SWk6s5epF-cEGgQ9AeMfO08LMTZOeKiEop-cUNCD10AJEYg0tH-845TS-7WIL5AraAGmdWIFxK_x8Q_E';
         const NS = 'kara-clan-official';
 
         // ── Cookies ──
@@ -647,66 +416,30 @@ function urlBase64ToUint8Array(base64String) {
         (function(){ if(gc()){ document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; } })();
 
         // ── Contador global ──
-        async function loadCounts() {
-            let total = 0;
-            for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`https://api.countapi.xyz/get/${NS}/${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} }
-            document.getElementById('total-dl').textContent = total.toLocaleString();
-        }
+        async function loadCounts() { let total = 0; for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`https://api.countapi.xyz/get/${NS}/${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} } document.getElementById('total-dl').textContent = total.toLocaleString(); }
         async function trackDownload(v) { try{ await fetch(`https://api.countapi.xyz/hit/${NS}/${v}`); loadCounts(); }catch(e){} }
 
+        // ── Ping Test ──
+        async function runPingTest() { const btn=document.getElementById('ping-test-btn'); const resultEl=document.getElementById('ping-result'); const recEl=document.getElementById('ping-recommendation'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Testing...'; resultEl.textContent=''; recEl.textContent=''; const start=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); const ping=Math.round(performance.now()-start); let color, recommendation; if(ping<50){ color='var(--success)'; recommendation='🔥 Excellent! Your connection is already optimized.'; } else if(ping<100){ color='var(--gold)'; recommendation='👍 Good, but you could gain a few ms with our optimizer.'; } else if(ping<150){ color='#ff8c00'; recommendation='⚠️ Average. Try Vol.1 to improve your ping.'; } else { color='var(--danger)'; recommendation='🐌 Slow connection detected. We strongly recommend Vol.2 or Vol.3.'; } resultEl.innerHTML=`<span style="color:${color}; font-size:2.5rem;">${ping}ms</span>`; recEl.innerHTML=`<span style="color:${color};">${recommendation}</span>`; } catch(e){ resultEl.innerHTML='<span style="color:var(--danger);">Connection failed</span>'; recEl.innerHTML='<span style="color:var(--text-secondary);">Could not reach the test server.</span>'; } finally { btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; } }
+
         // ── Reseñas ──
-        async function loadReviews() {
-            const c = document.getElementById('reviews-container');
-            try {
-                const r = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=8');
-                if(!r.ok) throw new Error('API');
-                let issues = await r.json();
-                issues = issues.filter(i => i.labels.some(l => l.name === 'review'));
-                if(!issues.length) { c.innerHTML = '<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>'; return; }
-                c.innerHTML = '';
-                issues.forEach(issue => {
-                    let t = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — ');
-                    const parts = t.split(' — ').map(p => p.trim()).filter(p => p);
-                    const name = (parts[0]||'User').replace(/⭐+/g,'').trim()||'User';
-                    const vol = parts.find(p => p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i)) || parts[1] || '';
-                    const av = name.charAt(0).toUpperCase();
-                    const body = (issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-                    const div = document.createElement('div'); div.className = 'review-card';
-                    div.innerHTML = `<div class="review-header"><div class="review-avatar">${av}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`;
-                    c.appendChild(div);
-                });
-            } catch(e) { c.innerHTML = '<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; }
-        }
+        async function loadReviews() { const c = document.getElementById('reviews-container'); try { const r = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=8'); if(!r.ok) throw new Error('API'); let issues = await r.json(); issues = issues.filter(i => i.labels.some(l => l.name === 'review')); if(!issues.length) { c.innerHTML = '<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>'; return; } c.innerHTML = ''; issues.forEach(issue => { let t = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — '); const parts = t.split(' — ').map(p => p.trim()).filter(p => p); const name = (parts[0]||'User').replace(/⭐+/g,'').trim()||'User'; const vol = parts.find(p => p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i)) || parts[1] || ''; const av = name.charAt(0).toUpperCase(); const body = (issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); const div = document.createElement('div'); div.className = 'review-card'; div.innerHTML = `<div class="review-header"><div class="review-avatar">${av}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`; c.appendChild(div); }); } catch(e) { c.innerHTML = '<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; } }
         function toggleReviewForm() { const w = document.getElementById('review-form-wrapper'); w.style.display = w.style.display === 'none' ? 'block' : 'none'; }
-        async function submitReview(e) {
-            e.preventDefault();
-            const name = document.getElementById('review-name').value.trim();
-            const volume = document.getElementById('review-volume').value;
-            const text = document.getElementById('review-text').value.trim();
-            if(!name||!volume||!text) return alert('Please fill all fields.');
-            try {
-                const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'review', name, volume, text }) });
-                const d = await r.json();
-                if(d.success) { alert('Review submitted!'); document.getElementById('review-form-wrapper').style.display='none'; loadReviews(); }
-                else { alert('Error: '+ (d.error||'Please try again.')); }
-            } catch(err) { alert('Connection error.'); }
-        }
+        async function submitReview(e) { e.preventDefault(); const name = document.getElementById('review-name').value.trim(); const volume = document.getElementById('review-volume').value; const text = document.getElementById('review-text').value.trim(); if(!name||!volume||!text) return alert('Please fill all fields.'); try { const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'review', name, volume, text }) }); const d = await r.json(); if(d.success) { alert('Review submitted!'); document.getElementById('review-form-wrapper').style.display='none'; loadReviews(); loadHallOfFame(); } else { alert('Error: '+ (d.error||'Please try again.')); } } catch(err) { alert('Connection error.'); } }
 
         // ── Newsletter ──
-        async function subscribeNewsletter() {
-            const email = document.getElementById('newsletter-email').value.trim();
-            const msg = document.getElementById('newsletter-msg');
-            if(!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email.'; msg.style.color = 'var(--danger)'; return; }
-            try {
-                const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'newsletter', email }) });
-                const d = await r.json();
-                if(d.success) { msg.textContent = '✅ Subscribed! Thank you.'; msg.style.color = 'var(--success)'; document.getElementById('newsletter-email').value = ''; }
-                else { msg.textContent = 'Error subscribing.'; msg.style.color = 'var(--danger)'; }
-            } catch(err) { msg.textContent = 'Connection error.'; msg.style.color = 'var(--danger)'; }
-        }
+        async function subscribeNewsletter() { const email = document.getElementById('newsletter-email').value.trim(); const msg = document.getElementById('newsletter-msg'); if(!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email.'; msg.style.color = 'var(--danger)'; return; } try { const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'newsletter', email }) }); const d = await r.json(); if(d.success) { msg.textContent = '✅ Subscribed! Thank you.'; msg.style.color = 'var(--success)'; document.getElementById('newsletter-email').value = ''; } else { msg.textContent = 'Error subscribing.'; msg.style.color = 'var(--danger)'; } } catch(err) { msg.textContent = 'Connection error.'; msg.style.color = 'var(--danger)'; } }
+
+        // ── Hall of Fame ──
+        async function loadHallOfFame() { const container = document.getElementById('hof-container'); try { const res = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=100'); if (!res.ok) throw new Error('API error'); let issues = await res.json(); issues = issues.filter(i => i.labels.some(l => l.name === 'review')); const userCount = {}; issues.forEach(issue => { const title = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,''); const name = title.split('—')[0].trim().replace(/⭐+/g,'').trim() || 'User'; userCount[name] = (userCount[name] || 0) + 1; }); const topUsers = Object.entries(userCount).sort((a,b) => b[1] - a[1]).slice(0, 5); if (topUsers.length === 0) { container.innerHTML = '<p style="color:var(--muted);">No reviewers yet. Be the first!</p>'; return; } container.innerHTML = ''; topUsers.forEach(([name, count], index) => { const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐'; const avatar = name.charAt(0).toUpperCase(); const div = document.createElement('div'); div.style.cssText = 'background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem 1.5rem; text-align:center; min-width:120px;'; div.innerHTML = `<div style="font-size:2rem;">${medal}</div><div class="review-avatar" style="margin:0.5rem auto;">${avatar}</div><div style="color:var(--text-primary); font-weight:600;">${name}</div><div style="color:var(--gold); font-size:0.8rem;">${count} review${count>1?'s':''}</div>`; container.appendChild(div); }); } catch(e) { container.innerHTML = '<p style="color:var(--muted);">Hall of Fame unavailable.</p>'; } }
+
+        // ── Notificaciones Push ──
+        (function createNotifyButton() { const btn = document.createElement('button'); btn.className = 'btn btn-outline'; btn.id = 'notify-btn'; btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates'; btn.style.cssText = 'display:block; margin:1.5rem auto;'; btn.onclick = subscribeToNotifications; const newsletterSection = document.querySelector('.form-card'); if (newsletterSection) { newsletterSection.after(btn); } if (Notification.permission === 'granted') { btn.innerHTML = '🔔 Already subscribed!'; btn.disabled = true; } })();
+        async function subscribeToNotifications() { const btn = document.getElementById('notify-btn'); if (!('Notification' in window) || !('serviceWorker' in navigator)) { alert('Push notifications are not supported in your browser.'); return; } const permission = await Notification.requestPermission(); if (permission !== 'granted') { alert('You need to allow notifications to receive updates.'); return; } try { btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...'; btn.disabled = true; const registration = await navigator.serviceWorker.register('/sw.js'); const subscription = await registration.pushManager.subscribe({ userVisibleOnly: true, applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY) }); const res = await fetch(`${NOTIFY_WORKER}/subscribe`, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ subscription }) }); if (res.ok) { btn.innerHTML = '🔔 Subscribed!'; alert('✅ You will be notified of new updates!'); } else { btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates'; btn.disabled = false; alert('Error subscribing. Please try again.'); } } catch(err) { btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates'; btn.disabled = false; alert('Error: ' + err.message); } }
+        function urlBase64ToUint8Array(base64String) { const padding = '='.repeat((4 - base64String.length % 4) % 4); const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/'); const rawData = window.atob(base64); const outputArray = new Uint8Array(rawData.length); for (let i = 0; i < rawData.length; ++i) { outputArray[i] = rawData.charCodeAt(i); } return outputArray; }
 
         // ── Init ──
-        document.addEventListener('DOMContentLoaded', () => { loadCounts(); loadReviews(); });
+        document.addEventListener('DOMContentLoaded', () => { loadCounts(); loadReviews(); loadHallOfFame(); });
     </script>
 </body>
 </html>
