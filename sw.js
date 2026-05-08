@@ -7,15 +7,10 @@ self.addEventListener('push', event => {
     vibrate: [200, 100, 200],
     tag: 'kara-clan-update'
   };
-
-  event.waitUntil(
-    self.registration.showNotification(title, options)
-  );
+  event.waitUntil(self.registration.showNotification(title, options));
 });
 
 self.addEventListener('notificationclick', event => {
   event.notification.close();
-  event.waitUntil(
-    clients.openWindow('https://tkpain.github.io/kara-clan-official-web/')
-  );
+  event.waitUntil(clients.openWindow('https://tkpain.github.io/kara-clan-official-web/'));
 });
