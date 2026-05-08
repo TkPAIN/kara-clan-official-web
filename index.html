@@ -373,6 +373,59 @@
             btn.innerHTML = '<i class="fas fa-redo"></i> Test Again';
         }
     }
+    // Botón de notificaciones
+const notifyBtn = document.createElement('button');
+notifyBtn.className = 'btn btn-outline';
+notifyBtn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
+notifyBtn.style.cssText = 'display:block; margin:1rem auto;';
+notifyBtn.onclick = subscribeToNotifications;
+
+// Añadir el botón donde quieras (por ejemplo, después del newsletter)
+document.querySelector('.ping-test-card').after(notifyBtn);
+
+async function subscribeToNotifications() {
+    if (!('Notification' in window) || !('serviceWorker' in navigator)) {
+        alert('Push notifications are not supported in your browser.');
+        return;
+    }
+    
+    const permission = await Notification.requestPermission();
+    if (permission !== 'granted') {
+        alert('You need to allow notifications to receive updates.');
+        return;
+    }
+    
+    // Registrar Service Worker
+    const registration = await navigator.serviceWorker.register('/sw.js');
+    
+    // Suscribirse
+    const subscription = await registration.pushManager.subscribe({
+        userVisibleOnly: true,
+        applicationServerKey: urlBase64ToUint8Array('YOUR_VAPID_PUBLIC_KEY')
+    });
+    
+    // Enviar suscripción al Worker
+    await fetch('https://kara-notify.tusubdominio.workers.dev', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ subscription })
+    });
+    
+    alert('✅ You will be notified of new updates!');
+    notifyBtn.textContent = '🔔 Subscribed!';
+    notifyBtn.disabled = true;
+}
+
+function urlBase64ToUint8Array(base64String) {
+    const padding = '='.repeat((4 - base64String.length % 4) % 4);
+    const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/');
+    const rawData = window.atob(base64);
+    const outputArray = new Uint8Array(rawData.length);
+    for (let i = 0; i < rawData.length; ++i) {
+        outputArray[i] = rawData.charCodeAt(i);
+    }
+    return outputArray;
+}
 </script>
             <div class="card">
                 <div class="vol-badge">VOL.2</div>
