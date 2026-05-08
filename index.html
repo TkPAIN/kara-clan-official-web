@@ -3,29 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- SEO y metadatos profesionales -->
     <title>Kara Clan — Professional Windows Optimizer</title>
-    <meta name="description" content="Professional-grade Windows optimization scripts. Free, open-source, and community-driven. Boost gaming, network, and system performance.">
-    <meta name="theme-color" content="#000000">
-    <meta name="author" content="Kara Clan">
-    <meta property="og:title" content="Kara Clan — Windows Optimizer">
-    <meta property="og:description" content="Professional Windows optimization scripts. Free and open-source.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://tkpain.github.io/kara-clan-official-web/">
-
-    <!-- Fuentes profesionales -->
+    <meta name="description" content="Professional-grade Windows optimization scripts. Free, open-source, and community-driven.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Favicon: K dorada sobre negro -->
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='55' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='bold' font-size='72' fill='%23c9a84c'>K</text></svg>">
-
     <style>
-        /* ================================================================
-           KARA CLAN PROFESSIONAL DESIGN SYSTEM
-           ================================================================ */
         :root {
             --gold: #c9a84c;
             --gold-bright: #f0d080;
@@ -34,45 +19,29 @@
             --surface: #0a0a0a;
             --surface-elevated: #111111;
             --border: #2a2510;
-            --border-hover: #3a3520;
             --text-primary: #e0e0e0;
             --text-secondary: #a0a0a0;
             --muted: #5a5030;
             --danger: #c0392b;
-            --danger-hover: #e74c3c;
             --info: #0079F2;
-            --info-hover: #0056b3;
             --success: #27ae60;
-
             --radius-sm: 8px;
             --radius-md: 12px;
             --radius-lg: 16px;
             --radius-full: 9999px;
-
-            --shadow-sm: 0 4px 12px rgba(0,0,0,0.5);
-            --shadow-md: 0 8px 24px rgba(0,0,0,0.6);
-            --shadow-gold: 0 12px 36px rgba(201,168,76,0.12);
-            --shadow-gold-hover: 0 16px 48px rgba(201,168,76,0.22);
-
-            --transition-fast: 0.18s ease;
-            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-
             --font-display: 'Cinzel', serif;
-            --font-mono: 'Share Tech Mono', 'Courier New', monospace;
+            --font-mono: 'Share Tech Mono', monospace;
+            --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-
-        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
         body {
             background: var(--bg);
             color: var(--text-primary);
             font-family: var(--font-mono);
-            line-height: 1.6;
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
         }
-        /* Rejilla de fondo sutil */
         body::before {
             content: '';
             position: fixed; inset: 0; z-index: 0; pointer-events: none;
@@ -81,21 +50,17 @@
                 repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,0.008) 40px, rgba(201,168,76,0.008) 41px);
         }
         .wrapper { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
-
-        /* ─── TIPOGRAFÍA ─── */
         .gold-text {
             font-family: var(--font-display); font-weight: 900;
-            background: linear-gradient(135deg, var(--gold), var(--gold-bright), var(--gold-dark), var(--gold));
-            background-size: 300% 300%;
+            background: linear-gradient(135deg, var(--gold), var(--gold-bright), var(--gold-dark));
             -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
             animation: goldShimmer 4s ease-in-out infinite;
+            background-size: 300% 300%;
         }
         @keyframes goldShimmer {
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-
-        /* ─── HEADER ─── */
         .site-header {
             text-align: center; padding: 3.5rem 0 2.5rem;
             border-bottom: 1px solid var(--border); position: relative;
@@ -104,107 +69,107 @@
             content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
             width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
         }
-        .logo-mark {
-            width: 80px; height: 80px; margin: 0 auto 1.2rem;
-            background: var(--surface); border: 2px solid var(--border);
-            border-radius: 20px; display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display); font-size: 2.6rem; font-weight: 900; color: var(--gold);
-            box-shadow: 0 0 40px rgba(201,168,76,0.18);
-            transition: box-shadow var(--transition-smooth);
+        .site-title { font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: 7px; }
+        .site-tagline { font-size: 0.75rem; letter-spacing: 5px; color: var(--muted); text-transform: uppercase; margin-top: 0.5rem; }
+        .section-title {
+            font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
+            color: var(--gold); text-align: center; margin: 2.5rem 0 1.5rem; letter-spacing: 2px;
         }
-        .logo-mark:hover { box-shadow: 0 0 60px rgba(201,168,76,0.32); }
-        .site-title { font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: 7px; margin-bottom: 0.3rem; }
-        .site-tagline { font-size: 0.75rem; letter-spacing: 5px; color: var(--muted); text-transform: uppercase; }
-
-        /* ─── CARDS DE DESCARGA ─── */
         .download-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem; margin: 2.5rem 0;
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
         }
-        .download-card {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: var(--radius-md); padding: 2rem 1.6rem;
-            text-align: center; position: relative; overflow: hidden;
-            transition: transform var(--transition-fast), box-shadow var(--transition-fast), border-color var(--transition-fast);
+        .card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
+            padding: 2rem 1.6rem; text-align: center; position: relative; overflow: hidden;
+            transition: transform 0.18s, box-shadow 0.18s;
         }
-        .download-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-gold-hover);
-            border-color: var(--border-hover);
-        }
-        .download-card::before {
-            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
+        .card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(201,168,76,0.22); }
+        .card::before {
+            content: ''; position: absolute; top:0; left:0; right:0; height: 2px;
             background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.6;
         }
         .vol-badge {
             display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             color: #0a0a0a; font-size: 0.68rem; font-weight: 800; letter-spacing: 3px;
-            padding: 0.3rem 1.1rem; border-radius: var(--radius-full); margin-bottom: 1.1rem;
+            padding: 0.3rem 1.1rem; border-radius: var(--radius-full); margin-bottom: 1rem;
         }
-        .card-title { font-family: var(--font-display); font-size: 1.4rem; font-weight: 700; color: var(--gold-bright); margin-bottom: 0.45rem; }
-        .card-desc { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.55; margin-bottom: 1.6rem; }
-        .card-desc strong { color: var(--gold); }
-
-        /* ─── BOTONES ─── */
+        .card h3 { font-family: var(--font-display); color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .card p { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 1.5rem; line-height: 1.5; }
+        .card p strong { color: var(--gold); }
         .btn {
-            display: inline-flex; align-items: center; justify-content: center; gap: 0.4rem;
-            padding: 0.72rem 1.6rem; border-radius: var(--radius-sm);
-            font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700;
-            letter-spacing: 1px; cursor: pointer; border: none; text-decoration: none;
-            transition: all var(--transition-fast); color: #fff; white-space: nowrap;
+            display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.5rem;
+            border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem;
+            font-weight: 700; letter-spacing: 1px; text-decoration: none; cursor: pointer;
+            transition: all 0.18s; color: #fff; border: none;
         }
         .btn-primary { background: var(--info); }
-        .btn-primary:hover { background: var(--info-hover); transform: translateY(-1px); }
+        .btn-primary:hover { filter: brightness(1.15); }
         .btn-danger { background: var(--danger); }
-        .btn-danger:hover { background: var(--danger-hover); transform: translateY(-1px); }
+        .btn-danger:hover { filter: brightness(1.15); }
         .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
         .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-
-        /* ─── ESTADÍSTICAS ─── */
+        .btn-success { background: var(--success); }
         .stats-bar {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 2.2rem;
-            margin: 2.5rem 0; padding: 1.6rem 1.2rem;
+            display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
+            margin: 2rem 0; padding: 1.5rem;
             background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
         }
         .stat-item { text-align: center; }
         .stat-value { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--gold-bright); }
-        .stat-label { font-size: 0.68rem; color: var(--muted); letter-spacing: 2px; margin-top: 0.2rem; text-transform: uppercase; }
-
-        /* ─── RESEÑAS ─── */
-        .reviews-section { margin: 2.5rem 0; }
-        .section-heading { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); text-align: center; margin-bottom: 1.6rem; letter-spacing: 2px; }
+        .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+        .instructions {
+            background: var(--surface); border: 1px solid var(--border);
+            border-radius: var(--radius-md); padding: 2rem; margin: 2rem 0;
+        }
+        .instructions ol { padding-left: 1.5rem; }
+        .instructions li { margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.85rem; }
+        .instructions code { background: var(--surface-elevated); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--gold); }
         .review-card {
             background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
-            padding: 1.5rem 1.4rem; margin-bottom: 1rem; transition: border-color var(--transition-fast);
+            padding: 1.5rem; margin-bottom: 1rem;
         }
-        .review-card:hover { border-color: var(--border-hover); }
-        .review-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.6rem; }
+        .review-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
         .review-avatar {
             width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
             display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display); font-weight: 700; font-size: 0.9rem; color: #0a0a0a; flex-shrink: 0;
+            font-family: var(--font-display); font-weight: 700; color: #0a0a0a;
         }
-        .review-name { font-weight: 600; color: var(--text-primary); }
+        .review-name { font-weight: 600; }
         .review-volume { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
-        .review-stars { color: var(--gold); font-size: 0.8rem; letter-spacing: 2px; }
-        .review-body { color: var(--text-secondary); font-size: 0.82rem; line-height: 1.55; margin-top: 0.5rem; font-style: italic; }
-
-        /* ─── FORMULARIO DE RESEÑA ─── */
-        .review-form-card {
+        .review-stars { color: var(--gold); font-size: 0.8rem; }
+        .review-body { color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.5rem; font-style: italic; }
+        .form-card {
             background: var(--surface-elevated); border: 1px solid var(--border);
             border-radius: var(--radius-md); padding: 1.6rem; max-width: 520px; margin: 0 auto;
             display: flex; flex-direction: column; gap: 0.8rem;
         }
-        .review-form-card h4 { font-family: var(--font-display); color: var(--gold); text-align: center; font-size: 1rem; }
-        .review-form-card input, .review-form-card select, .review-form-card textarea {
+        .form-card input, .form-card select, .form-card textarea {
             background: var(--bg); border: 1px solid var(--border); color: var(--text-primary);
-            padding: 0.65rem 0.8rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.78rem;
+            padding: 0.65rem; border-radius: var(--radius-sm); font-family: var(--font-mono);
         }
-        .review-form-card input:focus, .review-form-card select:focus, .review-form-card textarea:focus {
+        .form-card input:focus, .form-card select:focus, .form-card textarea:focus {
             outline: none; border-color: var(--gold);
         }
-
-        /* ─── SISTEMA DE COOKIES ─── */
+        /* Sliders */
+        .toggle-group { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
+        .toggle-label { color: var(--text-primary); font-size: 0.82rem; font-weight: 600; }
+        .toggle-label small { color: var(--text-secondary); font-weight: 400; display: block; font-size: 0.7rem; margin-top: 0.15rem; }
+        .switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
+        .switch input { opacity: 0; width: 0; height: 0; }
+        .slider {
+            position: absolute; cursor: pointer; inset: 0;
+            background: var(--bg); border: 2px solid var(--border);
+            border-radius: 28px; transition: border-color var(--transition-smooth), background var(--transition-smooth);
+        }
+        .slider::before {
+            content: ''; position: absolute; height: 20px; width: 20px; left: 2px; bottom: 2px;
+            background: var(--text-secondary); border-radius: 50%;
+            transition: transform 0.3s cubic-bezier(0.68, -0.20, 0.27, 1.20), background var(--transition-smooth);
+        }
+        .switch input:checked + .slider { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+        .switch input:checked + .slider::before { background: var(--gold); transform: translateX(22px); }
+        .switch input:disabled + .slider { opacity: 0.5; cursor: not-allowed; }
+        /* Cookies */
         .cookie-banner {
             position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
             width: 92%; max-width: 700px; background: var(--surface-elevated); border: 1px solid var(--border);
@@ -229,163 +194,146 @@
         }
         .cookie-settings-overlay.hidden { display: none; }
         .cookie-settings-panel {
-            background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg);
-            padding: 2rem; max-width: 560px; width: 100%;
+            background: var(--surface-elevated); border: 1px solid var(--border);
+            border-radius: var(--radius-lg); padding: 2rem; max-width: 560px; width: 100%;
         }
         .cookie-floating-btn {
             position: fixed; bottom: 20px; right: 20px; z-index: 9999;
             width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated);
             border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center; transition: all var(--transition-fast);
+            display: flex; align-items: center; justify-content: center;
         }
-        .cookie-floating-btn:hover { background: var(--gold); color: #0a0a0a; }
-
-        /* ─── WIDGETS FLOTANTES ─── */
         .support-widget {
             position: fixed; bottom: 80px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9998;
         }
-        .support-btn {
+        .support-btn, .support-btn-clan {
             width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated);
             border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem;
-            display: flex; align-items: center; justify-content: center; text-decoration: none;
-            transition: all var(--transition-fast);
+            display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.18s;
         }
-        .support-btn:hover { background: var(--gold); color: #0a0a0a; transform: scale(1.05); }
-
-        /* ─── PIE DE PÁGINA ─── */
-        .site-footer {
-            text-align: center; color: var(--muted); font-size: 0.7rem;
-            border-top: 1px solid var(--border); padding: 2rem 0 1rem; margin-top: 2.5rem;
-        }
-        .site-footer a { color: var(--gold); text-decoration: none; }
-        .site-footer a:hover { color: var(--gold-bright); }
-
+        .support-btn-clan { border-color: #fff; color: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.3); }
+        .support-btn-clan:hover { background: #fff; color: #0a0a0a; box-shadow: 0 0 24px rgba(255,255,255,0.6); }
+        .support-btn:hover { background: var(--gold); color: #0a0a0a; }
+        footer { text-align: center; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; }
+        footer a { color: var(--gold); text-decoration: none; }
         @media (max-width: 640px) {
             .download-grid { grid-template-columns: 1fr; }
             .cookie-banner-content { flex-direction: column; text-align: center; }
-            .cookie-banner-actions { justify-content: center; }
         }
-      /* ─── BOTÓN ESPECIAL K BLANCA NEÓN ─── */
-.support-btn-clan {
-    width: 44px; height: 44px; border-radius: 50%;
-    background: var(--surface-elevated);
-    border: 2px solid #fff; /* borde blanco */
-    color: #fff; /* texto blanco */
-    font-family: var(--font-display);
-    font-size: 1.4rem;
-    font-weight: 900;
-    display: flex; align-items: center; justify-content: center;
-    text-decoration: none;
-    transition: all var(--transition-fast);
-    box-shadow: 0 0 12px rgba(255,255,255,0.3); /* luz neón blanca */
-}
-.support-btn-clan:hover {
-    background: #fff;
-    color: #0a0a0a;
-    box-shadow: 0 0 24px rgba(255,255,255,0.6);
-    transform: scale(1.08);
-}
     </style>
 </head>
 <body>
     <div class="wrapper">
-        <!-- ===== ENCABEZADO ===== -->
         <header class="site-header">
-            <div class="logo-mark">K</div>
             <h1 class="site-title gold-text">KARA CLAN</h1>
             <p class="site-tagline">Professional Windows Optimization</p>
         </header>
 
-        <!-- ===== TARJETAS DE DESCARGA ===== -->
+        <!-- Descargas -->
+        <h2 class="section-title"><i class="fas fa-download"></i> Download Scripts</h2>
         <div class="download-grid">
-            <!-- Vol.1 -->
-            <div class="download-card">
+            <div class="card">
                 <div class="vol-badge">VOL.1</div>
-                <h2 class="card-title">Essential</h2>
-                <p class="card-desc">Network fundamentals: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v1.bat"
-                   class="btn btn-primary" onclick="trackDownload('v1')">
-                   <i class="fas fa-download"></i> Download
-                </a>
+                <h3>Essential</h3>
+                <p>Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p>
+                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v1.bat" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> Download .bat</a>
             </div>
-            <!-- Vol.2 -->
-            <div class="download-card">
+            <div class="card">
                 <div class="vol-badge">VOL.2</div>
-                <h2 class="card-title">Advanced</h2>
-                <p class="card-desc">Everything in Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v2.bat"
-                   class="btn btn-primary" onclick="trackDownload('v2')">
-                   <i class="fas fa-download"></i> Download
-                </a>
+                <h3>Advanced</h3>
+                <p>Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p>
+                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v2.bat" class="btn btn-primary" onclick="trackDownload('v2')"><i class="fas fa-download"></i> Download .bat</a>
             </div>
-            <!-- Vol.3 -->
-            <div class="download-card">
+            <div class="card">
                 <div class="vol-badge">VOL.3 FIXED</div>
-                <h2 class="card-title">Complete</h2>
-                <p class="card-desc">Services, registry, disk & memory. <strong>Deepest optimization (20 tweaks)</strong>.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v3.bat"
-                   class="btn btn-primary" onclick="trackDownload('v3')">
-                   <i class="fas fa-download"></i> Download
-                </a>
+                <h3>Complete</h3>
+                <p>Services, registry, disk & memory. <strong>20 tweaks</strong>.</p>
+                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v3.bat" class="btn btn-primary" onclick="trackDownload('v3')"><i class="fas fa-download"></i> Download .bat</a>
+            </div>
+        </div>
+        <div style="text-align:center; margin:1.5rem 0;">
+            <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Revert_Optimizer.bat" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> Reset Optimizer</a>
+        </div>
+
+        <!-- Versiones portables -->
+        <h2 class="section-title"><i class="fas fa-code"></i> Portable Versions (Direct .ps1)</h2>
+        <div class="download-grid">
+            <div class="card">
+                <h3>Vol.1 Essential (.ps1)</h3>
+                <p>Direct PowerShell script. Run as Administrator.</p>
+                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v1.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a>
+            </div>
+            <div class="card">
+                <h3>Vol.2 Advanced (.ps1)</h3>
+                <p>Direct PowerShell script. Run as Administrator.</p>
+                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v2.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a>
+            </div>
+            <div class="card">
+                <h3>Vol.3 Complete (.ps1)</h3>
+                <p>Direct PowerShell script. Run as Administrator.</p>
+                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/OptimizarWindows_v3.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a>
             </div>
         </div>
 
-        <!-- Botón Reset -->
-        <div style="text-align:center; margin: 1rem 0 2rem;">
-            <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Revert_Optimizer.bat"
-               class="btn btn-danger" onclick="trackDownload('reset')">
-               <i class="fas fa-undo-alt"></i> Reset Optimizer
-            </a>
+        <!-- Instrucciones -->
+        <h2 class="section-title"><i class="fas fa-book"></i> How to Use</h2>
+        <div class="instructions">
+            <ol>
+                <li>Download the <code>.bat</code> file for your desired volume.</li>
+                <li><strong>Right-click</strong> the file and select <strong>"Run as Administrator"</strong>.</li>
+                <li>If Windows SmartScreen appears, click <strong>"More info"</strong> → <strong>"Run anyway"</strong>.</li>
+                <li>The script will automatically download and execute the latest version.</li>
+                <li>Restart your PC after the optimization completes.</li>
+                <li>To undo changes, download and run the <strong>Reset Optimizer</strong>.</li>
+            </ol>
         </div>
 
-        <!-- ===== ESTADÍSTICAS GLOBALES ===== -->
+        <!-- Estadísticas -->
+        <h2 class="section-title"><i class="fas fa-chart-bar"></i> Global Downloads</h2>
         <div class="stats-bar">
-            <div class="stat-item"><div class="stat-value" id="total-dl">—</div><div class="stat-label">Total Downloads</div></div>
+            <div class="stat-item"><div class="stat-value" id="total-dl">—</div><div class="stat-label">Total</div></div>
             <div class="stat-item"><div class="stat-value" id="v1-dl">—</div><div class="stat-label">Vol.1</div></div>
             <div class="stat-item"><div class="stat-value" id="v2-dl">—</div><div class="stat-label">Vol.2</div></div>
             <div class="stat-item"><div class="stat-value" id="v3-dl">—</div><div class="stat-label">Vol.3</div></div>
         </div>
 
-        <!-- ===== RESEÑAS DE LA COMUNIDAD ===== -->
-        <section class="reviews-section">
-            <h2 class="section-heading"><i class="fas fa-star"></i> Community Reviews</h2>
-            <div id="reviews-container"><p style="text-align:center;color:var(--muted);">Loading reviews…</p></div>
-            <div style="text-align:center; margin:1.2rem 0;">
-                <button class="btn btn-outline" onclick="toggleReviewForm()" id="toggle-review-btn"><i class="fas fa-pen"></i> Leave a Review</button>
-            </div>
-            <div id="review-form-wrapper" style="display:none;">
-                <form id="review-form" onsubmit="submitReview(event)" class="review-form-card">
-                    <h4>Your Review</h4>
-                    <input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40">
-                    <select id="review-volume" required>
-                        <option value="">Select version</option>
-                        <option value="Vol.1 Essential">Vol.1 Essential</option>
-                        <option value="Vol.2 Advanced">Vol.2 Advanced</option>
-                        <option value="Vol.3 Complete">Vol.3 Complete</option>
-                    </select>
-                    <textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea>
-                    <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit Review</button>
-                </form>
-            </div>
-        </section>
+        <!-- Newsletter -->
+        <h2 class="section-title"><i class="fas fa-envelope"></i> Stay Updated</h2>
+        <div class="form-card" style="margin-bottom:2rem;">
+            <p style="text-align:center;color:var(--text-secondary);">Subscribe to receive updates about new versions and optimizations.</p>
+            <input type="email" id="newsletter-email" placeholder="your@email.com" style="text-align:center;">
+            <button class="btn btn-success" onclick="subscribeNewsletter()"><i class="fas fa-paper-plane"></i> Subscribe</button>
+            <p id="newsletter-msg" style="text-align:center;font-size:0.75rem;margin-top:0.5rem;"></p>
+        </div>
 
-        <!-- ===== PIE DE PÁGINA ===== -->
-        <footer class="site-footer">
-            <p>© 2026 Kara Clan — Free & Open Source. Requires PowerShell as Administrator. Compatible with Windows 10/11.</p>
-            <p style="margin-top:0.4rem;">
-                <a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank" title="Support Discord"><i class="fab fa-discord"></i> Support</a> ·
-                <a href="https://discord.gg/cVRWR7cbUt" target="_blank" title="Kara Clan Base" style="color:#fff; text-shadow: 0 0 8px rgba(255,255,255,0.5);">K · Community</a>
-                <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank" title="Telegram"><i class="fab fa-telegram-plane"></i> Telegram</a>
-            </p>
-        </footer>
+        <!-- Reseñas -->
+        <h2 class="section-title"><i class="fas fa-star"></i> Community Reviews</h2>
+        <div id="reviews-container"><p style="text-align:center;color:var(--muted);">Loading reviews…</p></div>
+        <div style="text-align:center; margin:1rem 0;">
+            <button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> Leave a Review</button>
+        </div>
+        <div id="review-form-wrapper" style="display:none;">
+            <form class="form-card" onsubmit="submitReview(event)">
+                <h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;">Your Review</h4>
+                <input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40">
+                <select id="review-volume" required>
+                    <option value="">Select version</option>
+                    <option value="Vol.1 Essential">Vol.1 Essential</option>
+                    <option value="Vol.2 Advanced">Vol.2 Advanced</option>
+                    <option value="Vol.3 Complete">Vol.3 Complete</option>
+                </select>
+                <textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea>
+                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button>
+            </form>
+        </div>
     </div>
 
-    <!-- ===== SISTEMA DE COOKIES RGPD ===== -->
-    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-labelledby="cookie-title" aria-hidden="false">
+    <!-- Cookies -->
+    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-hidden="false">
         <div class="cookie-banner-content">
             <div class="cookie-banner-text">
-                <h3 id="cookie-title">🍪 We value your privacy</h3>
-                <p>We use cookies to improve your experience, analyze traffic, and personalize content. You can customize your preferences.</p>
+                <h3>🍪 We value your privacy</h3>
+                <p>We use cookies to improve your experience. You can customize your preferences.</p>
             </div>
             <div class="cookie-banner-actions">
                 <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">Customize</button>
@@ -394,171 +342,120 @@
             </div>
         </div>
     </div>
-    <div id="cookie-settings-overlay" class="cookie-settings-overlay hidden" role="dialog" aria-labelledby="settings-title" aria-hidden="true">
+    <div id="cookie-settings-overlay" class="cookie-settings-overlay hidden" role="dialog" aria-hidden="true">
         <div class="cookie-settings-panel">
-            <h2 id="settings-title" style="font-family:var(--font-display);color:var(--gold);">Cookie Settings</h2>
-            <p style="color:var(--text-secondary);font-size:0.8rem;margin-bottom:1rem;">Select which cookies you allow. Necessary cookies cannot be disabled.</p>
-            <div style="display:flex;flex-direction:column;gap:0.8rem;">
-                <label><input type="checkbox" checked disabled> <strong>Necessary</strong> — Essential for the site to function.</label>
-                <label><input type="checkbox" id="cookie-analytics"> <strong>Analytics</strong> — Help us understand how you use the site.</label>
-                <label><input type="checkbox" id="cookie-marketing"> <strong>Marketing</strong> — Used for personalized ads.</label>
+            <h2 style="font-family:var(--font-display);color:var(--gold);">Cookie Settings</h2>
+            <p style="color:var(--text-secondary);font-size:0.8rem;margin-bottom:1.5rem;">Select which cookies you allow.</p>
+            <div class="toggle-group">
+                <div><span class="toggle-label">Necessary</span><small>Essential for the site.</small></div>
+                <label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label>
             </div>
-            <button class="cookie-btn cookie-btn-accept" style="margin-top:1rem;width:100%;" onclick="saveCookieSettings()">Save Preferences</button>
-            <button style="background:none;border:none;color:var(--muted);cursor:pointer;margin-top:0.5rem;width:100%;" onclick="closeCookieSettings()">Close</button>
+            <div class="toggle-group">
+                <div><span class="toggle-label">Analytics</span><small>Help us improve.</small></div>
+                <label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label>
+            </div>
+            <div class="toggle-group">
+                <div><span class="toggle-label">Marketing</span><small>Personalized ads.</small></div>
+                <label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label>
+            </div>
+            <button class="cookie-btn cookie-btn-accept" style="width:100%;margin-top:1rem;" onclick="saveCookieSettings()">Save Preferences</button>
+            <button style="background:none;border:none;color:var(--muted);width:100%;margin-top:0.5rem;cursor:pointer;" onclick="closeCookieSettings()">Close</button>
         </div>
     </div>
-    <button id="cookie-floating-btn" class="cookie-floating-btn" onclick="openCookieSettings()" title="Cookie Settings" style="display:none;"><i class="fas fa-cookie"></i></button>
+    <button id="cookie-floating-btn" class="cookie-floating-btn" onclick="openCookieSettings()" style="display:none;"><i class="fas fa-cookie"></i></button>
 
-    <!-- ===== WIDGETS FLOTANTES ===== -->
-<div class="support-widget">
-    <!-- Soporte Discord (icono normal) -->
-    <a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank" class="support-btn" title="Join our Support Discord">
-        <i class="fab fa-discord"></i>
-    </a>
-    <!-- Kara Clan Base (K blanca neón) -->
-    <a href="https://discord.gg/cVRWR7cbUt" target="_blank" class="support-btn-clan" title="Join Kara Clan Base">
-        K
-    </a>
-    <!-- Telegram -->
-    <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank" class="support-btn" title="Join our Telegram">
-        <i class="fab fa-telegram-plane"></i>
-    </a>
-</div>
+    <!-- Widgets -->
+    <div class="support-widget">
+        <a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank" class="support-btn" title="Support Discord"><i class="fab fa-discord"></i></a>
+        <a href="https://discord.gg/cVRWR7cbUt" target="_blank" class="support-btn-clan" title="Kara Clan Base"><span style="font-family:var(--font-display);font-weight:900;">K</span></a>
+        <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank" class="support-btn" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
+    </div>
+
+    <footer>
+        <p>© 2026 Kara Clan — Free & Open Source. Compatible with Windows 10/11.</p>
+        <p style="margin-top:0.5rem;">
+            <a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank">Support</a> ·
+            <a href="https://discord.gg/cVRWR7cbUt" target="_blank">Community</a> ·
+            <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank">Telegram</a>
+        </p>
+    </footer>
 
     <script>
-        // ─── SISTEMA DE COOKIES ───
-        const CK = 'kc_cookie_consent';
-        const getConsent = () => { try { return JSON.parse(localStorage.getItem(CK)); } catch(e) { return null; } };
-        const saveConsent = (c) => localStorage.setItem(CK, JSON.stringify(c));
-        function acceptAllCookies() {
-            saveConsent({ necessary:true, analytics:true, marketing:true });
-            document.getElementById('cookie-banner').classList.add('hidden');
-            document.getElementById('cookie-floating-btn').style.display = 'flex';
-        }
-        function rejectAllCookies() {
-            saveConsent({ necessary:true, analytics:false, marketing:false });
-            document.getElementById('cookie-banner').classList.add('hidden');
-            document.getElementById('cookie-floating-btn').style.display = 'flex';
-        }
-        function openCookieSettings() {
-            const c = getConsent();
-            if (c) {
-                document.getElementById('cookie-analytics').checked = c.analytics;
-                document.getElementById('cookie-marketing').checked = c.marketing;
-            }
-            document.getElementById('cookie-settings-overlay').classList.remove('hidden');
-        }
-        function closeCookieSettings() { document.getElementById('cookie-settings-overlay').classList.add('hidden'); }
-        function saveCookieSettings() {
-            saveConsent({
-                necessary: true,
-                analytics: document.getElementById('cookie-analytics').checked,
-                marketing: document.getElementById('cookie-marketing').checked
-            });
-            document.getElementById('cookie-banner').classList.add('hidden');
-            document.getElementById('cookie-settings-overlay').classList.add('hidden');
-            document.getElementById('cookie-floating-btn').style.display = 'flex';
-        }
-        (function initCookies() {
-            if (getConsent()) {
-                document.getElementById('cookie-banner').classList.add('hidden');
-                document.getElementById('cookie-floating-btn').style.display = 'flex';
-            }
-        })();
-
-        // ─── CONTADOR GLOBAL DE DESCARGAS (CountAPI) ───
+        const WORKER_URL = 'https://kara-clan-official-web.marcos238gn.workers.dev';
         const NS = 'kara-clan-official';
+
+        // ── Cookies ──
+        const CK = 'kc_consent';
+        const gc = () => { try { return JSON.parse(localStorage.getItem(CK)); } catch(e) { return null; } };
+        const sc = (c) => localStorage.setItem(CK, JSON.stringify(c));
+        function acceptAllCookies() { sc({n:true,a:true,m:true}); document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; }
+        function rejectAllCookies() { sc({n:true,a:false,m:false}); document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; }
+        function openCookieSettings() { const c=gc(); if(c){document.getElementById('cookie-analytics').checked=c.a;document.getElementById('cookie-marketing').checked=c.m;} document.getElementById('cookie-settings-overlay').classList.remove('hidden'); }
+        function closeCookieSettings() { document.getElementById('cookie-settings-overlay').classList.add('hidden'); }
+        function saveCookieSettings() { sc({n:true,a:document.getElementById('cookie-analytics').checked,m:document.getElementById('cookie-marketing').checked}); document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-settings-overlay').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; }
+        (function(){ if(gc()){ document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; } })();
+
+        // ── Contador global ──
         async function loadCounts() {
             let total = 0;
-            for (const key of ['v1','v2','v3','reset']) {
-                try {
-                    const r = await fetch(`https://api.countapi.xyz/get/${NS}/${key}`);
-                    const d = await r.json();
-                    const v = d.value || 0;
-                    if (key !== 'reset') total += v;
-                    const el = document.getElementById(`${key}-dl`);
-                    if (el) el.textContent = v.toLocaleString();
-                } catch(e) { /* sin conexión */ }
-            }
+            for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`https://api.countapi.xyz/get/${NS}/${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} }
             document.getElementById('total-dl').textContent = total.toLocaleString();
         }
-        async function trackDownload(version) {
-            try { await fetch(`https://api.countapi.xyz/hit/${NS}/${version}`); loadCounts(); } catch(e) {}
-        }
+        async function trackDownload(v) { try{ await fetch(`https://api.countapi.xyz/hit/${NS}/${v}`); loadCounts(); }catch(e){} }
 
-        // ─── RESEÑAS DESDE GITHUB ISSUES ───
+        // ── Reseñas ──
         async function loadReviews() {
-            const container = document.getElementById('reviews-container');
+            const c = document.getElementById('reviews-container');
             try {
-                const res = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=8');
-                if (!res.ok) throw new Error('API error');
-                let issues = await res.json();
+                const r = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=8');
+                if(!r.ok) throw new Error('API');
+                let issues = await r.json();
                 issues = issues.filter(i => i.labels.some(l => l.name === 'review'));
-                if (!issues.length) {
-                    container.innerHTML = '<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>';
-                    return;
-                }
-                container.innerHTML = '';
+                if(!issues.length) { c.innerHTML = '<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>'; return; }
+                c.innerHTML = '';
                 issues.forEach(issue => {
-                    let title = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — ');
-                    const parts = title.split(' — ').map(p => p.trim()).filter(p => p);
-                    const name = (parts[0] || 'User').replace(/⭐+/g,'').trim() || 'User';
-                    const volume = parts.find(p => p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i)) || parts[1] || '';
-                    const avatar = name.charAt(0).toUpperCase();
-                    let body = (issue.body || '').replace(/</g,'&lt;').replace(/>/g,'&gt;');
-                    const div = document.createElement('div');
-                    div.className = 'review-card';
-                    div.innerHTML = `
-                        <div class="review-header">
-                            <div class="review-avatar">${avatar}</div>
-                            <div class="review-name">${name}</div>
-                            <div class="review-volume">${volume}</div>
-                        </div>
-                        <div class="review-stars">★★★★★</div>
-                        <div class="review-body">"${body}"</div>`;
-                    container.appendChild(div);
+                    let t = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — ');
+                    const parts = t.split(' — ').map(p => p.trim()).filter(p => p);
+                    const name = (parts[0]||'User').replace(/⭐+/g,'').trim()||'User';
+                    const vol = parts.find(p => p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i)) || parts[1] || '';
+                    const av = name.charAt(0).toUpperCase();
+                    const body = (issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+                    const div = document.createElement('div'); div.className = 'review-card';
+                    div.innerHTML = `<div class="review-header"><div class="review-avatar">${av}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`;
+                    c.appendChild(div);
                 });
-            } catch(e) {
-                container.innerHTML = '<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews right now.</p>';
-            }
+            } catch(e) { c.innerHTML = '<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; }
         }
-
-        // ─── FORMULARIO DE RESEÑA (vía Worker seguro) ───
-        function toggleReviewForm() {
-            const wrapper = document.getElementById('review-form-wrapper');
-            wrapper.style.display = wrapper.style.display === 'none' ? 'block' : 'none';
-        }
+        function toggleReviewForm() { const w = document.getElementById('review-form-wrapper'); w.style.display = w.style.display === 'none' ? 'block' : 'none'; }
         async function submitReview(e) {
             e.preventDefault();
             const name = document.getElementById('review-name').value.trim();
             const volume = document.getElementById('review-volume').value;
             const text = document.getElementById('review-text').value.trim();
-            if (!name || !volume || !text) return alert('Please fill all fields.');
+            if(!name||!volume||!text) return alert('Please fill all fields.');
             try {
-                const res = await fetch('https://kara-clan-review-bot.marcos238gn.workers.dev', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ name, volume, text })
-                });
-                const data = await res.json();
-                if (data.success) {
-                    alert('Review submitted! It will appear shortly.');
-                    document.getElementById('review-form').reset();
-                    toggleReviewForm();
-                    loadReviews();
-                } else {
-                    alert('Error: ' + (data.error || 'Please try again.'));
-                }
-            } catch(err) {
-                alert('Connection error. Please try again later.');
-            }
+                const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'review', name, volume, text }) });
+                const d = await r.json();
+                if(d.success) { alert('Review submitted!'); document.getElementById('review-form-wrapper').style.display='none'; loadReviews(); }
+                else { alert('Error: '+ (d.error||'Please try again.')); }
+            } catch(err) { alert('Connection error.'); }
         }
 
-        // ─── INICIO ───
-        document.addEventListener('DOMContentLoaded', () => {
-            loadCounts();
-            loadReviews();
-        });
+        // ── Newsletter ──
+        async function subscribeNewsletter() {
+            const email = document.getElementById('newsletter-email').value.trim();
+            const msg = document.getElementById('newsletter-msg');
+            if(!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email.'; msg.style.color = 'var(--danger)'; return; }
+            try {
+                const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'newsletter', email }) });
+                const d = await r.json();
+                if(d.success) { msg.textContent = '✅ Subscribed! Thank you.'; msg.style.color = 'var(--success)'; document.getElementById('newsletter-email').value = ''; }
+                else { msg.textContent = 'Error subscribing.'; msg.style.color = 'var(--danger)'; }
+            } catch(err) { msg.textContent = 'Connection error.'; msg.style.color = 'var(--danger)'; }
+        }
+
+        // ── Init ──
+        document.addEventListener('DOMContentLoaded', () => { loadCounts(); loadReviews(); });
     </script>
 </body>
 </html>
