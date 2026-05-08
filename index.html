@@ -238,6 +238,142 @@
                 <p>Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p>
                 <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-win-op/main/Optimizar_v1.bat" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> Download .bat</a>
             </div>
+            <!-- Dashboard de versiones -->
+<h2 class="section-title"><i class="fas fa-balance-scale"></i> Compare Versions</h2>
+<div class="compare-table-wrapper" style="overflow-x:auto; margin-bottom:2rem;">
+    <table class="compare-table" style="width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden;">
+        <thead>
+            <tr style="background:var(--surface-elevated);">
+                <th style="padding:0.8rem; text-align:left; color:var(--gold); font-family:var(--font-display); font-size:0.85rem;">Feature</th>
+                <th style="padding:0.8rem; text-align:center; color:var(--info);">Vol.1 Essential</th>
+                <th style="padding:0.8rem; text-align:center; color:var(--success);">Vol.2 Advanced</th>
+                <th style="padding:0.8rem; text-align:center; color:#ff8c00;">Vol.3 Complete</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Total Tweaks</td>
+                <td style="text-align:center; color:var(--gold-bright);">8</td>
+                <td style="text-align:center; color:var(--gold-bright);">17</td>
+                <td style="text-align:center; color:var(--gold-bright);">20</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Network (Nagle, DNS)</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">QoS DSCP 46 (Gaming)</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">GPU Priority</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Game Mode + SysMain</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Services optimization</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Registry tweaks</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Disk cleanup</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Memory optimization</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">❌</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Reversible</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+            <tr style="border-top:1px solid var(--border);">
+                <td style="padding:0.7rem; color:var(--text-primary);">Portable version (.ps1)</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+                <td style="text-align:center;">✅</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            <!-- Live Ping Test -->
+<h2 class="section-title"><i class="fas fa-tachometer-alt"></i> Test Your Connection</h2>
+<div class="ping-test-card" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:2rem; max-width:600px; margin:0 auto 2rem; text-align:center;">
+    <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Measure your current latency. If your ping is high, our optimizer can help.</p>
+    <button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()">
+        <i class="fas fa-play"></i> Start Ping Test
+    </button>
+    <div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div>
+    <div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div>
+</div>
+
+<script>
+    async function runPingTest() {
+        const btn = document.getElementById('ping-test-btn');
+        const resultEl = document.getElementById('ping-result');
+        const recEl = document.getElementById('ping-recommendation');
+        
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing...';
+        resultEl.textContent = '';
+        recEl.textContent = '';
+        
+        const startTime = performance.now();
+        try {
+            await fetch('https://api.cloudflare.com/cdn-cgi/trace');
+            const endTime = performance.now();
+            const ping = Math.round(endTime - startTime);
+            
+            let color, recommendation;
+            if (ping < 50) {
+                color = 'var(--success)';
+                recommendation = '🔥 Excellent! Your connection is already optimized.';
+            } else if (ping < 100) {
+                color = 'var(--gold)';
+                recommendation = '👍 Good, but you could gain a few ms with our optimizer.';
+            } else if (ping < 150) {
+                color = '#ff8c00';
+                recommendation = '⚠️ Average. Try Vol.1 to improve your ping.';
+            } else {
+                color = 'var(--danger)';
+                recommendation = '🐌 Slow connection detected. We strongly recommend Vol.2 or Vol.3.';
+            }
+            
+            resultEl.innerHTML = `<span style="color:${color}; font-size:2.5rem;">${ping}ms</span>`;
+            recEl.innerHTML = `<span style="color:${color};">${recommendation}</span>`;
+        } catch (e) {
+            resultEl.innerHTML = '<span style="color:var(--danger);">Connection failed</span>';
+            recEl.innerHTML = '<span style="color:var(--text-secondary);">Could not reach the test server. Check your internet.</span>';
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-redo"></i> Test Again';
+        }
+    }
+</script>
             <div class="card">
                 <div class="vol-badge">VOL.2</div>
                 <h3>Advanced</h3>
@@ -312,6 +448,68 @@
         <div style="text-align:center; margin:1rem 0;">
             <button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> Leave a Review</button>
         </div>
+        <!-- Hall of Fame -->
+<div id="hall-of-fame" style="margin-top:2rem;">
+    <h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;">
+        <i class="fas fa-crown"></i> Hall of Fame
+    </h3>
+    <div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;">
+        <p style="color:var(--muted);">Loading top reviewers…</p>
+    </div>
+</div>
+
+<script>
+    async function loadHallOfFame() {
+        const container = document.getElementById('hof-container');
+        try {
+            const res = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-win-op/issues?labels=review&state=all&per_page=100');
+            if (!res.ok) throw new Error('API error');
+            let issues = await res.json();
+            issues = issues.filter(i => i.labels.some(l => l.name === 'review'));
+            
+            // Contar reseñas por usuario
+            const userCount = {};
+            issues.forEach(issue => {
+                const title = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'');
+                const name = title.split('—')[0].trim().replace(/⭐+/g,'').trim() || 'User';
+                userCount[name] = (userCount[name] || 0) + 1;
+            });
+            
+            // Ordenar y tomar top 5
+            const topUsers = Object.entries(userCount)
+                .sort((a,b) => b[1] - a[1])
+                .slice(0, 5);
+            
+            if (topUsers.length === 0) {
+                container.innerHTML = '<p style="color:var(--muted);">No reviewers yet. Be the first!</p>';
+                return;
+            }
+            
+            container.innerHTML = '';
+            topUsers.forEach(([name, count], index) => {
+                const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐';
+                const avatar = name.charAt(0).toUpperCase();
+                const div = document.createElement('div');
+                div.style.cssText = 'background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem 1.5rem; text-align:center; min-width:120px;';
+                div.innerHTML = `
+                    <div style="font-size:2rem;">${medal}</div>
+                    <div class="review-avatar" style="margin:0.5rem auto;">${avatar}</div>
+                    <div style="color:var(--text-primary); font-weight:600;">${name}</div>
+                    <div style="color:var(--gold); font-size:0.8rem;">${count} review${count>1?'s':''}</div>
+                `;
+                container.appendChild(div);
+            });
+        } catch(e) {
+            container.innerHTML = '<p style="color:var(--muted);">Hall of Fame unavailable.</p>';
+        }
+    }
+    
+    // Añadir a la carga inicial
+    document.addEventListener('DOMContentLoaded', () => {
+        // ... tus otras inicializaciones ...
+        loadHallOfFame();
+    });
+</script>
         <div id="review-form-wrapper" style="display:none;">
             <form class="form-card" onsubmit="submitReview(event)">
                 <h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;">Your Review</h4>
