@@ -225,6 +225,21 @@
             .cookie-banner-content { flex-direction: column; text-align: center; }
         }
     </style>
+    <!-- OneSignal -->
+<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+window.OneSignalDeferred = window.OneSignalDeferred || [];
+OneSignalDeferred.push(async function (OneSignal) {
+    await OneSignal.init({
+        appId: "8d9b2bd9-31bd-4c7b-9927-74b77a12cb8a",
+        notifyButton: { enable: false },
+        allowLocalhostAsSecureOrigin: false,
+        promptOptions: {
+            native: { enabled: true, autoPrompt: false }
+        }
+    });
+});
+</script>
 </head>
 <body>
     <div class="wrapper">
@@ -428,56 +443,43 @@
         // ── Hall of Fame ──
         async function loadHallOfFame() { const container = document.getElementById('hof-container'); try { const res = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-official-web/issues?labels=review&state=all&per_page=100'); if (!res.ok) throw new Error('API error'); let issues = await res.json(); issues = issues.filter(i => i.labels.some(l => l.name === 'review')); const userCount = {}; issues.forEach(issue => { const title = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,''); const name = title.split('—')[0].trim().replace(/⭐+/g,'').trim() || 'User'; userCount[name] = (userCount[name] || 0) + 1; }); const topUsers = Object.entries(userCount).sort((a,b) => b[1] - a[1]).slice(0, 5); if (topUsers.length === 0) { container.innerHTML = '<p style="color:var(--muted);">No reviewers yet. Be the first!</p>'; return; } container.innerHTML = ''; topUsers.forEach(([name, count], index) => { const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐'; const avatar = name.charAt(0).toUpperCase(); const div = document.createElement('div'); div.style.cssText = 'background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem 1.5rem; text-align:center; min-width:120px;'; div.innerHTML = `<div style="font-size:2rem;">${medal}</div><div class="review-avatar" style="margin:0.5rem auto;">${avatar}</div><div style="color:var(--text-primary); font-weight:600;">${name}</div><div style="color:var(--gold); font-size:0.8rem;">${count} review${count>1?'s':''}</div>`; container.appendChild(div); }); } catch(e) { container.innerHTML = '<p style="color:var(--muted);">Hall of Fame unavailable.</p>'; } }
 
-        // ── Notificaciones Push ──
-        (function createNotifyButton() { const btn = document.createElement('button'); btn.className = 'btn btn-outline'; btn.id = 'notify-btn'; btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates'; btn.style.cssText = 'display:block; margin:1.5rem auto;'; btn.onclick = subscribeToNotifications; const newsletterSection = document.querySelector('.form-card'); if (newsletterSection) { newsletterSection.after(btn); } if (Notification.permission === 'granted') { btn.innerHTML = '🔔 Already subscribed!'; btn.disabled = true; } })();
-        async function subscribeToNotifications() {
+       // ── Notificaciones Push con OneSignal ──
+(function createNotifyButton() {
+    const btn = document.createElement('button');
+    btn.className = 'btn btn-outline';
+    btn.id = 'notify-btn';
+    btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
+    btn.style.cssText = 'display:block; margin:1.5rem auto;';
+    btn.onclick = subscribeToNotifications;
+    const newsletterSection = document.querySelector('.form-card');
+    if (newsletterSection) { newsletterSection.after(btn); }
+})();
+
+async function subscribeToNotifications() {
     const btn = document.getElementById('notify-btn');
-    if (!('Notification' in window) || !('serviceWorker' in navigator)) {
-        alert('Push notifications are not supported in your browser.');
-        return;
-    }
-    const permission = await Notification.requestPermission();
-    if (permission !== 'granted') {
-        alert('You need to allow notifications to receive updates.');
-        return;
-    }
+    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+    btn.disabled = true;
+    
     try {
-        btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-        btn.disabled = true;
-
-        // Registrar Service Worker
-        const registration = await navigator.serviceWorker.register('/kara-clan-official-web/sw.js');
-
-        // Esperar a que el Service Worker esté activo
-        await navigator.serviceWorker.ready;
-
-        // Pequeña pausa adicional para asegurar activación
-        await new Promise(resolve => setTimeout(resolve, 500));
-
-        // Suscribirse
-        const subscription = await registration.pushManager.subscribe({
-            userVisibleOnly: true,
-            applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC_KEY)
-        });
-
-        const res = await fetch(`${NOTIFY_WORKER}/subscribe`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ subscription })
-        });
-
-        if (res.ok) {
-            btn.innerHTML = '🔔 Subscribed!';
-            alert('✅ You will be notified of new updates!');
+        if (window.OneSignal) {
+            await window.OneSignalDeferred.push(async function(OneSignal) {
+                OneSignal.User.PushSubscription.addEventListener('change', function() {
+                    const isSubscribed = !OneSignal.User.PushSubscription.isOptedOut;
+                    if (isSubscribed) {
+                        localStorage.setItem('kara-notifications', 'granted');
+                        btn.innerHTML = '🔔 Subscribed!';
+                        alert('✅ You will be notified of new updates!');
+                    }
+                });
+                OneSignal.Notifications.requestPermission();
+            });
         } else {
-            btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
-            btn.disabled = false;
-            alert('Error subscribing. Please try again.');
+            throw new Error('OneSignal not loaded');
         }
     } catch(err) {
         btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
         btn.disabled = false;
-        alert('Error: ' + err.message);
+        alert('Could not subscribe. Please try again.');
     }
 }
         function urlBase64ToUint8Array(base64String) { const padding = '='.repeat((4 - base64String.length % 4) % 4); const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/'); const rawData = window.atob(base64); const outputArray = new Uint8Array(rawData.length); for (let i = 0; i < rawData.length; ++i) { outputArray[i] = rawData.charCodeAt(i); } return outputArray; }
