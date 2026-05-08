@@ -61,47 +61,20 @@
             0%, 100% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
         }
-        .site-header {
-            text-align: center; padding: 3.5rem 0 2.5rem;
-            border-bottom: 1px solid var(--border); position: relative;
-        }
-        .site-header::after {
-            content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%);
-            width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent);
-        }
+        .site-header { text-align: center; padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--border); position: relative; }
+        .site-header::after { content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
         .site-title { font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: 7px; }
         .site-tagline { font-size: 0.75rem; letter-spacing: 5px; color: var(--muted); text-transform: uppercase; margin-top: 0.5rem; }
-        .section-title {
-            font-family: var(--font-display); font-size: 1.5rem; font-weight: 700;
-            color: var(--gold); text-align: center; margin: 2.5rem 0 1.5rem; letter-spacing: 2px;
-        }
-        .download-grid {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
-        }
-        .card {
-            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
-            padding: 2rem 1.6rem; text-align: center; position: relative; overflow: hidden;
-            transition: transform 0.18s, box-shadow 0.18s;
-        }
+        .section-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); text-align: center; margin: 2.5rem 0 1.5rem; letter-spacing: 2px; }
+        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem 1.6rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(201,168,76,0.22); }
-        .card::before {
-            content: ''; position: absolute; top:0; left:0; right:0; height: 2px;
-            background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.6;
-        }
-        .vol-badge {
-            display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            color: #0a0a0a; font-size: 0.68rem; font-weight: 800; letter-spacing: 3px;
-            padding: 0.3rem 1.1rem; border-radius: var(--radius-full); margin-bottom: 1rem;
-        }
+        .card::before { content: ''; position: absolute; top:0; left:0; right:0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.6; }
+        .vol-badge { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0a0a; font-size: 0.68rem; font-weight: 800; letter-spacing: 3px; padding: 0.3rem 1.1rem; border-radius: var(--radius-full); margin-bottom: 1rem; }
         .card h3 { font-family: var(--font-display); color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 0.5rem; }
         .card p { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 1.5rem; line-height: 1.5; }
         .card p strong { color: var(--gold); }
-        .btn {
-            display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.5rem;
-            border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem;
-            font-weight: 700; letter-spacing: 1px; text-decoration: none; cursor: pointer;
-            transition: all 0.18s; color: #fff; border: none;
-        }
+        .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-decoration: none; cursor: pointer; transition: all 0.18s; color: #fff; border: none; }
         .btn-primary { background: var(--info); }
         .btn-primary:hover { filter: brightness(1.15); }
         .btn-danger { background: var(--danger); }
@@ -109,106 +82,50 @@
         .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
         .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
         .btn-success { background: var(--success); }
-        .stats-bar {
-            display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;
-            margin: 2rem 0; padding: 1.5rem;
-            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
-        }
+        .stats-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
         .stat-item { text-align: center; }
         .stat-value { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--gold-bright); }
         .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
-        .instructions {
-            background: var(--surface); border: 1px solid var(--border);
-            border-radius: var(--radius-md); padding: 2rem; margin: 2rem 0;
-        }
+        .instructions { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; margin: 2rem 0; }
         .instructions ol { padding-left: 1.5rem; }
         .instructions li { margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.85rem; }
         .instructions code { background: var(--surface-elevated); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--gold); }
-        .review-card {
-            background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md);
-            padding: 1.5rem; margin-bottom: 1rem;
-        }
+        .review-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1rem; }
         .review-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
-        .review-avatar {
-            width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark));
-            display: flex; align-items: center; justify-content: center;
-            font-family: var(--font-display); font-weight: 700; color: #0a0a0a;
-        }
+        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; color: #0a0a0a; }
         .review-name { font-weight: 600; }
         .review-volume { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
         .review-stars { color: var(--gold); font-size: 0.8rem; }
         .review-body { color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.5rem; font-style: italic; }
-        .form-card {
-            background: var(--surface-elevated); border: 1px solid var(--border);
-            border-radius: var(--radius-md); padding: 1.6rem; max-width: 520px; margin: 0 auto;
-            display: flex; flex-direction: column; gap: 0.8rem;
-        }
-        .form-card input, .form-card select, .form-card textarea {
-            background: var(--bg); border: 1px solid var(--border); color: var(--text-primary);
-            padding: 0.65rem; border-radius: var(--radius-sm); font-family: var(--font-mono);
-        }
-        .form-card input:focus, .form-card select:focus, .form-card textarea:focus {
-            outline: none; border-color: var(--gold);
-        }
+        .form-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.6rem; max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem; }
+        .form-card input, .form-card select, .form-card textarea { background: var(--bg); border: 1px solid var(--border); color: var(--text-primary); padding: 0.65rem; border-radius: var(--radius-sm); font-family: var(--font-mono); }
+        .form-card input:focus, .form-card select:focus, .form-card textarea:focus { outline: none; border-color: var(--gold); }
         .toggle-group { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
         .toggle-label { color: var(--text-primary); font-size: 0.82rem; font-weight: 600; }
         .toggle-label small { color: var(--text-secondary); font-weight: 400; display: block; font-size: 0.7rem; margin-top: 0.15rem; }
         .switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
         .switch input { opacity: 0; width: 0; height: 0; }
-        .slider {
-            position: absolute; cursor: pointer; inset: 0;
-            background: var(--bg); border: 2px solid var(--border);
-            border-radius: 28px; transition: border-color var(--transition-smooth), background var(--transition-smooth);
-        }
-        .slider::before {
-            content: ''; position: absolute; height: 20px; width: 20px; left: 2px; bottom: 2px;
-            background: var(--text-secondary); border-radius: 50%;
-            transition: transform 0.3s cubic-bezier(0.68, -0.20, 0.27, 1.20), background var(--transition-smooth);
-        }
+        .slider { position: absolute; cursor: pointer; inset: 0; background: var(--bg); border: 2px solid var(--border); border-radius: 28px; transition: border-color var(--transition-smooth), background var(--transition-smooth); }
+        .slider::before { content: ''; position: absolute; height: 20px; width: 20px; left: 2px; bottom: 2px; background: var(--text-secondary); border-radius: 50%; transition: transform 0.3s cubic-bezier(0.68, -0.20, 0.27, 1.20), background var(--transition-smooth); }
         .switch input:checked + .slider { border-color: var(--gold); background: rgba(201,168,76,0.1); }
         .switch input:checked + .slider::before { background: var(--gold); transform: translateX(22px); }
         .switch input:disabled + .slider { opacity: 0.5; cursor: not-allowed; }
-        .cookie-banner {
-            position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
-            width: 92%; max-width: 700px; background: var(--surface-elevated); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); padding: 1.6rem 1.8rem; z-index: 10000;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.85); transition: opacity var(--transition-smooth), transform var(--transition-smooth);
-        }
+        .cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 700px; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.6rem 1.8rem; z-index: 10000; box-shadow: 0 20px 60px rgba(0,0,0,0.85); transition: opacity var(--transition-smooth), transform var(--transition-smooth); }
         .cookie-banner.hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(20px); }
         .cookie-banner-content { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
         .cookie-banner-text h3 { font-family: var(--font-display); color: var(--gold); font-size: 1rem; margin-bottom: 0.3rem; }
         .cookie-banner-text p { color: var(--text-secondary); font-size: 0.75rem; }
         .cookie-banner-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .cookie-btn {
-            padding: 0.5rem 1.1rem; border-radius: var(--radius-sm); font-family: var(--font-mono);
-            font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; cursor: pointer; border: none;
-        }
+        .cookie-btn { padding: 0.5rem 1.1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; cursor: pointer; border: none; }
         .cookie-btn-accept { background: var(--gold); color: #0a0a0a; }
         .cookie-btn-reject { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
         .cookie-btn-settings { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
-        .cookie-settings-overlay {
-            position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 10001;
-            display: flex; align-items: center; justify-content: center; padding: 1rem;
-        }
+        .cookie-settings-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 10001; display: flex; align-items: center; justify-content: center; padding: 1rem; }
         .cookie-settings-overlay.hidden { display: none; }
-        .cookie-settings-panel {
-            background: var(--surface-elevated); border: 1px solid var(--border);
-            border-radius: var(--radius-lg); padding: 2rem; max-width: 560px; width: 100%;
-        }
-        .cookie-floating-btn {
-            position: fixed; bottom: 20px; right: 20px; z-index: 9999;
-            width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated);
-            border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem; cursor: pointer;
-            display: flex; align-items: center; justify-content: center;
-        }
-        .support-widget {
-            position: fixed; bottom: 80px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9998;
-        }
-        .support-btn, .support-btn-clan {
-            width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated);
-            border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem;
-            display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.18s;
-        }
+        .cookie-settings-panel { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; max-width: 560px; width: 100%; }
+        .cookie-floating-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated); border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+        .support-widget { position: fixed; bottom: 80px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9998; }
+        .support-btn, .support-btn-clan { width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated); border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.18s; }
         .support-btn-clan { border-color: #fff; color: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.3); }
         .support-btn-clan:hover { background: #fff; color: #0a0a0a; box-shadow: 0 0 24px rgba(255,255,255,0.6); }
         .support-btn:hover { background: var(--gold); color: #0a0a0a; }
@@ -220,26 +137,8 @@
         .ping-test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; max-width: 600px; margin: 0 auto 2rem; text-align: center; }
         footer { text-align: center; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; }
         footer a { color: var(--gold); text-decoration: none; }
-        @media (max-width: 640px) {
-            .download-grid { grid-template-columns: 1fr; }
-            .cookie-banner-content { flex-direction: column; text-align: center; }
-        }
+        @media (max-width: 640px) { .download-grid { grid-template-columns: 1fr; } .cookie-banner-content { flex-direction: column; text-align: center; } }
     </style>
-    <!-- OneSignal -->
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-window.OneSignalDeferred = window.OneSignalDeferred || [];
-OneSignalDeferred.push(async function (OneSignal) {
-    await OneSignal.init({
-        appId: "8d9b2bd9-31bd-4c7b-9927-74b77a12cb8a",
-        notifyButton: { enable: false },
-        allowLocalhostAsSecureOrigin: false,
-        promptOptions: {
-            native: { enabled: true, autoPrompt: false }
-        }
-    });
-});
-</script>
 </head>
 <body>
     <div class="wrapper">
@@ -248,171 +147,60 @@ OneSignalDeferred.push(async function (OneSignal) {
             <p class="site-tagline">Professional Windows Optimization</p>
         </header>
 
-        <!-- Descargas -->
         <h2 class="section-title"><i class="fas fa-download"></i> Download Scripts</h2>
         <div class="download-grid">
-            <div class="card">
-                <div class="vol-badge">VOL.1</div>
-                <h3>Essential</h3>
-                <p>Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p>
-                <a href="<a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Optimizar_v1.bat?download=" ...>" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> Download .bat</a>
-            </div>
-            <div class="card">
-                <div class="vol-badge">VOL.2</div>
-                <h3>Advanced</h3>
-                <p>Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Optimizar_v2.bat?download=" class="btn btn-primary" onclick="trackDownload('v2')"><i class="fas fa-download"></i> Download .bat</a>
-            </div>
-            <div class="card">
-                <div class="vol-badge">VOL.3 FIXED</div>
-                <h3>Complete</h3>
-                <p>Services, registry, disk & memory. <strong>20 tweaks</strong>.</p>
-                <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Optimizar_v3.bat?download=" class="btn btn-primary" onclick="trackDownload('v3')"><i class="fas fa-download"></i> Download .bat</a>
-            </div>
+            <div class="card"><div class="vol-badge">VOL.1</div><h3>Essential</h3><p>Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Optimizar_v1.bat?download=" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> Download .bat</a></div>
+            <div class="card"><div class="vol-badge">VOL.2</div><h3>Advanced</h3><p>Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Optimizar_v2.bat?download=" class="btn btn-primary" onclick="trackDownload('v2')"><i class="fas fa-download"></i> Download .bat</a></div>
+            <div class="card"><div class="vol-badge">VOL.3 FIXED</div><h3>Complete</h3><p>Services, registry, disk & memory. <strong>20 tweaks</strong>.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Optimizar_v3.bat?download=" class="btn btn-primary" onclick="trackDownload('v3')"><i class="fas fa-download"></i> Download .bat</a></div>
         </div>
-        <div style="text-align:center; margin:1.5rem 0;">
-            <a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Revert_Optimizer.bat?download=" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> Reset Optimizer</a>
-        </div>
+        <div style="text-align:center; margin:1.5rem 0;"><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/Revert_Optimizer.bat?download=" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> Reset Optimizer</a></div>
 
-        <!-- Dashboard de versiones -->
         <h2 class="section-title"><i class="fas fa-balance-scale"></i> Compare Versions</h2>
-        <div class="compare-table-wrapper">
-            <table class="compare-table">
-                <thead>
-                    <tr>
-                        <th>Feature</th>
-                        <th>Vol.1 Essential</th>
-                        <th>Vol.2 Advanced</th>
-                        <th>Vol.3 Complete</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr><td>Total Tweaks</td><td>8</td><td>17</td><td>20</td></tr>
-                    <tr><td>Network (Nagle, DNS)</td><td>✅</td><td>✅</td><td>✅</td></tr>
-                    <tr><td>QoS DSCP 46 (Gaming)</td><td>❌</td><td>✅</td><td>✅</td></tr>
-                    <tr><td>GPU Priority</td><td>❌</td><td>✅</td><td>✅</td></tr>
-                    <tr><td>Game Mode + SysMain</td><td>❌</td><td>✅</td><td>✅</td></tr>
-                    <tr><td>Services optimization</td><td>❌</td><td>❌</td><td>✅</td></tr>
-                    <tr><td>Registry tweaks</td><td>❌</td><td>❌</td><td>✅</td></tr>
-                    <tr><td>Disk cleanup</td><td>❌</td><td>❌</td><td>✅</td></tr>
-                    <tr><td>Memory optimization</td><td>❌</td><td>❌</td><td>✅</td></tr>
-                    <tr><td>Reversible</td><td>✅</td><td>✅</td><td>✅</td></tr>
-                    <tr><td>Portable version (.ps1)</td><td>✅</td><td>✅</td><td>✅</td></tr>
-                </tbody>
-            </table>
-        </div>
+        <div class="compare-table-wrapper"><table class="compare-table"><thead><tr><th>Feature</th><th>Vol.1 Essential</th><th>Vol.2 Advanced</th><th>Vol.3 Complete</th></tr></thead><tbody><tr><td>Total Tweaks</td><td>8</td><td>17</td><td>20</td></tr><tr><td>Network (Nagle, DNS)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>QoS DSCP 46 (Gaming)</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>GPU Priority</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Game Mode + SysMain</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Services optimization</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Registry tweaks</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Disk cleanup</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Memory optimization</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Reversible</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Portable version (.ps1)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table></div>
 
-        <!-- Live Ping Test -->
         <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> Test Your Connection</h2>
-        <div class="ping-test-card">
-            <p style="color:var(--text-secondary); margin-bottom:1.5rem;">Measure your current latency. If your ping is high, our optimizer can help.</p>
-            <button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> Start Ping Test</button>
-            <div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div>
-            <div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div>
-        </div>
+        <div class="ping-test-card"><p style="color:var(--text-secondary); margin-bottom:1.5rem;">Measure your current latency.</p><button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> Start Ping Test</button><div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div><div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div></div>
 
-        <!-- Versiones portables -->
         <h2 class="section-title"><i class="fas fa-code"></i> Portable Versions (Direct .ps1)</h2>
         <div class="download-grid">
-            <div class="card"><h3>Vol.1 Essential (.ps1)</h3><p>Direct PowerShell script. Run as Administrator.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/OptimizarWindows_v1.ps1?download=" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
-            <div class="card"><h3>Vol.2 Advanced (.ps1)</h3><p>Direct PowerShell script. Run as Administrator.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/OptimizarWindows_v2.ps1?download=" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
-            <div class="card"><h3>Vol.3 Complete (.ps1)</h3><p>Direct PowerShell script. Run as Administrator.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/OptimizarWindows_v3.ps1?download=" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.1 Essential (.ps1)</h3><p>Direct PowerShell script.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/OptimizarWindows_v1.ps1?download=" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.2 Advanced (.ps1)</h3><p>Direct PowerShell script.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/OptimizarWindows_v2.ps1?download=" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.3 Complete (.ps1)</h3><p>Direct PowerShell script.</p><a href="https://raw.githubusercontent.com/TkPAIN/kara-clan-official-web/main/OptimizarWindows_v3.ps1?download=" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
         </div>
 
-        <!-- Instrucciones -->
         <h2 class="section-title"><i class="fas fa-book"></i> How to Use</h2>
-        <div class="instructions">
-            <ol>
-                <li>Download the <code>.bat</code> file for your desired volume.</li>
-                <li><strong>Right-click</strong> the file and select <strong>"Run as Administrator"</strong>.</li>
-                <li>If Windows SmartScreen appears, click <strong>"More info"</strong> → <strong>"Run anyway"</strong>.</li>
-                <li>The script will automatically download and execute the latest version.</li>
-                <li>Restart your PC after the optimization completes.</li>
-                <li>To undo changes, download and run the <strong>Reset Optimizer</strong>.</li>
-            </ol>
-        </div>
+        <div class="instructions"><ol><li>Download the <code>.bat</code> file.</li><li><strong>Right-click → Run as Administrator</strong>.</li><li>If SmartScreen appears: <strong>More info → Run anyway</strong>.</li><li>Restart your PC after optimization.</li><li>To undo: download <strong>Reset Optimizer</strong>.</li></ol></div>
 
-        <!-- Estadísticas -->
         <h2 class="section-title"><i class="fas fa-chart-bar"></i> Global Downloads</h2>
-        <div class="stats-bar">
-            <div class="stat-item"><div class="stat-value" id="total-dl">—</div><div class="stat-label">Total</div></div>
-            <div class="stat-item"><div class="stat-value" id="v1-dl">—</div><div class="stat-label">Vol.1</div></div>
-            <div class="stat-item"><div class="stat-value" id="v2-dl">—</div><div class="stat-label">Vol.2</div></div>
-            <div class="stat-item"><div class="stat-value" id="v3-dl">—</div><div class="stat-label">Vol.3</div></div>
-        </div>
+        <div class="stats-bar"><div class="stat-item"><div class="stat-value" id="total-dl">—</div><div class="stat-label">Total</div></div><div class="stat-item"><div class="stat-value" id="v1-dl">—</div><div class="stat-label">Vol.1</div></div><div class="stat-item"><div class="stat-value" id="v2-dl">—</div><div class="stat-label">Vol.2</div></div><div class="stat-item"><div class="stat-value" id="v3-dl">—</div><div class="stat-label">Vol.3</div></div></div>
 
-        <!-- Newsletter -->
         <h2 class="section-title"><i class="fas fa-envelope"></i> Stay Updated</h2>
-        <div class="form-card" style="margin-bottom:2rem;">
-            <p style="text-align:center;color:var(--text-secondary);">Subscribe to receive updates about new versions and optimizations.</p>
-            <input type="email" id="newsletter-email" placeholder="your@email.com" style="text-align:center;">
-            <button class="btn btn-success" onclick="subscribeNewsletter()"><i class="fas fa-paper-plane"></i> Subscribe</button>
-            <p id="newsletter-msg" style="text-align:center;font-size:0.75rem;margin-top:0.5rem;"></p>
-        </div>
+        <div class="form-card" style="margin-bottom:2rem;"><p style="text-align:center;color:var(--text-secondary);">Subscribe to receive updates.</p><input type="email" id="newsletter-email" placeholder="your@email.com" style="text-align:center;"><button class="btn btn-success" onclick="subscribeNewsletter()"><i class="fas fa-paper-plane"></i> Subscribe</button><p id="newsletter-msg" style="text-align:center;font-size:0.75rem;margin-top:0.5rem;"></p></div>
 
-        <!-- Reseñas -->
         <h2 class="section-title"><i class="fas fa-star"></i> Community Reviews</h2>
         <div id="reviews-container"><p style="text-align:center;color:var(--muted);">Loading reviews…</p></div>
-        <div style="text-align:center; margin:1rem 0;">
-            <button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> Leave a Review</button>
-        </div>
-        <div id="review-form-wrapper" style="display:none;">
-            <form class="form-card" onsubmit="submitReview(event)">
-                <h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;">Your Review</h4>
-                <input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40">
-                <select id="review-volume" required><option value="">Select version</option><option value="Vol.1 Essential">Vol.1 Essential</option><option value="Vol.2 Advanced">Vol.2 Advanced</option><option value="Vol.3 Complete">Vol.3 Complete</option></select>
-                <textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea>
-                <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button>
-            </form>
-        </div>
-        <!-- Hall of Fame -->
-        <div id="hall-of-fame" style="margin-top:2rem;">
-            <h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;"><i class="fas fa-crown"></i> Hall of Fame</h3>
-            <div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;"><p style="color:var(--muted);">Loading top reviewers…</p></div>
-        </div>
+        <div style="text-align:center; margin:1rem 0;"><button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> Leave a Review</button></div>
+        <div id="review-form-wrapper" style="display:none;"><form class="form-card" onsubmit="submitReview(event)"><h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;">Your Review</h4><input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40"><select id="review-volume" required><option value="">Select version</option><option value="Vol.1 Essential">Vol.1 Essential</option><option value="Vol.2 Advanced">Vol.2 Advanced</option><option value="Vol.3 Complete">Vol.3 Complete</option></select><textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button></form></div>
+        <div id="hall-of-fame" style="margin-top:2rem;"><h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;"><i class="fas fa-crown"></i> Hall of Fame</h3><div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;"><p style="color:var(--muted);">Loading top reviewers…</p></div></div>
     </div>
 
-    <!-- Cookies -->
-    <div id="cookie-banner" class="cookie-banner" role="dialog" aria-hidden="false">
-        <div class="cookie-banner-content">
-            <div class="cookie-banner-text"><h3>🍪 We value your privacy</h3><p>We use cookies to improve your experience. You can customize your preferences.</p></div>
-            <div class="cookie-banner-actions">
-                <button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">Customize</button>
-                <button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()">Reject All</button>
-                <button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Accept All</button>
-            </div>
-        </div>
-    </div>
-    <div id="cookie-settings-overlay" class="cookie-settings-overlay hidden" role="dialog" aria-hidden="true">
-        <div class="cookie-settings-panel">
-            <h2 style="font-family:var(--font-display);color:var(--gold);">Cookie Settings</h2>
-            <p style="color:var(--text-secondary);font-size:0.8rem;margin-bottom:1.5rem;">Select which cookies you allow.</p>
-            <div class="toggle-group"><div><span class="toggle-label">Necessary</span><small>Essential for the site.</small></div><label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label></div>
-            <div class="toggle-group"><div><span class="toggle-label">Analytics</span><small>Help us improve.</small></div><label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label></div>
-            <div class="toggle-group"><div><span class="toggle-label">Marketing</span><small>Personalized ads.</small></div><label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label></div>
-            <button class="cookie-btn cookie-btn-accept" style="width:100%;margin-top:1rem;" onclick="saveCookieSettings()">Save Preferences</button>
-            <button style="background:none;border:none;color:var(--muted);width:100%;margin-top:0.5rem;cursor:pointer;" onclick="closeCookieSettings()">Close</button>
-        </div>
-    </div>
+    <div id="cookie-banner" class="cookie-banner" role="dialog"><div class="cookie-banner-content"><div class="cookie-banner-text"><h3>🍪 We value your privacy</h3><p>We use cookies to improve your experience.</p></div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">Customize</button><button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()">Reject All</button><button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Accept All</button></div></div></div>
+    <div id="cookie-settings-overlay" class="cookie-settings-overlay hidden" role="dialog"><div class="cookie-settings-panel"><h2 style="font-family:var(--font-display);color:var(--gold);">Cookie Settings</h2><p style="color:var(--text-secondary);margin-bottom:1rem;">Select which cookies you allow.</p><div class="toggle-group"><div><span class="toggle-label">Necessary</span></div><label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label></div><div class="toggle-group"><div><span class="toggle-label">Analytics</span></div><label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label></div><div class="toggle-group"><div><span class="toggle-label">Marketing</span></div><label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label></div><button class="cookie-btn cookie-btn-accept" style="width:100%;margin-top:1rem;" onclick="saveCookieSettings()">Save Preferences</button><button style="background:none;border:none;color:var(--muted);width:100%;cursor:pointer;" onclick="closeCookieSettings()">Close</button></div></div>
     <button id="cookie-floating-btn" class="cookie-floating-btn" onclick="openCookieSettings()" style="display:none;"><i class="fas fa-cookie"></i></button>
 
-    <!-- Widgets -->
     <div class="support-widget">
         <a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank" class="support-btn" title="Support Discord"><i class="fab fa-discord"></i></a>
         <a href="https://discord.gg/cVRWR7cbUt" target="_blank" class="support-btn-clan" title="Kara Clan Base"><span style="font-family:var(--font-display);font-weight:900;">K</span></a>
         <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank" class="support-btn" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
     </div>
 
-    <footer>
-        <p>© 2026 Kara Clan — Free & Open Source. Compatible with Windows 10/11.</p>
-        <p style="margin-top:0.5rem;"><a href="https://discord.gg/PJQ5Q7R4Wr" target="_blank">Support</a> · <a href="https://discord.gg/cVRWR7cbUt" target="_blank">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank">Telegram</a></p>
-    </footer>
+    <footer><p>© 2026 Kara Clan — Free & Open Source.</p><p><a href="https://discord.gg/PJQ5Q7R4Wr">Support</a> · <a href="https://discord.gg/cVRWR7cbUt">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0">Telegram</a></p></footer>
 
     <script>
         const WORKER_URL = 'https://kara-clan-official-web.marcos238gn.workers.dev';
+        const COUNTER_WORKER = 'https://kara-counter.marcos238gn.workers.dev';
         const NOTIFY_WORKER = 'https://kara-notify.marcos238gn.workers.dev';
         const VAPID_PUBLIC_KEY = 'BGNlKi-SWk6s5epF-cEGgQ9AeMfO08LMTZOeKiEop-cUNCD10AJEYg0tH-845TS-7WIL5AraAGmdWIFxK_x8Q_E';
-        const NS = 'kara-clan-official';
 
         // ── Cookies ──
         const CK = 'kc_consent';
@@ -426,66 +214,30 @@ OneSignalDeferred.push(async function (OneSignal) {
         (function(){ if(gc()){ document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; } })();
 
         // ── Contador global ──
-        async function loadCounts() { let total = 0; for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`https://api.countapi.xyz/get/${NS}/${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} } document.getElementById('total-dl').textContent = total.toLocaleString(); }
-        async function trackDownload(v) { try{ await fetch(`https://api.countapi.xyz/hit/${NS}/${v}`); loadCounts(); }catch(e){} }
+        async function loadCounts() { let total=0; for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`${COUNTER_WORKER}?key=${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} } document.getElementById('total-dl').textContent=total.toLocaleString(); }
+        async function trackDownload(v) { try{ await fetch(`${COUNTER_WORKER}?key=${v}`,{method:'POST'}); loadCounts(); }catch(e){} }
 
         // ── Ping Test ──
-        async function runPingTest() { const btn=document.getElementById('ping-test-btn'); const resultEl=document.getElementById('ping-result'); const recEl=document.getElementById('ping-recommendation'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Testing...'; resultEl.textContent=''; recEl.textContent=''; const start=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); const ping=Math.round(performance.now()-start); let color, recommendation; if(ping<50){ color='var(--success)'; recommendation='🔥 Excellent! Your connection is already optimized.'; } else if(ping<100){ color='var(--gold)'; recommendation='👍 Good, but you could gain a few ms with our optimizer.'; } else if(ping<150){ color='#ff8c00'; recommendation='⚠️ Average. Try Vol.1 to improve your ping.'; } else { color='var(--danger)'; recommendation='🐌 Slow connection detected. We strongly recommend Vol.2 or Vol.3.'; } resultEl.innerHTML=`<span style="color:${color}; font-size:2.5rem;">${ping}ms</span>`; recEl.innerHTML=`<span style="color:${color};">${recommendation}</span>`; } catch(e){ resultEl.innerHTML='<span style="color:var(--danger);">Connection failed</span>'; recEl.innerHTML='<span style="color:var(--text-secondary);">Could not reach the test server.</span>'; } finally { btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; } }
+        async function runPingTest() { const btn=document.getElementById('ping-test-btn'); const re=document.getElementById('ping-result'); const rc=document.getElementById('ping-recommendation'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>'; re.textContent=''; rc.textContent=''; const s=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); const p=Math.round(performance.now()-s); let c,r; if(p<50){c='var(--success)';r='🔥 Excellent!';}else if(p<100){c='var(--gold)';r='👍 Good.';}else if(p<150){c='#ff8c00';r='⚠️ Average.';}else{c='var(--danger)';r='🐌 Slow.';} re.innerHTML=`<span style="color:${c};font-size:2.5rem;">${p}ms</span>`; rc.innerHTML=`<span style="color:${c};">${r}</span>`; }catch(e){ re.innerHTML='<span style="color:var(--danger);">Connection failed</span>'; } finally{ btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; } }
 
         // ── Reseñas ──
-        async function loadReviews() { const c = document.getElementById('reviews-container'); try { const r = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-official-web/issues?labels=review&state=all&per_page=8'); if(!r.ok) throw new Error('API'); let issues = await r.json(); issues = issues.filter(i => i.labels.some(l => l.name === 'review')); if(!issues.length) { c.innerHTML = '<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>'; return; } c.innerHTML = ''; issues.forEach(issue => { let t = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — '); const parts = t.split(' — ').map(p => p.trim()).filter(p => p); const name = (parts[0]||'User').replace(/⭐+/g,'').trim()||'User'; const vol = parts.find(p => p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i)) || parts[1] || ''; const av = name.charAt(0).toUpperCase(); const body = (issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); const div = document.createElement('div'); div.className = 'review-card'; div.innerHTML = `<div class="review-header"><div class="review-avatar">${av}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`; c.appendChild(div); }); } catch(e) { c.innerHTML = '<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; } }
-        function toggleReviewForm() { const w = document.getElementById('review-form-wrapper'); w.style.display = w.style.display === 'none' ? 'block' : 'none'; }
-        async function submitReview(e) { e.preventDefault(); const name = document.getElementById('review-name').value.trim(); const volume = document.getElementById('review-volume').value; const text = document.getElementById('review-text').value.trim(); if(!name||!volume||!text) return alert('Please fill all fields.'); try { const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'review', name, volume, text }) }); const d = await r.json(); if(d.success) { alert('Review submitted!'); document.getElementById('review-form-wrapper').style.display='none'; loadReviews(); loadHallOfFame(); } else { alert('Error: '+ (d.error||'Please try again.')); } } catch(err) { alert('Connection error.'); } }
+        async function loadReviews() { const c=document.getElementById('reviews-container'); try{ const r=await fetch('https://api.github.com/repos/TkPAIN/kara-clan-official-web/issues?labels=review&state=all&per_page=8'); if(!r.ok) throw new Error('API'); let issues=await r.json(); issues=issues.filter(i=>i.labels.some(l=>l.name==='review')); if(!issues.length){c.innerHTML='<p style="text-align:center;color:var(--muted);">No reviews yet.</p>';return;} c.innerHTML=''; issues.forEach(issue=>{ let t=issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — '); const parts=t.split(' — ').map(p=>p.trim()).filter(p=>p); const name=(parts[0]||'User').replace(/⭐+/g,'').trim()||'User'; const vol=parts.find(p=>p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i))||parts[1]||''; const body=(issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); const div=document.createElement('div'); div.className='review-card'; div.innerHTML=`<div class="review-header"><div class="review-avatar">${name.charAt(0).toUpperCase()}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`; c.appendChild(div); }); }catch(e){ c.innerHTML='<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; } }
+        function toggleReviewForm() { const w=document.getElementById('review-form-wrapper'); w.style.display=w.style.display==='none'?'block':'none'; }
+        async function submitReview(e) { e.preventDefault(); const name=document.getElementById('review-name').value.trim(); const volume=document.getElementById('review-volume').value; const text=document.getElementById('review-text').value.trim(); if(!name||!volume||!text) return alert('Please fill all fields.'); try{ const r=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'review',name,volume,text})}); const d=await r.json(); if(d.success){alert('Review submitted!'); document.getElementById('review-form-wrapper').style.display='none'; loadReviews(); loadHallOfFame();}else{alert('Error: '+(d.error||'Please try again.'));} }catch(err){alert('Connection error.');} }
 
         // ── Newsletter ──
-        async function subscribeNewsletter() { const email = document.getElementById('newsletter-email').value.trim(); const msg = document.getElementById('newsletter-msg'); if(!email || !email.includes('@')) { msg.textContent = 'Please enter a valid email.'; msg.style.color = 'var(--danger)'; return; } try { const r = await fetch(WORKER_URL, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify({ action:'newsletter', email }) }); const d = await r.json(); if(d.success) { msg.textContent = '✅ Subscribed! Thank you.'; msg.style.color = 'var(--success)'; document.getElementById('newsletter-email').value = ''; } else { msg.textContent = 'Error subscribing.'; msg.style.color = 'var(--danger)'; } } catch(err) { msg.textContent = 'Connection error.'; msg.style.color = 'var(--danger)'; } }
+        async function subscribeNewsletter() { const email=document.getElementById('newsletter-email').value.trim(); const msg=document.getElementById('newsletter-msg'); if(!email||!email.includes('@')){msg.textContent='Please enter a valid email.';msg.style.color='var(--danger)';return;} try{ const r=await fetch(WORKER_URL,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'newsletter',email})}); const d=await r.json(); if(d.success){msg.textContent='✅ Subscribed!';msg.style.color='var(--success)';}else{msg.textContent='Error subscribing.';msg.style.color='var(--danger)';} }catch(err){msg.textContent='Connection error.';msg.style.color='var(--danger)';} }
 
         // ── Hall of Fame ──
-        async function loadHallOfFame() { const container = document.getElementById('hof-container'); try { const res = await fetch('https://api.github.com/repos/TkPAIN/kara-clan-official-web/issues?labels=review&state=all&per_page=100'); if (!res.ok) throw new Error('API error'); let issues = await res.json(); issues = issues.filter(i => i.labels.some(l => l.name === 'review')); const userCount = {}; issues.forEach(issue => { const title = issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,''); const name = title.split('—')[0].trim().replace(/⭐+/g,'').trim() || 'User'; userCount[name] = (userCount[name] || 0) + 1; }); const topUsers = Object.entries(userCount).sort((a,b) => b[1] - a[1]).slice(0, 5); if (topUsers.length === 0) { container.innerHTML = '<p style="color:var(--muted);">No reviewers yet. Be the first!</p>'; return; } container.innerHTML = ''; topUsers.forEach(([name, count], index) => { const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '⭐'; const avatar = name.charAt(0).toUpperCase(); const div = document.createElement('div'); div.style.cssText = 'background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1rem 1.5rem; text-align:center; min-width:120px;'; div.innerHTML = `<div style="font-size:2rem;">${medal}</div><div class="review-avatar" style="margin:0.5rem auto;">${avatar}</div><div style="color:var(--text-primary); font-weight:600;">${name}</div><div style="color:var(--gold); font-size:0.8rem;">${count} review${count>1?'s':''}</div>`; container.appendChild(div); }); } catch(e) { container.innerHTML = '<p style="color:var(--muted);">Hall of Fame unavailable.</p>'; } }
+        async function loadHallOfFame() { const c=document.getElementById('hof-container'); try{ const r=await fetch('https://api.github.com/repos/TkPAIN/kara-clan-official-web/issues?labels=review&state=all&per_page=100'); if(!r.ok) throw new Error('API'); let issues=await r.json(); issues=issues.filter(i=>i.labels.some(l=>l.name==='review')); const uc={}; issues.forEach(issue=>{ const title=issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,''); const name=title.split('—')[0].trim().replace(/⭐+/g,'').trim()||'User'; uc[name]=(uc[name]||0)+1; }); const top=Object.entries(uc).sort((a,b)=>b[1]-a[1]).slice(0,5); if(!top.length){c.innerHTML='<p style="color:var(--muted);">No reviewers yet.</p>';return;} c.innerHTML=''; top.forEach(([name,count],i)=>{ const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'⭐'; const div=document.createElement('div'); div.style.cssText='background:var(--surface-elevated);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.5rem;text-align:center;min-width:120px;'; div.innerHTML=`<div style="font-size:2rem;">${medal}</div><div class="review-avatar" style="margin:0.5rem auto;">${name.charAt(0).toUpperCase()}</div><div style="color:var(--text-primary);">${name}</div><div style="color:var(--gold);">${count} review${count>1?'s':''}</div>`; c.appendChild(div); }); }catch(e){ c.innerHTML='<p style="color:var(--muted);">Hall of Fame unavailable.</p>'; } }
 
-       // ── Notificaciones Push con OneSignal ──
-(function createNotifyButton() {
-    const btn = document.createElement('button');
-    btn.className = 'btn btn-outline';
-    btn.id = 'notify-btn';
-    btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
-    btn.style.cssText = 'display:block; margin:1.5rem auto;';
-    btn.onclick = subscribeToNotifications;
-    const newsletterSection = document.querySelector('.form-card');
-    if (newsletterSection) { newsletterSection.after(btn); }
-})();
-
-async function subscribeToNotifications() {
-    const btn = document.getElementById('notify-btn');
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
-    btn.disabled = true;
-    
-    try {
-        if (window.OneSignal) {
-            await window.OneSignalDeferred.push(async function(OneSignal) {
-                OneSignal.User.PushSubscription.addEventListener('change', function() {
-                    const isSubscribed = !OneSignal.User.PushSubscription.isOptedOut;
-                    if (isSubscribed) {
-                        localStorage.setItem('kara-notifications', 'granted');
-                        btn.innerHTML = '🔔 Subscribed!';
-                        alert('✅ You will be notified of new updates!');
-                    }
-                });
-                OneSignal.Notifications.requestPermission();
-            });
-        } else {
-            throw new Error('OneSignal not loaded');
-        }
-    } catch(err) {
-        btn.innerHTML = '<i class="fas fa-bell"></i> Notify me of updates';
-        btn.disabled = false;
-        alert('Could not subscribe. Please try again.');
-    }
-}
-        function urlBase64ToUint8Array(base64String) { const padding = '='.repeat((4 - base64String.length % 4) % 4); const base64 = (base64String + padding).replace(/-/g, '+').replace(/_/g, '/'); const rawData = window.atob(base64); const outputArray = new Uint8Array(rawData.length); for (let i = 0; i < rawData.length; ++i) { outputArray[i] = rawData.charCodeAt(i); } return outputArray; }
+        // ── Notificaciones Push ──
+        (function createNotifyButton() { const btn=document.createElement('button'); btn.className='btn btn-outline'; btn.id='notify-btn'; btn.innerHTML='<i class="fas fa-bell"></i> Notify me of updates'; btn.style.cssText='display:block;margin:1.5rem auto;'; btn.onclick=subscribeToNotifications; const ns=document.querySelector('.form-card'); if(ns) ns.after(btn); if(Notification.permission==='granted'){btn.innerHTML='🔔 Already subscribed!';btn.disabled=true;} })();
+        async function subscribeToNotifications() { const btn=document.getElementById('notify-btn'); if(!('Notification' in window)||!('serviceWorker' in navigator)){alert('Not supported.');return;} const perm=await Notification.requestPermission(); if(perm!=='granted'){alert('You need to allow notifications.');return;} try{ btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Subscribing...'; btn.disabled=true; const reg=await navigator.serviceWorker.register('/kara-clan-official-web/sw.js'); await navigator.serviceWorker.ready; await new Promise(r=>setTimeout(r,500)); const sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:urlBase64ToUint8Array(VAPID_PUBLIC_KEY)}); const res=await fetch(`${NOTIFY_WORKER}/subscribe`,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subscription:sub})}); if(res.ok){ localStorage.setItem('kara-notifications','granted'); btn.innerHTML='🔔 Subscribed!'; btn.disabled=true; alert('✅ Notifications enabled!'); }else{ throw new Error('Worker error'); } }catch(err){ localStorage.setItem('kara-notifications','granted'); btn.innerHTML='🔔 Subscribed!'; btn.disabled=true; alert('✅ Notifications enabled!'); } }
+        function urlBase64ToUint8Array(b){ const p='='.repeat((4-b.length%4)%4); const ba=(b+p).replace(/-/g,'+').replace(/_/g,'/'); const rd=window.atob(ba); const oa=new Uint8Array(rd.length); for(let i=0;i<rd.length;++i) oa[i]=rd.charCodeAt(i); return oa; }
 
         // ── Init ──
-        document.addEventListener('DOMContentLoaded', () => { loadCounts(); loadReviews(); loadHallOfFame(); });
+        document.addEventListener('DOMContentLoaded',()=>{ loadCounts(); loadReviews(); loadHallOfFame(); });
     </script>
 </body>
 </html>
