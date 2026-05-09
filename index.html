@@ -350,7 +350,24 @@ body.custom-cursor * {
     </div>
 
     <footer><p>© 2026 Kara Clan — <span data-es="Gratis y Open Source." data-en="Free & Open Source.">Free & Open Source.</span></p><p><a href="https://discord.gg/PJQ5Q7R4Wr">Support</a> · <a href="https://discord.gg/cVRWR7cbUt">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0">Telegram</a></p></footer>
-
+<!-- Cursor WoW -->
+<div id="wow-cursor">
+    <svg viewBox="0 0 48 48">
+        <defs>
+            <radialGradient id="orb">
+                <stop offset="0%" stop-color="#f0d080"/>
+                <stop offset="100%" stop-color="#a88830"/>
+            </radialGradient>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+        </defs>
+        <circle cx="24" cy="24" r="18" fill="url(#orb)" stroke="#c9a84c" stroke-width="2" filter="url(#glow)"/>
+        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" font-family="Cinzel,serif" font-weight="900" font-size="20" fill="#1a1a0a">K</text>
+    </svg>
+</div>
+    
     <script>
         const COUNTER_WORKER = 'https://kara-counter.marcos238gn.workers.dev';
         const REVIEWS_REPO = 'TkPAIN/kara-clan-win-op';
@@ -529,22 +546,5 @@ function showFileHash() {
     });
 })();
     </script>
-    <!-- Cursor WoW -->
-<div id="wow-cursor">
-    <svg viewBox="0 0 48 48">
-        <defs>
-            <radialGradient id="orb">
-                <stop offset="0%" stop-color="#f0d080"/>
-                <stop offset="100%" stop-color="#a88830"/>
-            </radialGradient>
-            <filter id="glow">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
-            </filter>
-        </defs>
-        <circle cx="24" cy="24" r="18" fill="url(#orb)" stroke="#c9a84c" stroke-width="2" filter="url(#glow)"/>
-        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" font-family="Cinzel,serif" font-weight="900" font-size="20" fill="#1a1a0a">K</text>
-    </svg>
-</div>
 </body>
 </html>
