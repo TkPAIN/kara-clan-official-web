@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Kara Clan — Professional Windows Optimizer</title>
     <meta name="description" content="Professional-grade Windows optimization scripts. Free, open-source, and community-driven.">
+    <meta name="theme-color" content="#000000">
+    <link rel="manifest" href="/kara-clan-official-web/manifest.json">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Share+Tech+Mono&display=swap" rel="stylesheet">
@@ -134,55 +136,88 @@
         .compare-table td { padding: 0.7rem; color: var(--text-primary); border-top: 1px solid var(--border); text-align: center; }
         .compare-table td:first-child { text-align: left; }
         .ping-test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; max-width: 600px; margin: 0 auto 2rem; text-align: center; }
+        .speed-test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; max-width: 600px; margin: 0 auto 2rem; text-align: center; }
+        .speed-results { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
+        .speed-item { text-align: center; }
+        .speed-value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--gold-bright); }
+        .speed-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
         footer { text-align: center; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; }
         footer a { color: var(--gold); text-decoration: none; }
         #download-chart { display: flex; align-items: flex-end; gap: 0.5rem; height: 120px; justify-content: center; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 2rem; }
-        #user-map { display: flex; flex-wrap: wrap; gap: 0.4rem; justify-content: center; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 2rem; min-height: 50px; }
-        @media (max-width: 640px) { .download-grid { grid-template-columns: 1fr; } .cookie-banner-content { flex-direction: column; text-align: center; } }
+        #user-map { padding: 1rem; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 2rem; }
+        #changelog-container { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem; }
+        .changelog-entry { border-left: 2px solid var(--gold); padding-left: 1rem; margin-bottom: 1rem; }
+        .changelog-entry h4 { color: var(--gold); font-family: var(--font-display); font-size: 0.9rem; }
+        .changelog-entry p { color: var(--text-secondary); font-size: 0.78rem; }
+        .changelog-entry small { color: var(--muted); font-size: 0.65rem; }
+        @media (max-width: 640px) { .download-grid { grid-template-columns: 1fr; } .cookie-banner-content { flex-direction: column; text-align: center; } .speed-results { flex-direction: column; align-items: center; } }
     </style>
 </head>
 <body>
     <div class="wrapper">
         <header class="site-header">
             <h1 class="site-title gold-text">KARA CLAN</h1>
-            <p class="site-tagline">Professional Windows Optimization</p>
+            <p class="site-tagline" data-es="Optimización Profesional de Windows" data-en="Professional Windows Optimization">Professional Windows Optimization</p>
         </header>
 
-        <!-- Live Discord Widget -->
         <div id="discord-live" style="text-align:center; margin-bottom:1rem;">
             <a href="https://discord.gg/8erP3Tz3MR" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--surface-elevated);border:1px solid var(--border);border-radius:9999px;padding:0.4rem 1.2rem;text-decoration:none;">
                 <i class="fab fa-discord" style="color:#5865F2;font-size:1.2rem;"></i>
                 <span style="color:var(--text-primary);font-size:0.78rem;">
-                    <strong id="discord-online" style="color:var(--success);">—</strong> online ·
-                    <strong id="discord-total" style="color:var(--gold);">—</strong> members
+                    <strong id="discord-online" style="color:var(--success);">—</strong> <span data-es="conectados" data-en="online">online</span> ·
+                    <strong id="discord-total" style="color:var(--gold);">—</strong> <span data-es="miembros" data-en="members">members</span>
                 </span>
-                <span style="color:var(--gold);font-size:0.7rem;">Join →</span>
+                <span style="color:var(--gold);font-size:0.7rem;" data-es="Unirse →" data-en="Join →">Join →</span>
             </a>
         </div>
 
-        <h2 class="section-title"><i class="fas fa-download"></i> Download Scripts</h2>
+        <h2 class="section-title"><i class="fas fa-download"></i> <span data-es="Descargar Scripts" data-en="Download Scripts">Download Scripts</span></h2>
         <div class="download-grid">
-            <div class="card"><div class="vol-badge">VOL.1</div><h3>Essential</h3><p>Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v1.bat" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> Download .bat</a></div>
-            <div class="card"><div class="vol-badge">VOL.2</div><h3>Advanced</h3><p>Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v2.bat" class="btn btn-primary" onclick="trackDownload('v2')"><i class="fas fa-download"></i> Download .bat</a></div>
-            <div class="card"><div class="vol-badge">VOL.3 FIXED</div><h3>Complete</h3><p>Services, registry, disk & memory. <strong>20 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v3.bat" class="btn btn-primary" onclick="trackDownload('v3')"><i class="fas fa-download"></i> Download .bat</a></div>
+            <div class="card"><div class="vol-badge">VOL.1</div><h3>Essential</h3><p data-es="Red: Nagle OFF, Cloudflare DNS, plan de energía. <strong>8 mejoras</strong>." data-en="Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.">Network: Nagle OFF, Cloudflare DNS, power plan. <strong>8 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v1.bat" class="btn btn-primary" onclick="trackDownload('v1')"><i class="fas fa-download"></i> <span data-es="Descargar .bat" data-en="Download .bat">Download .bat</span></a></div>
+            <div class="card"><div class="vol-badge">VOL.2</div><h3>Advanced</h3><p data-es="Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 mejoras</strong>." data-en="Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.">Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v2.bat" class="btn btn-primary" onclick="trackDownload('v2')"><i class="fas fa-download"></i> <span data-es="Descargar .bat" data-en="Download .bat">Download .bat</span></a></div>
+            <div class="card"><div class="vol-badge">VOL.3 FIXED</div><h3>Complete</h3><p data-es="Servicios, registro, disco y memoria. <strong>20 mejoras</strong>." data-en="Services, registry, disk & memory. <strong>20 tweaks</strong>.">Services, registry, disk & memory. <strong>20 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v3.bat" class="btn btn-primary" onclick="trackDownload('v3')"><i class="fas fa-download"></i> <span data-es="Descargar .bat" data-en="Download .bat">Download .bat</span></a></div>
         </div>
-        <div style="text-align:center; margin:1.5rem 0;"><a href="https://kara-download.marcos238gn.workers.dev/?file=Revert_Optimizer.bat" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> Reset Optimizer</a></div>
+        <div style="text-align:center; margin:1.5rem 0;"><a href="https://kara-download.marcos238gn.workers.dev/?file=Revert_Optimizer.bat" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> <span data-es="Reset Optimizer" data-en="Reset Optimizer">Reset Optimizer</span></a></div>
 
-        <h2 class="section-title"><i class="fas fa-balance-scale"></i> Compare Versions</h2>
+        <h2 class="section-title"><i class="fas fa-balance-scale"></i> <span data-es="Comparar Versiones" data-en="Compare Versions">Compare Versions</span></h2>
         <div style="overflow-x:auto;"><table class="compare-table"><thead><tr><th>Feature</th><th>Vol.1 Essential</th><th>Vol.2 Advanced</th><th>Vol.3 Complete</th></tr></thead><tbody><tr><td>Total Tweaks</td><td>8</td><td>17</td><td>20</td></tr><tr><td>Network (Nagle, DNS)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>QoS DSCP 46 (Gaming)</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>GPU Priority</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Game Mode + SysMain</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Services optimization</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Registry tweaks</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Disk cleanup</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Memory optimization</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Reversible</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Portable version (.ps1)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table></div>
 
-        <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> Test Your Connection</h2>
-        <div class="ping-test-card"><p style="color:var(--text-secondary); margin-bottom:1.5rem;">Measure your current latency.</p><button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> Start Ping Test</button><div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div><div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div></div>
+        <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> <span data-es="Prueba de Conexión" data-en="Test Your Connection">Test Your Connection</span></h2>
+        <div class="ping-test-card"><p style="color:var(--text-secondary); margin-bottom:1.5rem;" data-es="Mide tu latencia actual." data-en="Measure your current latency.">Measure your current latency.</p><button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> <span data-es="Iniciar Test" data-en="Start Ping Test">Start Ping Test</span></button><div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div><div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div></div>
 
-        <h2 class="section-title"><i class="fas fa-code"></i> Portable Versions (Direct .ps1)</h2>
-        <div class="download-grid">
-            <div class="card"><h3>Vol.1 Essential (.ps1)</h3><p>Direct PowerShell script.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=OptimizarWindows_v1.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
-            <div class="card"><h3>Vol.2 Advanced (.ps1)</h3><p>Direct PowerShell script.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=OptimizarWindows_v2.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
-            <div class="card"><h3>Vol.3 Complete (.ps1)</h3><p>Direct PowerShell script.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=OptimizarWindows_v3.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+        <h2 class="section-title"><i class="fas fa-gauge-high"></i> <span data-es="Test de Velocidad" data-en="Speed Test">Speed Test</span></h2>
+        <div class="speed-test-card">
+            <p style="color:var(--text-secondary); margin-bottom:1.5rem;" data-es="Mide tu velocidad de descarga y subida." data-en="Measure your download and upload speed.">Measure your download and upload speed.</p>
+            <button class="btn btn-primary" id="speed-test-btn" onclick="runSpeedTest()"><i class="fas fa-play"></i> <span data-es="Iniciar Test" data-en="Start Speed Test">Start Speed Test</span></button>
+            <div class="speed-results" id="speed-results" style="display:none;margin-top:1.5rem;">
+                <div class="speed-item"><div class="speed-value" id="dl-speed">—</div><div class="speed-label">Mbps ↓</div></div>
+                <div class="speed-item"><div class="speed-value" id="ul-speed">—</div><div class="speed-label">Mbps ↑</div></div>
+                <div class="speed-item"><div class="speed-value" id="speed-ping">—</div><div class="speed-label">ms</div></div>
+            </div>
         </div>
 
-        <h2 class="section-title"><i class="fas fa-book"></i> How to Use</h2>
-        <div class="instructions"><ol><li>Download the <code>.bat</code> file.</li><li><strong>Right-click → Run as Administrator</strong>.</li><li>If SmartScreen appears: <strong>More info → Run anyway</strong>.</li><li>Restart your PC after optimization.</li><li>To undo: download <strong>Reset Optimizer</strong>.</li></ol></div>
+        <h2 class="section-title"><i class="fas fa-code"></i> <span data-es="Versiones Portables (.ps1)" data-en="Portable Versions (Direct .ps1)">Portable Versions (Direct .ps1)</span></h2>
+        <div class="download-grid">
+            <div class="card"><h3>Vol.1 Essential (.ps1)</h3><p data-es="Script PowerShell directo." data-en="Direct PowerShell script.">Direct PowerShell script.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=OptimizarWindows_v1.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.2 Advanced (.ps1)</h3><p data-es="Script PowerShell directo." data-en="Direct PowerShell script.">Direct PowerShell script.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=OptimizarWindows_v2.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+            <div class="card"><h3>Vol.3 Complete (.ps1)</h3><p data-es="Script PowerShell directo." data-en="Direct PowerShell script.">Direct PowerShell script.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=OptimizarWindows_v3.ps1" class="btn btn-outline"><i class="fas fa-file-code"></i> Download .ps1</a></div>
+        </div>
+
+        <h2 class="section-title"><i class="fas fa-book"></i> <span data-es="Cómo Usar" data-en="How to Use">How to Use</span></h2>
+        <div class="instructions"><ol>
+            <li data-es="Descarga el archivo <code>.bat</code>." data-en="Download the <code>.bat</code> file.">Download the <code>.bat</code> file.</li>
+            <li data-es="<strong>Click derecho → Ejecutar como Administrador</strong>." data-en="<strong>Right-click → Run as Administrator</strong>."><strong>Right-click → Run as Administrator</strong>.</li>
+            <li data-es="Si aparece SmartScreen: <strong>Más info → Ejecutar de todos modos</strong>." data-en="If SmartScreen appears: <strong>More info → Run anyway</strong>.">If SmartScreen appears: <strong>More info → Run anyway</strong>.</li>
+            <li data-es="Reinicia tu PC después de la optimización." data-en="Restart your PC after optimization.">Restart your PC after optimization.</li>
+            <li data-es="Para deshacer: descarga el <strong>Reset Optimizer</strong>." data-en="To undo: download <strong>Reset Optimizer</strong>.">To undo: download <strong>Reset Optimizer</strong>.</li>
+        </ol></div>
+
+        <h2 class="section-title"><i class="fas fa-clock-rotate-left"></i> <span data-es="Novedades" data-en="Changelog">Changelog</span></h2>
+        <div id="changelog-container"><p style="color:var(--muted);text-align:center;">Loading changelog…</p></div>
+
+        <button class="btn btn-outline" id="share-btn" style="display:block;margin:1rem auto;" onclick="sharePage()">
+            <i class="fas fa-share-nodes"></i> <span data-es="Compartir Web" data-en="Share Website">Share Website</span>
+        </button>
 
         <h2 class="section-title"><i class="fas fa-chart-bar"></i> Global Downloads</h2>
         <div class="stats-bar"><div class="stat-item"><div class="stat-value" id="total-dl">—</div><div class="stat-label">Total</div></div><div class="stat-item"><div class="stat-value" id="v1-dl">—</div><div class="stat-label">Vol.1</div></div><div class="stat-item"><div class="stat-value" id="v2-dl">—</div><div class="stat-label">Vol.2</div></div><div class="stat-item"><div class="stat-value" id="v3-dl">—</div><div class="stat-label">Vol.3</div></div></div>
@@ -191,20 +226,23 @@
         <div id="download-chart"><p style="color:var(--muted);">Loading chart…</p></div>
 
         <h2 class="section-title"><i class="fas fa-globe-americas"></i> Users Around the World</h2>
-        <div id="user-map"><p style="color:var(--muted);">Loading map…</p></div>
-
-        <h2 class="section-title"><i class="fas fa-envelope"></i> Stay Updated</h2>
-        <div class="form-card" style="margin-bottom:2rem;"><p style="text-align:center;color:var(--text-secondary);">Subscribe to receive updates.</p><input type="email" id="newsletter-email" placeholder="your@email.com" style="text-align:center;"><button class="btn btn-success" onclick="subscribeNewsletter()"><i class="fas fa-paper-plane"></i> Subscribe</button><p id="newsletter-msg" style="text-align:center;font-size:0.75rem;margin-top:0.5rem;"></p></div>
+        <div id="user-map">
+            <svg id="world-map" viewBox="0 0 1000 500" style="width:100%;max-width:800px;margin:0 auto;display:block;background:var(--surface-elevated);">
+                <rect x="0" y="0" width="1000" height="500" fill="none" stroke="var(--border)" stroke-width="1"/>
+                <g id="map-points"></g>
+            </svg>
+            <p style="color:var(--muted);font-size:0.7rem;margin-top:0.5rem;" data-es="Pasa el cursor sobre un punto para ver detalles" data-en="Hover over a dot to see country details">Hover over a dot to see country details</p>
+        </div>
 
         <h2 class="section-title"><i class="fas fa-star"></i> Community Reviews</h2>
         <div id="reviews-container"><p style="text-align:center;color:var(--muted);">Loading reviews…</p></div>
-        <div style="text-align:center; margin:1rem 0;"><button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> Leave a Review</button></div>
-        <div id="review-form-wrapper" style="display:none;"><form class="form-card" onsubmit="submitReview(event)"><h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;">Your Review</h4><input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40"><select id="review-volume" required><option value="">Select version</option><option value="Vol.1 Essential">Vol.1 Essential</option><option value="Vol.2 Advanced">Vol.2 Advanced</option><option value="Vol.3 Complete">Vol.3 Complete</option></select><textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button></form></div>
+        <div style="text-align:center; margin:1rem 0;"><button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> <span data-es="Dejar Reseña" data-en="Leave a Review">Leave a Review</span></button></div>
+        <div id="review-form-wrapper" style="display:none;"><form class="form-card" onsubmit="submitReview(event)"><h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;" data-es="Tu Reseña" data-en="Your Review">Your Review</h4><input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40"><select id="review-volume" required><option value="" data-es="Selecciona versión" data-en="Select version">Select version</option><option value="Vol.1 Essential">Vol.1 Essential</option><option value="Vol.2 Advanced">Vol.2 Advanced</option><option value="Vol.3 Complete">Vol.3 Complete</option></select><textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button></form></div>
         <div id="hall-of-fame" style="margin-top:2rem;"><h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;"><i class="fas fa-crown"></i> Hall of Fame</h3><div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;"><p style="color:var(--muted);">Loading top reviewers…</p></div></div>
     </div>
 
-    <div id="cookie-banner" class="cookie-banner" role="dialog"><div class="cookie-banner-content"><div class="cookie-banner-text"><h3>🍪 We value your privacy</h3><p>We use cookies to improve your experience.</p></div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()">Customize</button><button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()">Reject All</button><button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()">Accept All</button></div></div></div>
-    <div id="cookie-settings-overlay" class="cookie-settings-overlay hidden" role="dialog"><div class="cookie-settings-panel"><h2 style="font-family:var(--font-display);color:var(--gold);">Cookie Settings</h2><p style="color:var(--text-secondary);margin-bottom:1rem;">Select which cookies you allow.</p><div class="toggle-group"><div><span class="toggle-label">Necessary</span></div><label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label></div><div class="toggle-group"><div><span class="toggle-label">Analytics</span></div><label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label></div><div class="toggle-group"><div><span class="toggle-label">Marketing</span></div><label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label></div><button class="cookie-btn cookie-btn-accept" style="width:100%;margin-top:1rem;" onclick="saveCookieSettings()">Save Preferences</button><button style="background:none;border:none;color:var(--muted);width:100%;cursor:pointer;" onclick="closeCookieSettings()">Close</button></div></div>
+    <div id="cookie-banner" class="cookie-banner"><div class="cookie-banner-content"><div class="cookie-banner-text"><h3>🍪 <span data-es="Valoramos tu privacidad" data-en="We value your privacy">We value your privacy</span></h3><p data-es="Usamos cookies para mejorar tu experiencia. Puedes personalizar tus preferencias." data-en="We use cookies to improve your experience. You can customize your preferences.">We use cookies to improve your experience. You can customize your preferences.</p></div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()"><span data-es="Personalizar" data-en="Customize">Customize</span></button><button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()"><span data-es="Rechazar Todo" data-en="Reject All">Reject All</span></button><button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()"><span data-es="Aceptar Todo" data-en="Accept All">Accept All</span></button></div></div></div>
+    <div id="cookie-settings-overlay" class="cookie-settings-overlay hidden"><div class="cookie-settings-panel"><h2 style="font-family:var(--font-display);color:var(--gold);"><span data-es="Configurar Cookies" data-en="Cookie Settings">Cookie Settings</span></h2><p style="color:var(--text-secondary);margin-bottom:1rem;" data-es="Selecciona qué cookies permites." data-en="Select which cookies you allow.">Select which cookies you allow.</p><div class="toggle-group"><div><span class="toggle-label" data-es="Necesarias" data-en="Necessary">Necessary</span></div><label class="switch"><input type="checkbox" checked disabled><span class="slider"></span></label></div><div class="toggle-group"><div><span class="toggle-label" data-es="Analíticas" data-en="Analytics">Analytics</span></div><label class="switch"><input type="checkbox" id="cookie-analytics"><span class="slider"></span></label></div><div class="toggle-group"><div><span class="toggle-label" data-es="Marketing" data-en="Marketing">Marketing</span></div><label class="switch"><input type="checkbox" id="cookie-marketing"><span class="slider"></span></label></div><button class="cookie-btn cookie-btn-accept" style="width:100%;margin-top:1rem;" onclick="saveCookieSettings()"><span data-es="Guardar Preferencias" data-en="Save Preferences">Save Preferences</span></button><button style="background:none;border:none;color:var(--muted);width:100%;cursor:pointer;" onclick="closeCookieSettings()"><span data-es="Cerrar" data-en="Close">Close</span></button></div></div>
     <button id="cookie-floating-btn" class="cookie-floating-btn" onclick="openCookieSettings()" style="display:none;"><i class="fas fa-cookie"></i></button>
 
     <div class="support-widget">
@@ -213,13 +251,36 @@
         <a href="https://t.me/+xW5XBTxE09BlYzM0" target="_blank" class="support-btn" title="Telegram"><i class="fab fa-telegram-plane"></i></a>
     </div>
 
-    <footer><p>© 2026 Kara Clan — Free & Open Source.</p><p><a href="https://discord.gg/PJQ5Q7R4Wr">Support</a> · <a href="https://discord.gg/cVRWR7cbUt">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0">Telegram</a></p></footer>
+    <footer><p>© 2026 Kara Clan — <span data-es="Gratis y Open Source." data-en="Free & Open Source.">Free & Open Source.</span></p><p><a href="https://discord.gg/PJQ5Q7R4Wr">Support</a> · <a href="https://discord.gg/cVRWR7cbUt">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0">Telegram</a></p></footer>
 
     <script>
         const COUNTER_WORKER = 'https://kara-counter.marcos238gn.workers.dev';
         const REVIEWS_REPO = 'TkPAIN/kara-clan-win-op';
+        const CHANGELOG_REPO = 'TkPAIN/kara-clan-official-web';
 
-        // ── Cookies ──
+        // ── Traducción automática ────────────────────────────────
+        (function autoTranslate() {
+            const userLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
+            const lang = userLang.startsWith('es') ? 'es' : 'en';
+            document.querySelectorAll(`[data-${lang}]`).forEach(el => {
+                el.textContent = el.getAttribute(`data-${lang}`);
+            });
+            document.documentElement.lang = lang;
+        })();
+
+        // ── Haptic Feedback ──────────────────────────────────────
+        let hapticEnabled = true;
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('button, .btn, a.btn').forEach(el => {
+                el.addEventListener('click', () => {
+                    if (hapticEnabled && navigator.vibrate) {
+                        navigator.vibrate(10);
+                    }
+                });
+            });
+        });
+
+        // ── Cookies ──────────────────────────────────────────────
         const CK = 'kc_consent';
         const gc = () => { try { return JSON.parse(localStorage.getItem(CK)); } catch(e) { return null; } };
         const sc = (c) => localStorage.setItem(CK, JSON.stringify(c));
@@ -230,17 +291,105 @@
         function saveCookieSettings() { sc({n:true,a:document.getElementById('cookie-analytics').checked,m:document.getElementById('cookie-marketing').checked}); document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-settings-overlay').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; }
         (function(){ if(gc()){ document.getElementById('cookie-banner').classList.add('hidden'); document.getElementById('cookie-floating-btn').style.display='flex'; } })();
 
-        // ── Contador global ──
+        // ── Contador global ──────────────────────────────────────
         async function loadCounts() { let total=0; for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`${COUNTER_WORKER}?key=${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} } document.getElementById('total-dl').textContent=total.toLocaleString(); }
         async function trackDownload(v) { try{ await fetch(`${COUNTER_WORKER}?key=${v}`,{method:'POST'}); loadCounts(); loadDownloadChart(); loadUserMap(); }catch(e){} }
 
-        // ── Ping Test ──
+        // ── Ping Test ────────────────────────────────────────────
         async function runPingTest() { const btn=document.getElementById('ping-test-btn'); const re=document.getElementById('ping-result'); const rc=document.getElementById('ping-recommendation'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>'; re.textContent=''; rc.textContent=''; const s=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); const p=Math.round(performance.now()-s); let c,r; if(p<50){c='var(--success)';r='🔥 Excellent!';}else if(p<100){c='var(--gold)';r='👍 Good.';}else if(p<150){c='#ff8c00';r='⚠️ Average.';}else{c='var(--danger)';r='🐌 Slow.';} re.innerHTML=`<span style="color:${c};font-size:2.5rem;">${p}ms</span>`; rc.innerHTML=`<span style="color:${c};">${r}</span>`; }catch(e){ re.innerHTML='<span style="color:var(--danger);">Connection failed</span>'; } finally{ btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; } }
 
-        // ── Discord Widget ──
+        // ── Speed Test ───────────────────────────────────────────
+        async function runSpeedTest() {
+            const btn = document.getElementById('speed-test-btn');
+            const results = document.getElementById('speed-results');
+            const dlEl = document.getElementById('dl-speed');
+            const ulEl = document.getElementById('ul-speed');
+            const pingEl = document.getElementById('speed-ping');
+
+            btn.disabled = true;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing...';
+            results.style.display = 'none';
+
+            // Download test (small file from Cloudflare)
+            const dlStart = performance.now();
+            try {
+                await fetch('https://speed.cloudflare.com/__down?bytes=500000');
+                const dlEnd = performance.now();
+                const dlDuration = (dlEnd - dlStart) / 1000;
+                const dlMbps = ((500000 * 8) / (dlDuration * 1000000)).toFixed(1);
+                dlEl.textContent = dlMbps;
+            } catch(e) { dlEl.textContent = '—'; }
+
+            // Upload test (small POST)
+            const ulStart = performance.now();
+            try {
+                await fetch('https://httpbin.org/post', { method: 'POST', body: new ArrayBuffer(100000) });
+                const ulEnd = performance.now();
+                const ulDuration = (ulEnd - ulStart) / 1000;
+                const ulMbps = ((100000 * 8) / (ulDuration * 1000000)).toFixed(1);
+                ulEl.textContent = ulMbps;
+            } catch(e) { ulEl.textContent = '—'; }
+
+            // Ping
+            const pingStart = performance.now();
+            try {
+                await fetch('https://api.cloudflare.com/cdn-cgi/trace');
+                const pingEnd = performance.now();
+                pingEl.textContent = Math.round(pingEnd - pingStart) + 'ms';
+            } catch(e) { pingEl.textContent = '—'; }
+
+            results.style.display = 'flex';
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-redo"></i> Test Again';
+        }
+
+        // ── Discord Widget ───────────────────────────────────────
         async function loadDiscordWidget() { try{ const r=await fetch('https://kara-discord-widget.marcos238gn.workers.dev'); const d=await r.json(); document.getElementById('discord-online').textContent=d.online.toLocaleString(); document.getElementById('discord-total').textContent=d.total.toLocaleString(); }catch(e){} }
 
-        // ── Gráfico de descargas ──
+        // ── Changelog ────────────────────────────────────────────
+        async function loadChangelog() {
+            const container = document.getElementById('changelog-container');
+            try {
+                const r = await fetch(`https://api.github.com/repos/${CHANGELOG_REPO}/releases?per_page=3`);
+                if (!r.ok) throw new Error('API error');
+                const releases = await r.json();
+                if (!releases.length) {
+                    container.innerHTML = '<p style="color:var(--muted);text-align:center;">No releases yet.</p>';
+                    return;
+                }
+                container.innerHTML = '';
+                releases.forEach(release => {
+                    const div = document.createElement('div');
+                    div.className = 'changelog-entry';
+                    const date = new Date(release.published_at).toLocaleDateString();
+                    div.innerHTML = `
+                        <h4>${release.name || release.tag_name} <small>(${date})</small></h4>
+                        <p>${release.body ? release.body.replace(/\n/g, '<br>').substring(0, 300) : 'No description.'}</p>
+                        <small><a href="${release.html_url}" target="_blank" style="color:var(--gold);">View on GitHub →</a></small>
+                    `;
+                    container.appendChild(div);
+                });
+            } catch(e) {
+                container.innerHTML = '<p style="color:var(--muted);text-align:center;">Changelog unavailable.</p>';
+            }
+        }
+
+        // ── Compartir ────────────────────────────────────────────
+        function sharePage() {
+            const url = window.location.href;
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(url).then(() => {
+                    const btn = document.getElementById('share-btn');
+                    const original = btn.innerHTML;
+                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+                    setTimeout(() => { btn.innerHTML = original; }, 2000);
+                });
+            } else {
+                prompt('Copy this link:', url);
+            }
+        }
+
+        // ── Gráfico de descargas ─────────────────────────────────
         async function loadDownloadChart() {
             const container=document.getElementById('download-chart');
             const days=[];
@@ -274,49 +423,54 @@
             }catch(e){ container.innerHTML='<p style="color:var(--muted);">Chart unavailable.</p>'; }
         }
 
-        // ── Mapa de usuarios ──
+        // ── Mapa de usuarios ─────────────────────────────────────
         async function loadUserMap() {
-            const container=document.getElementById('user-map');
-            const countries=['US','ES','MX','AR','CO','CL','PE','GB','DE','FR','BR','IT','PT','CA','AU','JP','IN','RU','CN','KR'];
-            try{
-                const results=[];
-                for(const cc of countries){
-                    const r=await fetch(`${COUNTER_WORKER}?key=country-${cc}`);
-                    const d=await r.json();
-                    if(d.value>0) results.push({cc,count:d.value});
+            const pointsGroup = document.getElementById('map-points');
+            const countries = [
+                { cc: 'US', cx: 200, cy: 160 }, { cc: 'ES', cx: 470, cy: 180 },
+                { cc: 'MX', cx: 180, cy: 200 }, { cc: 'AR', cx: 280, cy: 350 },
+                { cc: 'CO', cx: 250, cy: 240 }, { cc: 'CL', cx: 260, cy: 370 },
+                { cc: 'PE', cx: 240, cy: 280 }, { cc: 'GB', cx: 460, cy: 140 },
+                { cc: 'DE', cx: 490, cy: 150 }, { cc: 'FR', cx: 470, cy: 170 },
+                { cc: 'BR', cx: 300, cy: 300 }, { cc: 'IT', cx: 495, cy: 175 },
+                { cc: 'PT', cx: 455, cy: 185 }, { cc: 'CA', cx: 250, cy: 100 },
+                { cc: 'AU', cx: 700, cy: 400 }, { cc: 'JP', cx: 820, cy: 160 },
+                { cc: 'IN', cx: 650, cy: 220 }, { cc: 'RU', cx: 600, cy: 100 },
+                { cc: 'CN', cx: 750, cy: 170 }, { cc: 'KR', cx: 810, cy: 155 }
+            ];
+            try {
+                pointsGroup.innerHTML = '';
+                for (const { cc, cx, cy } of countries) {
+                    const r = await fetch(`${COUNTER_WORKER}?key=country-${cc}`);
+                    const d = await r.json();
+                    if (d.value > 0) {
+                        const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
+                        circle.setAttribute('cx',cx.toString()); circle.setAttribute('cy',cy.toString());
+                        circle.setAttribute('r', Math.min(8, Math.max(3, d.value)).toString());
+                        circle.setAttribute('fill','var(--gold)'); circle.setAttribute('opacity','0.8');
+                        circle.style.cursor='pointer';
+                        const title=document.createElementNS('http://www.w3.org/2000/svg','title');
+                        title.textContent=`${cc}: ${d.value} downloads`; circle.appendChild(title);
+                        pointsGroup.appendChild(circle);
+                    }
                 }
-                if(!results.length){ container.innerHTML='<p style="color:var(--muted);">No data yet.</p>'; return; }
-                container.innerHTML='';
-                const max=Math.max(...results.map(r=>r.count));
-                results.forEach(({cc,count})=>{
-                    const dot=document.createElement('div');
-                    const size=Math.max(10,Math.round((count/max)*40));
-                    dot.style.cssText=`width:${size}px;height:${size}px;border-radius:50%;background:var(--gold);opacity:0.8;cursor:pointer;transition:transform 0.2s;`;
-                    dot.title=`${cc}: ${count} downloads`;
-                    dot.onmouseenter=()=>dot.style.transform='scale(1.4)';
-                    dot.onmouseleave=()=>dot.style.transform='scale(1)';
-                    container.appendChild(dot);
-                });
-            }catch(e){ container.innerHTML='<p style="color:var(--muted);">Map unavailable.</p>'; }
+            } catch(e) {}
         }
 
-        // ── Reseñas ──
+        // ── Reseñas ──────────────────────────────────────────────
         async function loadReviews() { const c=document.getElementById('reviews-container'); try{ const r=await fetch(`https://api.github.com/repos/${REVIEWS_REPO}/issues?labels=review&state=all&per_page=8`); if(!r.ok) throw new Error('API'); let issues=await r.json(); issues=issues.filter(i=>i.labels.some(l=>l.name==='review')); if(!issues.length){c.innerHTML='<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>';return;} c.innerHTML=''; issues.forEach(issue=>{ let t=issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — '); const parts=t.split(' — ').map(p=>p.trim()).filter(p=>p); const name=(parts[0]||'User').replace(/⭐+/g,'').trim()||'User'; const vol=parts.find(p=>p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i))||parts[1]||''; const body=(issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); const div=document.createElement('div'); div.className='review-card'; div.innerHTML=`<div class="review-header"><div class="review-avatar">${name.charAt(0).toUpperCase()}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`; c.appendChild(div); }); }catch(e){ c.innerHTML='<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; } }
         function toggleReviewForm() { const w=document.getElementById('review-form-wrapper'); w.style.display=w.style.display==='none'?'block':'none'; }
         async function submitReview(e) { e.preventDefault(); const name=document.getElementById('review-name').value.trim(); const volume=document.getElementById('review-volume').value; const text=document.getElementById('review-text').value.trim(); if(!name||!volume||!text) return alert('Please fill all fields.'); try{ const r=await fetch('https://kara-clan-official-web.marcos238gn.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'review',name,volume,text})}); const d=await r.json(); if(d.success){alert('Review submitted!'); document.getElementById('review-form-wrapper').style.display='none'; loadReviews(); loadHallOfFame();}else{alert('Error: '+(d.error||'Please try again.'));} }catch(err){alert('Connection error.');} }
 
-        // ── Newsletter ──
-        async function subscribeNewsletter() { const email=document.getElementById('newsletter-email').value.trim(); const msg=document.getElementById('newsletter-msg'); if(!email||!email.includes('@')){msg.textContent='Please enter a valid email.';msg.style.color='var(--danger)';return;} try{ const r=await fetch('https://kara-clan-official-web.marcos238gn.workers.dev',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'newsletter',email})}); const d=await r.json(); if(d.success){msg.textContent='✅ Subscribed!';msg.style.color='var(--success)';}else{msg.textContent='Error subscribing.';msg.style.color='var(--danger)';} }catch(err){msg.textContent='Connection error.';msg.style.color='var(--danger)';} }
-
-        // ── Hall of Fame ──
+        // ── Hall of Fame ─────────────────────────────────────────
         async function loadHallOfFame() { const c=document.getElementById('hof-container'); try{ const r=await fetch(`https://api.github.com/repos/${REVIEWS_REPO}/issues?labels=review&state=all&per_page=100`); if(!r.ok) throw new Error('API'); let issues=await r.json(); issues=issues.filter(i=>i.labels.some(l=>l.name==='review')); const uc={}; issues.forEach(issue=>{ const title=issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,''); const name=title.split('—')[0].trim().replace(/⭐+/g,'').trim()||'User'; uc[name]=(uc[name]||0)+1; }); const top=Object.entries(uc).sort((a,b)=>b[1]-a[1]).slice(0,5); if(!top.length){c.innerHTML='<p style="color:var(--muted);">No reviewers yet.</p>';return;} c.innerHTML=''; top.forEach(([name,count],i)=>{ const medal=i===0?'🥇':i===1?'🥈':i===2?'🥉':'⭐'; const div=document.createElement('div'); div.style.cssText='background:var(--surface-elevated);border:1px solid var(--border);border-radius:var(--radius-md);padding:1rem 1.5rem;text-align:center;min-width:120px;'; div.innerHTML=`<div style="font-size:2rem;">${medal}</div><div class="review-avatar" style="margin:0.5rem auto;">${name.charAt(0).toUpperCase()}</div><div style="color:var(--text-primary);">${name}</div><div style="color:var(--gold);">${count} review${count>1?'s':''}</div>`; c.appendChild(div); }); }catch(e){ c.innerHTML='<p style="color:var(--muted);">Hall of Fame unavailable.</p>'; } }
 
-        // ── Notificaciones Push ──
+        // ── Notificaciones Push ──────────────────────────────────
         (function createNotifyButton() { const btn=document.createElement('button'); btn.className='btn btn-outline'; btn.id='notify-btn'; btn.innerHTML='<i class="fas fa-bell"></i> Notify me of updates'; btn.style.cssText='display:block;margin:1.5rem auto;'; btn.onclick=subscribeToNotifications; const ns=document.querySelector('.form-card'); if(ns) ns.after(btn); })();
         async function subscribeToNotifications() { const btn=document.getElementById('notify-btn'); if(!('Notification' in window)||!('serviceWorker' in navigator)){alert('Not supported.');return;} const perm=await Notification.requestPermission(); if(perm!=='granted'){alert('You need to allow notifications.');return;} try{ btn.innerHTML='<i class="fas fa-spinner fa-spin"></i> Subscribing...'; btn.disabled=true; const reg=await navigator.serviceWorker.register('/kara-clan-official-web/sw.js'); await navigator.serviceWorker.ready; await new Promise(r=>setTimeout(r,500)); const sub=await reg.pushManager.subscribe({userVisibleOnly:true,applicationServerKey:urlBase64ToUint8Array('BGNlKi-SWk6s5epF-cEGgQ9AeMfO08LMTZOeKiEop-cUNCD10AJEYg0tH-845TS-7WIL5AraAGmdWIFxK_x8Q_E')}); const res=await fetch('https://kara-notify.marcos238gn.workers.dev/subscribe',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({subscription:sub})}); if(res.ok){ localStorage.setItem('kara-notifications','granted'); btn.innerHTML='🔔 Subscribed!'; btn.disabled=true; alert('✅ Notifications enabled!'); }else{ throw new Error('Worker error'); } }catch(err){ localStorage.setItem('kara-notifications','granted'); btn.innerHTML='🔔 Subscribed!'; btn.disabled=true; alert('✅ Notifications enabled!'); } }
         function urlBase64ToUint8Array(b){ const p='='.repeat((4-b.length%4)%4); const ba=(b+p).replace(/-/g,'+').replace(/_/g,'/'); const rd=window.atob(ba); const oa=new Uint8Array(rd.length); for(let i=0;i<rd.length;++i) oa[i]=rd.charCodeAt(i); return oa; }
 
-        // ── Init ──
+        // ── Init ─────────────────────────────────────────────────
         document.addEventListener('DOMContentLoaded', () => {
             loadCounts();
             loadReviews();
@@ -324,6 +478,7 @@
             loadDiscordWidget();
             loadDownloadChart();
             loadUserMap();
+            loadChangelog();
         });
     </script>
 </body>
