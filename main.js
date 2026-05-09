@@ -9,23 +9,19 @@ function createWindow() {
     minHeight: 600,
     title: 'Kara Clan Official',
     backgroundColor: '#000000',
-    icon: path.join(__dirname, 'icon.png'),
     webPreferences: {
       nodeIntegration: false,
       contextIsolation: true
     }
   });
 
-  // Cargar la web oficial
   mainWindow.loadURL('https://tkpain.github.io/kara-clan-official-web/');
 
-  // Abrir enlaces externos en el navegador
   mainWindow.webContents.setWindowOpenHandler(({ url }) => {
     shell.openExternal(url);
     return { action: 'deny' };
   });
 
-  // Eliminar el menú por defecto
   mainWindow.setMenuBarVisibility(false);
 }
 
