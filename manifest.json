@@ -7,45 +7,71 @@
   "lang": "en",
   "dir": "ltr",
   "display": "standalone",
-  "display_override": ["standalone", "minimal-ui"],
+  "display_override": ["standalone", "minimal-ui", "window-controls-overlay"],
   "orientation": "portrait-primary",
   "background_color": "#000000",
   "theme_color": "#000000",
   "id": "/kara-clan-official-web/",
   "categories": ["utilities", "productivity"],
   "iarc_rating_id": "",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "scope_extensions": [],
   "icons": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 512 512'><rect width='512' height='512' rx='100' fill='%23000'/><text x='256' y='350' text-anchor='middle' font-family='serif' font-weight='bold' font-size='350' fill='%23c9a84c'>K</text></svg>",
+      "src": "https://placehold.co/512x512/000000/c9a84c?text=K&font=cinzel",
       "sizes": "512x512",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 192 192'><rect width='192' height='192' rx='38' fill='%23000'/><text x='96' y='130' text-anchor='middle' font-family='serif' font-weight='bold' font-size='130' fill='%23c9a84c'>K</text></svg>",
+      "src": "https://placehold.co/192x192/000000/c9a84c?text=K&font=cinzel",
       "sizes": "192x192",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
   "screenshots": [
     {
-      "src": "data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1080 1920'><rect width='1080' height='1920' fill='%23000'/><text x='540' y='960' text-anchor='middle' font-family='serif' font-weight='bold' font-size='80' fill='%23c9a84c'>KARA CLAN</text><text x='540' y='1060' text-anchor='middle' font-family='serif' font-size='40' fill='%23c9a84c'>Professional Windows Optimizer</text></svg>",
+      "src": "https://placehold.co/1080x1920/000000/c9a84c?text=KARA+CLAN&font=cinzel",
       "sizes": "1080x1920",
-      "type": "image/svg+xml",
+      "type": "image/png",
       "form_factor": "narrow"
+    },
+    {
+      "src": "https://placehold.co/1920x1080/000000/c9a84c?text=KARA+CLAN&font=cinzel",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "form_factor": "wide"
     }
   ],
   "shortcuts": [
     {
       "name": "Download Scripts",
-      "url": "/kara-clan-official-web/#downloads",
+      "url": "/kara-clan-official-web/",
       "description": "Download optimization scripts"
     },
     {
       "name": "Community Reviews",
-      "url": "/kara-clan-official-web/#reviews",
+      "url": "/kara-clan-official-web/",
       "description": "Read community reviews"
     }
-  ]
+  ],
+  "share_target": {
+    "action": "/kara-clan-official-web/",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  },
+  "file_handlers": [],
+  "launch_handler": {
+    "client_mode": "navigate-existing"
+  },
+  "protocol_handlers": [],
+  "widgets": [],
+  "edge_side_panel": {},
+  "note_taking": {}
 }
