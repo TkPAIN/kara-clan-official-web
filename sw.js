@@ -1,25 +1,30 @@
-// Service Worker para Kara Clan Official
+// Kara Clan Official - Service Worker v2
 const CACHE_NAME = 'kara-clan-v2';
-const urlsToCache = [
+const ASSETS = [
   '/kara-clan-official-web/',
   '/kara-clan-official-web/index.html',
   '/kara-clan-official-web/manifest.json'
 ];
 
+// Install
 self.addEventListener('install', event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => cache.addAll(urlsToCache))
+    caches.open(CACHE_NAME).then(cache => cache.addAll(ASSETS))
   );
+  self.skipWaiting();
 });
 
+// Activate
 self.addEventListener('activate', event => {
   event.waitUntil(
-    caches.keys().then(cacheNames =>
-      Promise.all(cacheNames.filter(n => n !== CACHE_NAME).map(n => caches.delete(n)))
-    )
+    caches.keys().then(keys => Promise.all(
+      keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+    ))
   );
+  self.clients.claim();
 });
 
+// Fetch (Network First with Cache Fallback)
 self.addEventListener('fetch', event => {
   event.respondWith(
     fetch(event.request)
@@ -32,6 +37,7 @@ self.addEventListener('fetch', event => {
   );
 });
 
+// Push Notifications
 self.addEventListener('push', event => {
   const data = event.data ? event.data.json() : {};
   event.waitUntil(
@@ -44,6 +50,7 @@ self.addEventListener('push', event => {
   );
 });
 
+// Notification Click
 self.addEventListener('notificationclick', event => {
   event.notification.close();
   event.waitUntil(clients.openWindow('https://tkpain.github.io/kara-clan-official-web/'));
