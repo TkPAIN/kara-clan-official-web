@@ -293,7 +293,47 @@
 
         // ── Contador global ──────────────────────────────────────
         async function loadCounts() { let total=0; for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`${COUNTER_WORKER}?key=${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} } document.getElementById('total-dl').textContent=total.toLocaleString(); }
-        async function trackDownload(v) { try{ await fetch(`${COUNTER_WORKER}?key=${v}`,{method:'POST'}); loadCounts(); loadDownloadChart(); loadUserMap(); }catch(e){} }
+        async function trackDownload(v) { try{ await fetch(`${COUNTER_WORKER}?key=${v}`,{method:'POST'}); loadCounts(); loadDownloadChart();
+        // ── Mapa de usuarios (siempre visible) ──
+async function loadUserMap() {
+    const pointsGroup = document.getElementById('map-points');
+    const countries = [
+        { cc: 'US', cx: 200, cy: 160 }, { cc: 'ES', cx: 470, cy: 180 },
+        { cc: 'MX', cx: 180, cy: 200 }, { cc: 'AR', cx: 280, cy: 350 },
+        { cc: 'CO', cx: 250, cy: 240 }, { cc: 'CL', cx: 260, cy: 370 },
+        { cc: 'PE', cx: 240, cy: 280 }, { cc: 'GB', cx: 460, cy: 140 },
+        { cc: 'DE', cx: 490, cy: 150 }, { cc: 'FR', cx: 470, cy: 170 },
+        { cc: 'BR', cx: 300, cy: 300 }, { cc: 'IT', cx: 495, cy: 175 },
+        { cc: 'PT', cx: 455, cy: 185 }, { cc: 'CA', cx: 250, cy: 100 },
+        { cc: 'AU', cx: 700, cy: 400 }, { cc: 'JP', cx: 820, cy: 160 },
+        { cc: 'IN', cx: 650, cy: 220 }, { cc: 'RU', cx: 600, cy: 100 },
+        { cc: 'CN', cx: 750, cy: 170 }, { cc: 'KR', cx: 810, cy: 155 }
+    ];
+    try {
+        pointsGroup.innerHTML = '';
+        for (const { cc, cx, cy } of countries) {
+            const r = await fetch(`${COUNTER_WORKER}?key=country-${cc}`);
+            const d = await r.json();
+            const count = d.value || 0;
+            const hasDownloads = count > 0;
+            
+            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+            circle.setAttribute('cx', cx.toString());
+            circle.setAttribute('cy', cy.toString());
+            circle.setAttribute('r', hasDownloads ? Math.min(8, Math.max(3, count)).toString() : '2');
+            circle.setAttribute('fill', hasDownloads ? 'var(--gold)' : 'var(--border)');
+            circle.setAttribute('opacity', hasDownloads ? '0.9' : '0.4');
+            circle.style.cursor = 'pointer';
+            circle.style.transition = 'all 0.3s ease';
+            
+            const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
+            title.textContent = hasDownloads ? `${cc}: ${count} downloads` : `${cc}: 0 downloads`;
+            circle.appendChild(title);
+            
+            pointsGroup.appendChild(circle);
+        }
+    } catch(e) {}
+}
 
         // ── Ping Test ────────────────────────────────────────────
         async function runPingTest() { const btn=document.getElementById('ping-test-btn'); const re=document.getElementById('ping-result'); const rc=document.getElementById('ping-recommendation'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>'; re.textContent=''; rc.textContent=''; const s=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); const p=Math.round(performance.now()-s); let c,r; if(p<50){c='var(--success)';r='🔥 Excellent!';}else if(p<100){c='var(--gold)';r='👍 Good.';}else if(p<150){c='#ff8c00';r='⚠️ Average.';}else{c='var(--danger)';r='🐌 Slow.';} re.innerHTML=`<span style="color:${c};font-size:2.5rem;">${p}ms</span>`; rc.innerHTML=`<span style="color:${c};">${r}</span>`; }catch(e){ re.innerHTML='<span style="color:var(--danger);">Connection failed</span>'; } finally{ btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; } }
