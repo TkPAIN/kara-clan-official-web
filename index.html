@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='55' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='bold' font-size='72' fill='%23c9a84c'>K</text></svg>">
     <style>
+        /* ─── TEMA OSCURO (default) ─── */
         :root {
             --gold: #c9a84c;
             --gold-bright: #f0d080;
@@ -35,7 +36,25 @@
             --font-mono: 'Share Tech Mono', monospace;
             --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
-        *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+
+        /* ─── TEMA CLARO CREMA ─── */
+        [data-theme="light"] {
+            --gold: #8b6914;
+            --gold-bright: #6b4f0a;
+            --gold-dark: #4a3604;
+            --bg: #faf7f0;
+            --surface: #f5f0e8;
+            --surface-elevated: #ede6d8;
+            --border: #d4c8a8;
+            --text-primary: #2a2518;
+            --text-secondary: #5a5040;
+            --muted: #8a7d60;
+            --danger: #a03028;
+            --info: #0056b3;
+            --success: #1e7a3a;
+        }
+
+        * { margin:0; padding:0; box-sizing:border-box; }
         html { scroll-behavior: smooth; }
         body {
             background: var(--bg);
@@ -43,6 +62,7 @@
             font-family: var(--font-mono);
             min-height: 100vh;
             -webkit-font-smoothing: antialiased;
+            transition: background 0.4s, color 0.4s;
         }
         body::before {
             content: '';
@@ -51,6 +71,7 @@
                 repeating-linear-gradient(0deg, transparent, transparent 40px, rgba(201,168,76,0.008) 40px, rgba(201,168,76,0.008) 41px),
                 repeating-linear-gradient(90deg, transparent, transparent 40px, rgba(201,168,76,0.008) 40px, rgba(201,168,76,0.008) 41px);
         }
+        [data-theme="light"] body::before { opacity: 0.3; }
         .wrapper { position: relative; z-index: 1; max-width: 1040px; margin: 0 auto; padding: 2.5rem 1.5rem 3rem; }
         .gold-text {
             font-family: var(--font-display); font-weight: 900;
@@ -59,108 +80,115 @@
             animation: goldShimmer 4s ease-in-out infinite;
             background-size: 300% 300%;
         }
-        @keyframes goldShimmer {
-            0%, 100% { background-position: 0% 50%; }
-            50% { background-position: 100% 50%; }
-        }
-        .site-header { text-align: center; padding: 3.5rem 0 2.5rem; border-bottom: 1px solid var(--border); position: relative; }
-        .site-header::after { content: ''; position: absolute; bottom: -1px; left: 50%; transform: translateX(-50%); width: 120px; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
-        .site-title { font-size: clamp(2.4rem, 7vw, 3.8rem); letter-spacing: 7px; }
-        .site-tagline { font-size: 0.75rem; letter-spacing: 5px; color: var(--muted); text-transform: uppercase; margin-top: 0.5rem; }
-        .section-title { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--gold); text-align: center; margin: 2.5rem 0 1.5rem; letter-spacing: 2px; }
-        .download-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; }
-        .card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem 1.6rem; text-align: center; position: relative; overflow: hidden; transition: transform 0.18s, box-shadow 0.18s; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 16px 48px rgba(201,168,76,0.22); }
-        .card::before { content: ''; position: absolute; top:0; left:0; right:0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); opacity: 0.6; }
-        .vol-badge { display: inline-block; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); color: #0a0a0a; font-size: 0.68rem; font-weight: 800; letter-spacing: 3px; padding: 0.3rem 1.1rem; border-radius: var(--radius-full); margin-bottom: 1rem; }
-        .card h3 { font-family: var(--font-display); color: var(--gold-bright); font-size: 1.4rem; margin-bottom: 0.5rem; }
-        .card p { color: var(--text-secondary); font-size: 0.82rem; margin-bottom: 1.5rem; line-height: 1.5; }
-        .card p strong { color: var(--gold); }
-        .btn { display: inline-flex; align-items: center; gap: 0.4rem; padding: 0.7rem 1.5rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; text-decoration: none; cursor: pointer; transition: all 0.18s; color: #fff; border: none; }
-        .btn-primary { background: var(--info); }
-        .btn-primary:hover { filter: brightness(1.15); }
-        .btn-danger { background: var(--danger); }
-        .btn-danger:hover { filter: brightness(1.15); }
-        .btn-outline { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
-        .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
-        .btn-success { background: var(--success); }
-        .stats-bar { display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem; margin: 2rem 0; padding: 1.5rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); }
-        .stat-item { text-align: center; }
-        .stat-value { font-family: var(--font-display); font-size: 2rem; font-weight: 800; color: var(--gold-bright); }
-        .stat-label { font-size: 0.7rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
-        .instructions { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; margin: 2rem 0; }
-        .instructions ol { padding-left: 1.5rem; }
-        .instructions li { margin-bottom: 0.5rem; color: var(--text-secondary); font-size: 0.85rem; }
-        .instructions code { background: var(--surface-elevated); padding: 0.2rem 0.4rem; border-radius: 4px; color: var(--gold); }
-        .review-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 1rem; }
-        .review-header { display: flex; align-items: center; gap: 0.6rem; margin-bottom: 0.5rem; }
-        .review-avatar { width: 34px; height: 34px; border-radius: 50%; background: linear-gradient(135deg, var(--gold), var(--gold-dark)); display: flex; align-items: center; justify-content: center; font-family: var(--font-display); font-weight: 700; color: #0a0a0a; }
-        .review-name { font-weight: 600; }
-        .review-volume { font-size: 0.7rem; color: var(--muted); margin-left: auto; }
-        .review-stars { color: var(--gold); font-size: 0.8rem; }
-        .review-body { color: var(--text-secondary); font-size: 0.82rem; margin-top: 0.5rem; font-style: italic; }
-        .form-card { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.6rem; max-width: 520px; margin: 0 auto; display: flex; flex-direction: column; gap: 0.8rem; }
-        .form-card input, .form-card select, .form-card textarea { background: var(--bg); border: 1px solid var(--border); color: var(--text-primary); padding: 0.65rem; border-radius: var(--radius-sm); font-family: var(--font-mono); }
-        .form-card input:focus, .form-card select:focus, .form-card textarea:focus { outline: none; border-color: var(--gold); }
-        .toggle-group { display: flex; align-items: center; justify-content: space-between; padding: 0.5rem 0; }
-        .toggle-label { color: var(--text-primary); font-size: 0.82rem; font-weight: 600; }
-        .toggle-label small { color: var(--text-secondary); font-weight: 400; display: block; font-size: 0.7rem; margin-top: 0.15rem; }
-        .switch { position: relative; display: inline-block; width: 50px; height: 28px; flex-shrink: 0; }
-        .switch input { opacity: 0; width: 0; height: 0; }
-        .slider { position: absolute; cursor: pointer; inset: 0; background: var(--bg); border: 2px solid var(--border); border-radius: 28px; transition: border-color var(--transition-smooth), background var(--transition-smooth); }
-        .slider::before { content: ''; position: absolute; height: 20px; width: 20px; left: 2px; bottom: 2px; background: var(--text-secondary); border-radius: 50%; transition: transform 0.3s cubic-bezier(0.68, -0.20, 0.27, 1.20), background var(--transition-smooth); }
-        .switch input:checked + .slider { border-color: var(--gold); background: rgba(201,168,76,0.1); }
-        .switch input:checked + .slider::before { background: var(--gold); transform: translateX(22px); }
-        .switch input:disabled + .slider { opacity: 0.5; cursor: not-allowed; }
-        .cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 92%; max-width: 700px; background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 1.6rem 1.8rem; z-index: 10000; box-shadow: 0 20px 60px rgba(0,0,0,0.85); transition: opacity var(--transition-smooth), transform var(--transition-smooth); }
-        .cookie-banner.hidden { opacity: 0; pointer-events: none; transform: translateX(-50%) translateY(20px); }
-        .cookie-banner-content { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; }
-        .cookie-banner-text h3 { font-family: var(--font-display); color: var(--gold); font-size: 1rem; margin-bottom: 0.3rem; }
-        .cookie-banner-text p { color: var(--text-secondary); font-size: 0.75rem; }
-        .cookie-banner-actions { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-        .cookie-btn { padding: 0.5rem 1.1rem; border-radius: var(--radius-sm); font-family: var(--font-mono); font-size: 0.7rem; font-weight: 700; letter-spacing: 1px; cursor: pointer; border: none; }
-        .cookie-btn-accept { background: var(--gold); color: #0a0a0a; }
-        .cookie-btn-reject { background: transparent; border: 1px solid var(--border); color: var(--text-secondary); }
-        .cookie-btn-settings { background: transparent; border: 1px solid var(--gold); color: var(--gold); }
-        .cookie-settings-overlay { position: fixed; inset: 0; background: rgba(0,0,0,0.88); z-index: 10001; display: flex; align-items: center; justify-content: center; padding: 1rem; }
-        .cookie-settings-overlay.hidden { display: none; }
-        .cookie-settings-panel { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 2rem; max-width: 560px; width: 100%; }
-        .cookie-floating-btn { position: fixed; bottom: 20px; right: 20px; z-index: 9999; width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated); border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem; cursor: pointer; display: flex; align-items: center; justify-content: center; }
-        .support-widget { position: fixed; bottom: 80px; right: 20px; display: flex; flex-direction: column; gap: 10px; z-index: 9998; }
-        .support-btn, .support-btn-clan { width: 44px; height: 44px; border-radius: 50%; background: var(--surface-elevated); border: 2px solid var(--gold); color: var(--gold); font-size: 1.1rem; display: flex; align-items: center; justify-content: center; text-decoration: none; transition: all 0.18s; }
-        .support-btn-clan { border-color: #fff; color: #fff; box-shadow: 0 0 12px rgba(255,255,255,0.3); }
-        .support-btn-clan:hover { background: #fff; color: #0a0a0a; box-shadow: 0 0 24px rgba(255,255,255,0.6); }
-        .support-btn:hover { background: var(--gold); color: #0a0a0a; }
-        .compare-table { width: 100%; border-collapse: collapse; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); overflow: hidden; margin-bottom: 2rem; }
-        .compare-table th { padding: 0.8rem; text-align: left; color: var(--gold); font-family: var(--font-display); font-size: 0.85rem; background: var(--surface-elevated); }
-        .compare-table td { padding: 0.7rem; color: var(--text-primary); border-top: 1px solid var(--border); text-align: center; }
-        .compare-table td:first-child { text-align: left; }
-        .ping-test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; max-width: 600px; margin: 0 auto 2rem; text-align: center; }
-        .speed-test-card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 2rem; max-width: 600px; margin: 0 auto 2rem; text-align: center; }
-        .speed-results { display: flex; justify-content: center; gap: 2rem; margin-top: 1rem; }
-        .speed-item { text-align: center; }
-        .speed-value { font-family: var(--font-display); font-size: 2rem; font-weight: 700; color: var(--gold-bright); }
-        .speed-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; }
-        footer { text-align: center; color: var(--muted); font-size: 0.75rem; border-top: 1px solid var(--border); padding: 2rem 0; margin-top: 3rem; }
-        footer a { color: var(--gold); text-decoration: none; }
-        #download-chart { display: flex; align-items: flex-end; gap: 0.5rem; height: 120px; justify-content: center; padding: 1rem; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 2rem; }
-        #user-map { padding: 1rem; text-align: center; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); margin-bottom: 2rem; }
-        #changelog-container { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius-md); padding: 1.5rem; margin-bottom: 2rem; }
-        .changelog-entry { border-left: 2px solid var(--gold); padding-left: 1rem; margin-bottom: 1rem; }
-        .changelog-entry h4 { color: var(--gold); font-family: var(--font-display); font-size: 0.9rem; }
-        .changelog-entry p { color: var(--text-secondary); font-size: 0.78rem; }
-        .changelog-entry small { color: var(--muted); font-size: 0.65rem; }
-        @media (max-width: 640px) { .download-grid { grid-template-columns: 1fr; } .cookie-banner-content { flex-direction: column; text-align: center; } .speed-results { flex-direction: column; align-items: center; } }
+        @keyframes goldShimmer { 0%,100%{background-position:0% 50%} 50%{background-position:100% 50%} }
+        .site-header { text-align:center; padding:3.5rem 0 2.5rem; border-bottom:1px solid var(--border); position:relative; }
+        .site-header::after { content:''; position:absolute; bottom:-1px; left:50%; transform:translateX(-50%); width:120px; height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); }
+        .site-title { font-size:clamp(2.4rem,7vw,3.8rem); letter-spacing:7px; }
+        .site-tagline { font-size:0.75rem; letter-spacing:5px; color:var(--muted); text-transform:uppercase; margin-top:0.5rem; }
+        .section-title { font-family:var(--font-display); font-size:1.5rem; font-weight:700; color:var(--gold); text-align:center; margin:2.5rem 0 1.5rem; letter-spacing:2px; }
+        .download-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:1.5rem; }
+        .card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:2rem 1.6rem; text-align:center; position:relative; overflow:hidden; transition:transform 0.18s,box-shadow 0.18s,background 0.3s; }
+        .card:hover { transform:translateY(-5px); box-shadow:0 16px 48px rgba(201,168,76,0.22); }
+        .card::before { content:''; position:absolute; top:0;left:0;right:0;height:2px; background:linear-gradient(90deg,transparent,var(--gold),transparent); opacity:0.6; }
+        .vol-badge { display:inline-block; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); color:#fff; font-size:0.68rem; font-weight:800; letter-spacing:3px; padding:0.3rem 1.1rem; border-radius:var(--radius-full); margin-bottom:1rem; }
+        [data-theme="light"] .vol-badge { color:#fff; }
+        .card h3 { font-family:var(--font-display); color:var(--gold-bright); font-size:1.4rem; margin-bottom:0.5rem; }
+        .card p { color:var(--text-secondary); font-size:0.82rem; margin-bottom:1.5rem; line-height:1.5; }
+        .card p strong { color:var(--gold); }
+        .btn { display:inline-flex; align-items:center; gap:0.4rem; padding:0.7rem 1.5rem; border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:0.8rem; font-weight:700; letter-spacing:1px; text-decoration:none; cursor:pointer; transition:all 0.18s; color:#fff; border:none; }
+        .btn-primary { background:var(--info); }
+        .btn-primary:hover { filter:brightness(1.15); }
+        .btn-danger { background:var(--danger); }
+        .btn-danger:hover { filter:brightness(1.15); }
+        .btn-outline { background:transparent; border:1px solid var(--border); color:var(--text-secondary); }
+        .btn-outline:hover { border-color:var(--gold); color:var(--gold); }
+        .btn-success { background:var(--success); }
+        .stats-bar { display:flex; flex-wrap:wrap; justify-content:center; gap:2rem; margin:2rem 0; padding:1.5rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); }
+        .stat-item { text-align:center; }
+        .stat-value { font-family:var(--font-display); font-size:2rem; font-weight:800; color:var(--gold-bright); }
+        .stat-label { font-size:0.7rem; color:var(--muted); letter-spacing:2px; text-transform:uppercase; }
+        .instructions { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:2rem; margin:2rem 0; }
+        .instructions ol { padding-left:1.5rem; }
+        .instructions li { margin-bottom:0.5rem; color:var(--text-secondary); font-size:0.85rem; }
+        .instructions code { background:var(--surface-elevated); padding:0.2rem 0.4rem; border-radius:4px; color:var(--gold); }
+        .review-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem; margin-bottom:1rem; }
+        .review-header { display:flex; align-items:center; gap:0.6rem; margin-bottom:0.5rem; }
+        .review-avatar { width:34px; height:34px; border-radius:50%; background:linear-gradient(135deg,var(--gold),var(--gold-dark)); display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-weight:700; color:#fff; }
+        [data-theme="dark"] .review-avatar { color:#0a0a0a; }
+        .review-name { font-weight:600; }
+        .review-volume { font-size:0.7rem; color:var(--muted); margin-left:auto; }
+        .review-stars { color:var(--gold); font-size:0.8rem; }
+        .review-body { color:var(--text-secondary); font-size:0.82rem; margin-top:0.5rem; font-style:italic; }
+        .form-card { background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.6rem; max-width:520px; margin:0 auto; display:flex; flex-direction:column; gap:0.8rem; }
+        .form-card input,.form-card select,.form-card textarea { background:var(--bg); border:1px solid var(--border); color:var(--text-primary); padding:0.65rem; border-radius:var(--radius-sm); font-family:var(--font-mono); }
+        .form-card input:focus,.form-card select:focus,.form-card textarea:focus { outline:none; border-color:var(--gold); }
+        .toggle-group { display:flex; align-items:center; justify-content:space-between; padding:0.5rem 0; }
+        .toggle-label { color:var(--text-primary); font-size:0.82rem; font-weight:600; }
+        .toggle-label small { color:var(--text-secondary); font-weight:400; display:block; font-size:0.7rem; margin-top:0.15rem; }
+        .switch { position:relative; display:inline-block; width:50px; height:28px; flex-shrink:0; }
+        .switch input { opacity:0; width:0; height:0; }
+        .slider { position:absolute; cursor:pointer; inset:0; background:var(--bg); border:2px solid var(--border); border-radius:28px; transition:border-color var(--transition-smooth),background var(--transition-smooth); }
+        .slider::before { content:''; position:absolute; height:20px; width:20px; left:2px; bottom:2px; background:var(--text-secondary); border-radius:50%; transition:transform 0.3s cubic-bezier(0.68,-0.20,0.27,1.20),background var(--transition-smooth); }
+        .switch input:checked+.slider { border-color:var(--gold); background:rgba(201,168,76,0.1); }
+        .switch input:checked+.slider::before { background:var(--gold); transform:translateX(22px); }
+        .switch input:disabled+.slider { opacity:0.5; cursor:not-allowed; }
+        .theme-toggle { position:fixed; top:20px; right:80px; z-index:10002; width:40px; height:40px; border-radius:50%; background:var(--surface-elevated); border:2px solid var(--gold); color:var(--gold); cursor:pointer; display:flex; align-items:center; justify-content:center; font-size:1.2rem; transition:all 0.2s; }
+        .theme-toggle:hover { background:var(--gold); color:var(--bg); }
+        .cookie-banner { position:fixed; bottom:20px; left:50%; transform:translateX(-50%); width:92%; max-width:700px; background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.6rem 1.8rem; z-index:10000; box-shadow:0 20px 60px rgba(0,0,0,0.85); transition:opacity var(--transition-smooth),transform var(--transition-smooth); }
+        .cookie-banner.hidden { opacity:0; pointer-events:none; transform:translateX(-50%) translateY(20px); }
+        .cookie-banner-content { display:flex; flex-wrap:wrap; gap:1rem; align-items:center; }
+        .cookie-banner-text h3 { font-family:var(--font-display); color:var(--gold); font-size:1rem; margin-bottom:0.3rem; }
+        .cookie-banner-text p { color:var(--text-secondary); font-size:0.75rem; }
+        .cookie-banner-actions { display:flex; gap:0.5rem; flex-wrap:wrap; }
+        .cookie-btn { padding:0.5rem 1.1rem; border-radius:var(--radius-sm); font-family:var(--font-mono); font-size:0.7rem; font-weight:700; letter-spacing:1px; cursor:pointer; border:none; }
+        .cookie-btn-accept { background:var(--gold); color:#fff; }
+        [data-theme="dark"] .cookie-btn-accept { color:#0a0a0a; }
+        .cookie-btn-reject { background:transparent; border:1px solid var(--border); color:var(--text-secondary); }
+        .cookie-btn-settings { background:transparent; border:1px solid var(--gold); color:var(--gold); }
+        .cookie-settings-overlay { position:fixed; inset:0; background:rgba(0,0,0,0.88); z-index:10001; display:flex; align-items:center; justify-content:center; padding:1rem; }
+        [data-theme="light"] .cookie-settings-overlay { background:rgba(0,0,0,0.6); }
+        .cookie-settings-overlay.hidden { display:none; }
+        .cookie-settings-panel { background:var(--surface-elevated); border:1px solid var(--border); border-radius:var(--radius-lg); padding:2rem; max-width:560px; width:100%; }
+        .cookie-floating-btn { position:fixed; bottom:20px; right:20px; z-index:9999; width:44px; height:44px; border-radius:50%; background:var(--surface-elevated); border:2px solid var(--gold); color:var(--gold); font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
+        .support-widget { position:fixed; bottom:80px; right:20px; display:flex; flex-direction:column; gap:10px; z-index:9998; }
+        .support-btn,.support-btn-clan { width:44px; height:44px; border-radius:50%; background:var(--surface-elevated); border:2px solid var(--gold); color:var(--gold); font-size:1.1rem; display:flex; align-items:center; justify-content:center; text-decoration:none; transition:all 0.18s; }
+        .support-btn-clan { border-color:#fff; color:#fff; box-shadow:0 0 12px rgba(255,255,255,0.3); }
+        .support-btn-clan:hover { background:#fff; color:#0a0a0a; box-shadow:0 0 24px rgba(255,255,255,0.6); }
+        .support-btn:hover { background:var(--gold); color:var(--bg); }
+        .compare-table { width:100%; border-collapse:collapse; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); overflow:hidden; margin-bottom:2rem; }
+        .compare-table th { padding:0.8rem; text-align:left; color:var(--gold); font-family:var(--font-display); font-size:0.85rem; background:var(--surface-elevated); }
+        .compare-table td { padding:0.7rem; color:var(--text-primary); border-top:1px solid var(--border); text-align:center; }
+        .compare-table td:first-child { text-align:left; }
+        .ping-test-card,.speed-test-card { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:2rem; max-width:600px; margin:0 auto 2rem; }
+        .speed-results { display:flex; justify-content:center; gap:2rem; margin-top:1rem; }
+        .speed-item { text-align:center; }
+        .speed-value { font-family:var(--font-display); font-size:2rem; font-weight:700; color:var(--gold-bright); }
+        .speed-label { font-size:0.7rem; color:var(--muted); text-transform:uppercase; }
+        footer { text-align:center; color:var(--muted); font-size:0.75rem; border-top:1px solid var(--border); padding:2rem 0; margin-top:3rem; }
+        footer a { color:var(--gold); text-decoration:none; }
+        #download-chart { display:flex; align-items:flex-end; gap:0.5rem; height:120px; justify-content:center; padding:1rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); margin-bottom:2rem; }
+        #user-map { padding:1rem; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); margin-bottom:2rem; text-align:center; }
+        #changelog-container { background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem; margin-bottom:2rem; }
+        .changelog-entry { border-left:2px solid var(--gold); padding-left:1rem; margin-bottom:1rem; }
+        .changelog-entry h4 { color:var(--gold); font-family:var(--font-display); font-size:0.9rem; }
+        .changelog-entry p { color:var(--text-secondary); font-size:0.78rem; }
+        .changelog-entry small { color:var(--muted); font-size:0.65rem; }
+        @media (max-width:640px) { .download-grid { grid-template-columns:1fr; } .cookie-banner-content { flex-direction:column; text-align:center; } .speed-results { flex-direction:column; align-items:center; } .theme-toggle { top:10px; right:70px; } }
     </style>
 </head>
-<body>
+<body data-theme="dark">
+    <!-- Theme toggle -->
+    <button class="theme-toggle" onclick="toggleTheme()" aria-label="Toggle theme" title="Toggle theme">
+        <i id="theme-icon" class="fas fa-sun"></i>
+    </button>
+
     <div class="wrapper">
         <header class="site-header">
             <h1 class="site-title gold-text">KARA CLAN</h1>
             <p class="site-tagline" data-es="Optimización Profesional de Windows" data-en="Professional Windows Optimization">Professional Windows Optimization</p>
         </header>
 
-        <div id="discord-live" style="text-align:center; margin-bottom:1rem;">
+        <div id="discord-live" style="text-align:center;margin-bottom:1rem;">
             <a href="https://discord.gg/8erP3Tz3MR" target="_blank" style="display:inline-flex;align-items:center;gap:0.5rem;background:var(--surface-elevated);border:1px solid var(--border);border-radius:9999px;padding:0.4rem 1.2rem;text-decoration:none;">
                 <i class="fab fa-discord" style="color:#5865F2;font-size:1.2rem;"></i>
                 <span style="color:var(--text-primary);font-size:0.78rem;">
@@ -177,17 +205,17 @@
             <div class="card"><div class="vol-badge">VOL.2</div><h3>Advanced</h3><p data-es="Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 mejoras</strong>." data-en="Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.">Vol.1 + QoS DSCP 46, GPU Priority, Game Mode. <strong>17 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v2.bat" class="btn btn-primary" onclick="trackDownload('v2')"><i class="fas fa-download"></i> <span data-es="Descargar .bat" data-en="Download .bat">Download .bat</span></a></div>
             <div class="card"><div class="vol-badge">VOL.3 FIXED</div><h3>Complete</h3><p data-es="Servicios, registro, disco y memoria. <strong>20 mejoras</strong>." data-en="Services, registry, disk & memory. <strong>20 tweaks</strong>.">Services, registry, disk & memory. <strong>20 tweaks</strong>.</p><a href="https://kara-download.marcos238gn.workers.dev/?file=Optimizar_v3.bat" class="btn btn-primary" onclick="trackDownload('v3')"><i class="fas fa-download"></i> <span data-es="Descargar .bat" data-en="Download .bat">Download .bat</span></a></div>
         </div>
-        <div style="text-align:center; margin:1.5rem 0;"><a href="https://kara-download.marcos238gn.workers.dev/?file=Revert_Optimizer.bat" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> <span data-es="Reset Optimizer" data-en="Reset Optimizer">Reset Optimizer</span></a></div>
+        <div style="text-align:center;margin:1.5rem 0;"><a href="https://kara-download.marcos238gn.workers.dev/?file=Revert_Optimizer.bat" class="btn btn-danger" onclick="trackDownload('reset')"><i class="fas fa-undo-alt"></i> <span data-es="Reset Optimizer" data-en="Reset Optimizer">Reset Optimizer</span></a></div>
 
         <h2 class="section-title"><i class="fas fa-balance-scale"></i> <span data-es="Comparar Versiones" data-en="Compare Versions">Compare Versions</span></h2>
         <div style="overflow-x:auto;"><table class="compare-table"><thead><tr><th>Feature</th><th>Vol.1 Essential</th><th>Vol.2 Advanced</th><th>Vol.3 Complete</th></tr></thead><tbody><tr><td>Total Tweaks</td><td>8</td><td>17</td><td>20</td></tr><tr><td>Network (Nagle, DNS)</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>QoS DSCP 46 (Gaming)</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>GPU Priority</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Game Mode + SysMain</td><td>❌</td><td>✅</td><td>✅</td></tr><tr><td>Services optimization</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Registry tweaks</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Disk cleanup</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Memory optimization</td><td>❌</td><td>❌</td><td>✅</td></tr><tr><td>Reversible</td><td>✅</td><td>✅</td><td>✅</td></tr><tr><td>Portable version (.ps1)</td><td>✅</td><td>✅</td><td>✅</td></tr></tbody></table></div>
 
         <h2 class="section-title"><i class="fas fa-tachometer-alt"></i> <span data-es="Prueba de Conexión" data-en="Test Your Connection">Test Your Connection</span></h2>
-        <div class="ping-test-card"><p style="color:var(--text-secondary); margin-bottom:1.5rem;" data-es="Mide tu latencia actual." data-en="Measure your current latency.">Measure your current latency.</p><button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> <span data-es="Iniciar Test" data-en="Start Ping Test">Start Ping Test</span></button><div id="ping-result" style="margin-top:1.5rem; font-family:var(--font-display); font-size:1.2rem; font-weight:700;"></div><div id="ping-recommendation" style="margin-top:0.5rem; font-size:0.85rem;"></div></div>
+        <div class="ping-test-card"><p style="color:var(--text-secondary);margin-bottom:1.5rem;" data-es="Mide tu latencia actual." data-en="Measure your current latency.">Measure your current latency.</p><button class="btn btn-primary" id="ping-test-btn" onclick="runPingTest()"><i class="fas fa-play"></i> <span data-es="Iniciar Test" data-en="Start Ping Test">Start Ping Test</span></button><div id="ping-result" style="margin-top:1.5rem;"></div><div id="ping-recommendation" style="margin-top:0.5rem;font-size:0.85rem;"></div></div>
 
         <h2 class="section-title"><i class="fas fa-gauge-high"></i> <span data-es="Test de Velocidad" data-en="Speed Test">Speed Test</span></h2>
         <div class="speed-test-card">
-            <p style="color:var(--text-secondary); margin-bottom:1.5rem;" data-es="Mide tu velocidad de descarga y subida." data-en="Measure your download and upload speed.">Measure your download and upload speed.</p>
+            <p style="color:var(--text-secondary);margin-bottom:1.5rem;" data-es="Mide tu velocidad de descarga y subida." data-en="Measure your download and upload speed.">Measure your download and upload speed.</p>
             <button class="btn btn-primary" id="speed-test-btn" onclick="runSpeedTest()"><i class="fas fa-play"></i> <span data-es="Iniciar Test" data-en="Start Speed Test">Start Speed Test</span></button>
             <div class="speed-results" id="speed-results" style="display:none;margin-top:1.5rem;">
                 <div class="speed-item"><div class="speed-value" id="dl-speed">—</div><div class="speed-label">Mbps ↓</div></div>
@@ -227,18 +255,18 @@
 
         <h2 class="section-title"><i class="fas fa-globe-americas"></i> Users Around the World</h2>
         <div id="user-map">
-            <svg id="world-map" viewBox="0 0 1000 500" style="width:100%;max-width:800px;margin:0 auto;display:block;background:var(--surface-elevated);">
+            <svg id="world-map" viewBox="0 0 1000 500" style="width:100%;max-width:800px;margin:0 auto;display:block;background:transparent;">
                 <rect x="0" y="0" width="1000" height="500" fill="none" stroke="var(--border)" stroke-width="1"/>
                 <g id="map-points"></g>
             </svg>
-            <p style="color:var(--muted);font-size:0.7rem;margin-top:0.5rem;" data-es="Pasa el cursor sobre un punto para ver detalles" data-en="Hover over a dot to see country details">Hover over a dot to see country details</p>
+            <p style="color:var(--muted);font-size:0.7rem;margin-top:0.5rem;" data-es="Pasa el cursor sobre un punto para ver detalles" data-en="Hover over a dot to see details">Hover over a dot to see details</p>
         </div>
 
         <h2 class="section-title"><i class="fas fa-star"></i> Community Reviews</h2>
         <div id="reviews-container"><p style="text-align:center;color:var(--muted);">Loading reviews…</p></div>
-        <div style="text-align:center; margin:1rem 0;"><button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> <span data-es="Dejar Reseña" data-en="Leave a Review">Leave a Review</span></button></div>
+        <div style="text-align:center;margin:1rem 0;"><button class="btn btn-outline" onclick="toggleReviewForm()"><i class="fas fa-pen"></i> <span data-es="Dejar Reseña" data-en="Leave a Review">Leave a Review</span></button></div>
         <div id="review-form-wrapper" style="display:none;"><form class="form-card" onsubmit="submitReview(event)"><h4 style="font-family:var(--font-display);color:var(--gold);text-align:center;" data-es="Tu Reseña" data-en="Your Review">Your Review</h4><input type="text" id="review-name" placeholder="Your name or nickname" required maxlength="40"><select id="review-volume" required><option value="" data-es="Selecciona versión" data-en="Select version">Select version</option><option value="Vol.1 Essential">Vol.1 Essential</option><option value="Vol.2 Advanced">Vol.2 Advanced</option><option value="Vol.3 Complete">Vol.3 Complete</option></select><textarea id="review-text" rows="3" placeholder="Tell us about your experience…" required maxlength="500"></textarea><button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Submit</button></form></div>
-        <div id="hall-of-fame" style="margin-top:2rem;"><h3 style="font-family:var(--font-display); color:var(--gold-bright); text-align:center; margin-bottom:1rem;"><i class="fas fa-crown"></i> Hall of Fame</h3><div id="hof-container" style="display:flex; flex-wrap:wrap; gap:1rem; justify-content:center;"><p style="color:var(--muted);">Loading top reviewers…</p></div></div>
+        <div id="hall-of-fame" style="margin-top:2rem;"><h3 style="font-family:var(--font-display);color:var(--gold-bright);text-align:center;margin-bottom:1rem;"><i class="fas fa-crown"></i> Hall of Fame</h3><div id="hof-container" style="display:flex;flex-wrap:wrap;gap:1rem;justify-content:center;"><p style="color:var(--muted);">Loading top reviewers…</p></div></div>
     </div>
 
     <div id="cookie-banner" class="cookie-banner"><div class="cookie-banner-content"><div class="cookie-banner-text"><h3>🍪 <span data-es="Valoramos tu privacidad" data-en="We value your privacy">We value your privacy</span></h3><p data-es="Usamos cookies para mejorar tu experiencia. Puedes personalizar tus preferencias." data-en="We use cookies to improve your experience. You can customize your preferences.">We use cookies to improve your experience. You can customize your preferences.</p></div><div class="cookie-banner-actions"><button class="cookie-btn cookie-btn-settings" onclick="openCookieSettings()"><span data-es="Personalizar" data-en="Customize">Customize</span></button><button class="cookie-btn cookie-btn-reject" onclick="rejectAllCookies()"><span data-es="Rechazar Todo" data-en="Reject All">Reject All</span></button><button class="cookie-btn cookie-btn-accept" onclick="acceptAllCookies()"><span data-es="Aceptar Todo" data-en="Accept All">Accept All</span></button></div></div></div>
@@ -258,6 +286,22 @@
         const REVIEWS_REPO = 'TkPAIN/kara-clan-win-op';
         const CHANGELOG_REPO = 'TkPAIN/kara-clan-official-web';
 
+        // ── Tema ──────────────────────────────────────────────────
+        function toggleTheme() {
+            const body = document.body;
+            const icon = document.getElementById('theme-icon');
+            const current = body.getAttribute('data-theme');
+            const next = current === 'dark' ? 'light' : 'dark';
+            body.setAttribute('data-theme', next);
+            icon.className = next === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+            localStorage.setItem('kara-theme', next);
+        }
+        (function initTheme() {
+            const saved = localStorage.getItem('kara-theme') || 'dark';
+            document.body.setAttribute('data-theme', saved);
+            document.getElementById('theme-icon').className = saved === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+        })();
+
         // ── Traducción automática ────────────────────────────────
         (function autoTranslate() {
             const userLang = (navigator.language || navigator.userLanguage || 'en').toLowerCase();
@@ -273,9 +317,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             document.querySelectorAll('button, .btn, a.btn').forEach(el => {
                 el.addEventListener('click', () => {
-                    if (hapticEnabled && navigator.vibrate) {
-                        navigator.vibrate(10);
-                    }
+                    if (hapticEnabled && navigator.vibrate) { navigator.vibrate(10); }
                 });
             });
         });
@@ -293,209 +335,28 @@
 
         // ── Contador global ──────────────────────────────────────
         async function loadCounts() { let total=0; for(const k of ['v1','v2','v3','reset']){ try{ const r=await fetch(`${COUNTER_WORKER}?key=${k}`); const d=await r.json(); const v=d.value||0; if(k!=='reset') total+=v; const el=document.getElementById(`${k}-dl`); if(el) el.textContent=v.toLocaleString(); }catch(e){} } document.getElementById('total-dl').textContent=total.toLocaleString(); }
-        async function trackDownload(v) { try{ await fetch(`${COUNTER_WORKER}?key=${v}`,{method:'POST'}); loadCounts(); loadDownloadChart();
-        // ── Mapa de usuarios (siempre visible) ──
-async function loadUserMap() {
-    const pointsGroup = document.getElementById('map-points');
-    const countries = [
-        { cc: 'US', cx: 200, cy: 160 }, { cc: 'ES', cx: 470, cy: 180 },
-        { cc: 'MX', cx: 180, cy: 200 }, { cc: 'AR', cx: 280, cy: 350 },
-        { cc: 'CO', cx: 250, cy: 240 }, { cc: 'CL', cx: 260, cy: 370 },
-        { cc: 'PE', cx: 240, cy: 280 }, { cc: 'GB', cx: 460, cy: 140 },
-        { cc: 'DE', cx: 490, cy: 150 }, { cc: 'FR', cx: 470, cy: 170 },
-        { cc: 'BR', cx: 300, cy: 300 }, { cc: 'IT', cx: 495, cy: 175 },
-        { cc: 'PT', cx: 455, cy: 185 }, { cc: 'CA', cx: 250, cy: 100 },
-        { cc: 'AU', cx: 700, cy: 400 }, { cc: 'JP', cx: 820, cy: 160 },
-        { cc: 'IN', cx: 650, cy: 220 }, { cc: 'RU', cx: 600, cy: 100 },
-        { cc: 'CN', cx: 750, cy: 170 }, { cc: 'KR', cx: 810, cy: 155 }
-    ];
-    try {
-        pointsGroup.innerHTML = '';
-        for (const { cc, cx, cy } of countries) {
-            const r = await fetch(`${COUNTER_WORKER}?key=country-${cc}`);
-            const d = await r.json();
-            const count = d.value || 0;
-            const hasDownloads = count > 0;
-            
-            const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-            circle.setAttribute('cx', cx.toString());
-            circle.setAttribute('cy', cy.toString());
-            circle.setAttribute('r', hasDownloads ? Math.min(8, Math.max(3, count)).toString() : '2');
-            circle.setAttribute('fill', hasDownloads ? 'var(--gold)' : 'var(--border)');
-            circle.setAttribute('opacity', hasDownloads ? '0.9' : '0.4');
-            circle.style.cursor = 'pointer';
-            circle.style.transition = 'all 0.3s ease';
-            
-            const title = document.createElementNS('http://www.w3.org/2000/svg', 'title');
-            title.textContent = hasDownloads ? `${cc}: ${count} downloads` : `${cc}: 0 downloads`;
-            circle.appendChild(title);
-            
-            pointsGroup.appendChild(circle);
-        }
-    } catch(e) {}
-}
+        async function trackDownload(v) { try{ await fetch(`${COUNTER_WORKER}?key=${v}`,{method:'POST'}); loadCounts(); loadDownloadChart(); loadUserMap(); }catch(e){} }
 
         // ── Ping Test ────────────────────────────────────────────
         async function runPingTest() { const btn=document.getElementById('ping-test-btn'); const re=document.getElementById('ping-result'); const rc=document.getElementById('ping-recommendation'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>'; re.textContent=''; rc.textContent=''; const s=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); const p=Math.round(performance.now()-s); let c,r; if(p<50){c='var(--success)';r='🔥 Excellent!';}else if(p<100){c='var(--gold)';r='👍 Good.';}else if(p<150){c='#ff8c00';r='⚠️ Average.';}else{c='var(--danger)';r='🐌 Slow.';} re.innerHTML=`<span style="color:${c};font-size:2.5rem;">${p}ms</span>`; rc.innerHTML=`<span style="color:${c};">${r}</span>`; }catch(e){ re.innerHTML='<span style="color:var(--danger);">Connection failed</span>'; } finally{ btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; } }
 
         // ── Speed Test ───────────────────────────────────────────
-        async function runSpeedTest() {
-            const btn = document.getElementById('speed-test-btn');
-            const results = document.getElementById('speed-results');
-            const dlEl = document.getElementById('dl-speed');
-            const ulEl = document.getElementById('ul-speed');
-            const pingEl = document.getElementById('speed-ping');
-
-            btn.disabled = true;
-            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Testing...';
-            results.style.display = 'none';
-
-            // Download test (small file from Cloudflare)
-            const dlStart = performance.now();
-            try {
-                await fetch('https://speed.cloudflare.com/__down?bytes=500000');
-                const dlEnd = performance.now();
-                const dlDuration = (dlEnd - dlStart) / 1000;
-                const dlMbps = ((500000 * 8) / (dlDuration * 1000000)).toFixed(1);
-                dlEl.textContent = dlMbps;
-            } catch(e) { dlEl.textContent = '—'; }
-
-            // Upload test (small POST)
-            const ulStart = performance.now();
-            try {
-                await fetch('https://httpbin.org/post', { method: 'POST', body: new ArrayBuffer(100000) });
-                const ulEnd = performance.now();
-                const ulDuration = (ulEnd - ulStart) / 1000;
-                const ulMbps = ((100000 * 8) / (ulDuration * 1000000)).toFixed(1);
-                ulEl.textContent = ulMbps;
-            } catch(e) { ulEl.textContent = '—'; }
-
-            // Ping
-            const pingStart = performance.now();
-            try {
-                await fetch('https://api.cloudflare.com/cdn-cgi/trace');
-                const pingEnd = performance.now();
-                pingEl.textContent = Math.round(pingEnd - pingStart) + 'ms';
-            } catch(e) { pingEl.textContent = '—'; }
-
-            results.style.display = 'flex';
-            btn.disabled = false;
-            btn.innerHTML = '<i class="fas fa-redo"></i> Test Again';
-        }
+        async function runSpeedTest() { const btn=document.getElementById('speed-test-btn'); const results=document.getElementById('speed-results'); const dlEl=document.getElementById('dl-speed'); const ulEl=document.getElementById('ul-speed'); const pingEl=document.getElementById('speed-ping'); btn.disabled=true; btn.innerHTML='<i class="fas fa-spinner fa-spin"></i>'; results.style.display='none'; const dlStart=performance.now(); try{ await fetch('https://speed.cloudflare.com/__down?bytes=500000'); const dlEnd=performance.now(); dlEl.textContent=((500000*8)/((dlEnd-dlStart)/1000)/1000000).toFixed(1); }catch(e){dlEl.textContent='—';} const ulStart=performance.now(); try{ await fetch('https://httpbin.org/post',{method:'POST',body:new ArrayBuffer(100000)}); const ulEnd=performance.now(); ulEl.textContent=((100000*8)/((ulEnd-ulStart)/1000)/1000000).toFixed(1); }catch(e){ulEl.textContent='—';} const pingStart=performance.now(); try{ await fetch('https://api.cloudflare.com/cdn-cgi/trace'); pingEl.textContent=Math.round(performance.now()-pingStart)+'ms'; }catch(e){pingEl.textContent='—';} results.style.display='flex'; btn.disabled=false; btn.innerHTML='<i class="fas fa-redo"></i> Test Again'; }
 
         // ── Discord Widget ───────────────────────────────────────
         async function loadDiscordWidget() { try{ const r=await fetch('https://kara-discord-widget.marcos238gn.workers.dev'); const d=await r.json(); document.getElementById('discord-online').textContent=d.online.toLocaleString(); document.getElementById('discord-total').textContent=d.total.toLocaleString(); }catch(e){} }
 
         // ── Changelog ────────────────────────────────────────────
-        async function loadChangelog() {
-            const container = document.getElementById('changelog-container');
-            try {
-                const r = await fetch(`https://api.github.com/repos/${CHANGELOG_REPO}/releases?per_page=3`);
-                if (!r.ok) throw new Error('API error');
-                const releases = await r.json();
-                if (!releases.length) {
-                    container.innerHTML = '<p style="color:var(--muted);text-align:center;">No releases yet.</p>';
-                    return;
-                }
-                container.innerHTML = '';
-                releases.forEach(release => {
-                    const div = document.createElement('div');
-                    div.className = 'changelog-entry';
-                    const date = new Date(release.published_at).toLocaleDateString();
-                    div.innerHTML = `
-                        <h4>${release.name || release.tag_name} <small>(${date})</small></h4>
-                        <p>${release.body ? release.body.replace(/\n/g, '<br>').substring(0, 300) : 'No description.'}</p>
-                        <small><a href="${release.html_url}" target="_blank" style="color:var(--gold);">View on GitHub →</a></small>
-                    `;
-                    container.appendChild(div);
-                });
-            } catch(e) {
-                container.innerHTML = '<p style="color:var(--muted);text-align:center;">Changelog unavailable.</p>';
-            }
-        }
+        async function loadChangelog() { const container=document.getElementById('changelog-container'); try{ const r=await fetch(`https://api.github.com/repos/${CHANGELOG_REPO}/releases?per_page=3`); if(!r.ok) throw new Error('API'); const releases=await r.json(); if(!releases.length){container.innerHTML='<p style="color:var(--muted);text-align:center;">No releases yet.</p>';return;} container.innerHTML=''; releases.forEach(release=>{ const div=document.createElement('div'); div.className='changelog-entry'; const date=new Date(release.published_at).toLocaleDateString(); div.innerHTML=`<h4>${release.name||release.tag_name} <small>(${date})</small></h4><p>${release.body?release.body.replace(/\n/g,'<br>').substring(0,300):'No description.'}</p><small><a href="${release.html_url}" target="_blank" style="color:var(--gold);">View on GitHub →</a></small>`; container.appendChild(div); }); }catch(e){ container.innerHTML='<p style="color:var(--muted);text-align:center;">Changelog unavailable.</p>'; } }
 
         // ── Compartir ────────────────────────────────────────────
-        function sharePage() {
-            const url = window.location.href;
-            if (navigator.clipboard) {
-                navigator.clipboard.writeText(url).then(() => {
-                    const btn = document.getElementById('share-btn');
-                    const original = btn.innerHTML;
-                    btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
-                    setTimeout(() => { btn.innerHTML = original; }, 2000);
-                });
-            } else {
-                prompt('Copy this link:', url);
-            }
-        }
+        function sharePage() { const url=window.location.href; if(navigator.clipboard){ navigator.clipboard.writeText(url).then(()=>{ const btn=document.getElementById('share-btn'); const original=btn.innerHTML; btn.innerHTML='<i class="fas fa-check"></i> Copied!'; setTimeout(()=>{btn.innerHTML=original;},2000); }); }else{ prompt('Copy this link:',url); } }
 
         // ── Gráfico de descargas ─────────────────────────────────
-        async function loadDownloadChart() {
-            const container=document.getElementById('download-chart');
-            const days=[];
-            for(let i=6;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push(d.toISOString().split('T')[0]); }
-            try{
-                const values=[];
-                for(const day of days){
-                    let dayTotal=0;
-                    for(const vol of ['v1','v2','v3']){
-                        const r=await fetch(`${COUNTER_WORKER}?key=${vol}-${day}`);
-                        const d=await r.json();
-                        dayTotal+=(d.value||0);
-                    }
-                    values.push(dayTotal);
-                }
-                const max=Math.max(...values,1);
-                container.innerHTML='';
-                days.forEach((day,i)=>{
-                    const bar=document.createElement('div');
-                    bar.style.cssText=`flex:1;background:linear-gradient(180deg,var(--gold),var(--gold-dark));height:${(values[i]/max)*100}px;border-radius:4px 4px 0 0;min-width:30px;position:relative;transition:height 0.5s ease;`;
-                    const label=document.createElement('span');
-                    label.style.cssText='position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:0.6rem;color:var(--muted);white-space:nowrap;';
-                    label.textContent=day.split('-')[2];
-                    bar.appendChild(label);
-                    const val=document.createElement('span');
-                    val.style.cssText='position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:0.65rem;color:var(--gold);';
-                    val.textContent=values[i];
-                    bar.appendChild(val);
-                    container.appendChild(bar);
-                });
-            }catch(e){ container.innerHTML='<p style="color:var(--muted);">Chart unavailable.</p>'; }
-        }
+        async function loadDownloadChart() { const container=document.getElementById('download-chart'); const days=[]; for(let i=6;i>=0;i--){ const d=new Date(); d.setDate(d.getDate()-i); days.push(d.toISOString().split('T')[0]); } try{ const values=[]; for(const day of days){ let dayTotal=0; for(const vol of ['v1','v2','v3']){ const r=await fetch(`${COUNTER_WORKER}?key=${vol}-${day}`); const d=await r.json(); dayTotal+=(d.value||0); } values.push(dayTotal); } const max=Math.max(...values,1); container.innerHTML=''; days.forEach((day,i)=>{ const bar=document.createElement('div'); bar.style.cssText=`flex:1;background:linear-gradient(180deg,var(--gold),var(--gold-dark));height:${(values[i]/max)*100}px;border-radius:4px 4px 0 0;min-width:30px;position:relative;transition:height 0.5s ease;`; const label=document.createElement('span'); label.style.cssText='position:absolute;bottom:-20px;left:50%;transform:translateX(-50%);font-size:0.6rem;color:var(--muted);white-space:nowrap;'; label.textContent=day.split('-')[2]; bar.appendChild(label); const val=document.createElement('span'); val.style.cssText='position:absolute;top:-18px;left:50%;transform:translateX(-50%);font-size:0.65rem;color:var(--gold);'; val.textContent=values[i]; bar.appendChild(val); container.appendChild(bar); }); }catch(e){ container.innerHTML='<p style="color:var(--muted);">Chart unavailable.</p>'; } }
 
-        // ── Mapa de usuarios ─────────────────────────────────────
-        async function loadUserMap() {
-            const pointsGroup = document.getElementById('map-points');
-            const countries = [
-                { cc: 'US', cx: 200, cy: 160 }, { cc: 'ES', cx: 470, cy: 180 },
-                { cc: 'MX', cx: 180, cy: 200 }, { cc: 'AR', cx: 280, cy: 350 },
-                { cc: 'CO', cx: 250, cy: 240 }, { cc: 'CL', cx: 260, cy: 370 },
-                { cc: 'PE', cx: 240, cy: 280 }, { cc: 'GB', cx: 460, cy: 140 },
-                { cc: 'DE', cx: 490, cy: 150 }, { cc: 'FR', cx: 470, cy: 170 },
-                { cc: 'BR', cx: 300, cy: 300 }, { cc: 'IT', cx: 495, cy: 175 },
-                { cc: 'PT', cx: 455, cy: 185 }, { cc: 'CA', cx: 250, cy: 100 },
-                { cc: 'AU', cx: 700, cy: 400 }, { cc: 'JP', cx: 820, cy: 160 },
-                { cc: 'IN', cx: 650, cy: 220 }, { cc: 'RU', cx: 600, cy: 100 },
-                { cc: 'CN', cx: 750, cy: 170 }, { cc: 'KR', cx: 810, cy: 155 }
-            ];
-            try {
-                pointsGroup.innerHTML = '';
-                for (const { cc, cx, cy } of countries) {
-                    const r = await fetch(`${COUNTER_WORKER}?key=country-${cc}`);
-                    const d = await r.json();
-                    if (d.value > 0) {
-                        const circle = document.createElementNS('http://www.w3.org/2000/svg','circle');
-                        circle.setAttribute('cx',cx.toString()); circle.setAttribute('cy',cy.toString());
-                        circle.setAttribute('r', Math.min(8, Math.max(3, d.value)).toString());
-                        circle.setAttribute('fill','var(--gold)'); circle.setAttribute('opacity','0.8');
-                        circle.style.cursor='pointer';
-                        const title=document.createElementNS('http://www.w3.org/2000/svg','title');
-                        title.textContent=`${cc}: ${d.value} downloads`; circle.appendChild(title);
-                        pointsGroup.appendChild(circle);
-                    }
-                }
-            } catch(e) {}
-        }
+        // ── Mapa de usuarios (siempre visible) ───────────────────
+        async function loadUserMap() { const pointsGroup=document.getElementById('map-points'); const countries=[{cc:'US',cx:200,cy:160},{cc:'ES',cx:470,cy:180},{cc:'MX',cx:180,cy:200},{cc:'AR',cx:280,cy:350},{cc:'CO',cx:250,cy:240},{cc:'CL',cx:260,cy:370},{cc:'PE',cx:240,cy:280},{cc:'GB',cx:460,cy:140},{cc:'DE',cx:490,cy:150},{cc:'FR',cx:470,cy:170},{cc:'BR',cx:300,cy:300},{cc:'IT',cx:495,cy:175},{cc:'PT',cx:455,cy:185},{cc:'CA',cx:250,cy:100},{cc:'AU',cx:700,cy:400},{cc:'JP',cx:820,cy:160},{cc:'IN',cx:650,cy:220},{cc:'RU',cx:600,cy:100},{cc:'CN',cx:750,cy:170},{cc:'KR',cx:810,cy:155}]; try{ pointsGroup.innerHTML=''; for(const{cc,cx,cy} of countries){ const r=await fetch(`${COUNTER_WORKER}?key=country-${cc}`); const d=await r.json(); const count=d.value||0; const has=count>0; const circle=document.createElementNS('http://www.w3.org/2000/svg','circle'); circle.setAttribute('cx',cx.toString()); circle.setAttribute('cy',cy.toString()); circle.setAttribute('r',has?Math.min(8,Math.max(3,count)).toString():'2'); circle.setAttribute('fill',has?'var(--gold)':'var(--border)'); circle.setAttribute('opacity',has?'0.9':'0.4'); circle.style.cursor='pointer'; circle.style.transition='all 0.3s ease'; const title=document.createElementNS('http://www.w3.org/2000/svg','title'); title.textContent=has?`${cc}: ${count} downloads`:`${cc}: 0 downloads`; circle.appendChild(title); pointsGroup.appendChild(circle); } }catch(e){} }
 
         // ── Reseñas ──────────────────────────────────────────────
         async function loadReviews() { const c=document.getElementById('reviews-container'); try{ const r=await fetch(`https://api.github.com/repos/${REVIEWS_REPO}/issues?labels=review&state=all&per_page=8`); if(!r.ok) throw new Error('API'); let issues=await r.json(); issues=issues.filter(i=>i.labels.some(l=>l.name==='review')); if(!issues.length){c.innerHTML='<p style="text-align:center;color:var(--muted);">No reviews yet. Be the first!</p>';return;} c.innerHTML=''; issues.forEach(issue=>{ let t=issue.title.replace(/^(📝\s*)?(Reseña de\s*)?/i,'').replace(/\s*[-–—]\s*/g,' — '); const parts=t.split(' — ').map(p=>p.trim()).filter(p=>p); const name=(parts[0]||'User').replace(/⭐+/g,'').trim()||'User'; const vol=parts.find(p=>p.match(/vol\.?\s*\d|complete|avanzado|esencial|básica/i))||parts[1]||''; const body=(issue.body||'').replace(/</g,'&lt;').replace(/>/g,'&gt;'); const div=document.createElement('div'); div.className='review-card'; div.innerHTML=`<div class="review-header"><div class="review-avatar">${name.charAt(0).toUpperCase()}</div><div class="review-name">${name}</div><div class="review-volume">${vol}</div></div><div class="review-stars">★★★★★</div><div class="review-body">"${body}"</div>`; c.appendChild(div); }); }catch(e){ c.innerHTML='<p style="text-align:center;color:var(--text-secondary);">Unable to load reviews.</p>'; } }
@@ -512,13 +373,8 @@ async function loadUserMap() {
 
         // ── Init ─────────────────────────────────────────────────
         document.addEventListener('DOMContentLoaded', () => {
-            loadCounts();
-            loadReviews();
-            loadHallOfFame();
-            loadDiscordWidget();
-            loadDownloadChart();
-            loadUserMap();
-            loadChangelog();
+            loadCounts(); loadReviews(); loadHallOfFame(); loadDiscordWidget();
+            loadDownloadChart(); loadUserMap(); loadChangelog();
         });
     </script>
 </body>
