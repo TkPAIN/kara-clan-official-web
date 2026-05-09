@@ -13,44 +13,52 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='55' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='bold' font-size='72' fill='%23c9a84c'>K</text></svg>">
     <style>
-        /* ── CURSOR WOW ──────────────────────────── */
+        /* ── Cursor WoW ───────────────────────────── */
 body.custom-cursor,
 body.custom-cursor * {
     cursor: none !important;
 }
 
+/* Contenedor del cursor personalizado */
 #wow-cursor {
     position: fixed;
-    width: 28px;
-    height: 28px;
+    width: 30px;
+    height: 42px;
     pointer-events: none;
     z-index: 99999;
-    transform: translate(-50%, -50%);
-    transition: width 0.2s, height 0.2s;
+    transform: translate(-8px, -8px);
+    transition: transform 0.1s ease;
 }
 
 #wow-cursor svg {
     width: 100%;
     height: 100%;
-    filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.7));
+    filter: drop-shadow(0 0 8px rgba(201, 168, 76, 0.8));
+    transition: filter 0.2s;
 }
 
+/* Destello al hacer clic */
+#wow-cursor.click svg {
+    filter: drop-shadow(0 0 20px rgba(240, 208, 128, 1));
+}
 #wow-cursor.click {
-    width: 36px;
-    height: 36px;
+    transform: translate(-6px, -6px) scale(0.9);
 }
 
-/* Trail de partículas */
-.wow-particle {
+/* Partículas del trail */
+.wow-trail {
     position: fixed;
     pointer-events: none;
     z-index: 99998;
-    width: 4px;
-    height: 4px;
+    width: 3px;
+    height: 3px;
     background: var(--gold);
-    border-radius: 50%;
-    opacity: 0.7;
-    transition: opacity 0.6s ease-out;
+    border-radius: 1px;
+    opacity: 0.6;
+    animation: fadeOut 0.8s forwards;
+}
+@keyframes fadeOut {
+    to { opacity: 0; transform: scale(0.5); }
 }
         /* ─── TEMA OSCURO (default) ─── */
         :root {
@@ -352,19 +360,21 @@ body.custom-cursor * {
     <footer><p>© 2026 Kara Clan — <span data-es="Gratis y Open Source." data-en="Free & Open Source.">Free & Open Source.</span></p><p><a href="https://discord.gg/PJQ5Q7R4Wr">Support</a> · <a href="https://discord.gg/cVRWR7cbUt">Community</a> · <a href="https://t.me/+xW5XBTxE09BlYzM0">Telegram</a></p></footer>
 <!-- Cursor WoW -->
 <div id="wow-cursor">
-    <svg viewBox="0 0 48 48">
+    <svg viewBox="0 0 30 42">
         <defs>
-            <radialGradient id="orb">
-                <stop offset="0%" stop-color="#f0d080"/>
-                <stop offset="100%" stop-color="#a88830"/>
-            </radialGradient>
-            <filter id="glow">
-                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
-                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            <linearGradient id="cursorGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stop-color="#4a3604"/>
+                <stop offset="100%" stop-color="#1a1a0a"/>
+            </linearGradient>
+            <filter id="cursorGlow">
+                <feGaussianBlur stdDeviation="1.2" result="blur"/>
+                <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
         </defs>
-        <circle cx="24" cy="24" r="18" fill="url(#orb)" stroke="#c9a84c" stroke-width="2" filter="url(#glow)"/>
-        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" font-family="Cinzel,serif" font-weight="900" font-size="20" fill="#1a1a0a">K</text>
+        <!-- Punta de la flecha -->
+        <polygon points="0,0 8,12 4,12 6,22 0,28" fill="url(#cursorGrad)" stroke="#c9a84c" stroke-width="1.5" filter="url(#cursorGlow)"/>
+        <!-- Runa en la punta -->
+        <text x="3" y="14" font-family="Cinzel,serif" font-weight="900" font-size="6" fill="#c9a84c">K</text>
     </svg>
 </div>
     
@@ -490,60 +500,30 @@ function showFileHash() {
     }
 }
         // ── CURSOR WOW ──────────────────────────────
-(function wowCursor() {
-    // Solo en escritorio
+(function() {
     if (!window.matchMedia('(pointer: fine)').matches) return;
     document.body.classList.add('custom-cursor');
 
     const cursor = document.getElementById('wow-cursor');
-    const particles = [];
-
-    // Crear pool de partículas
-    for (let i = 0; i < 20; i++) {
-        const p = document.createElement('div');
-        p.className = 'wow-particle';
-        p.style.display = 'none';
-        document.body.appendChild(p);
-        particles.push(p);
-    }
-    let particleIndex = 0;
-
     let mouseX = 0, mouseY = 0;
 
     document.addEventListener('mousemove', (e) => {
         mouseX = e.clientX;
         mouseY = e.clientY;
-
         cursor.style.left = mouseX + 'px';
         cursor.style.top = mouseY + 'px';
 
-        // Soltar partícula
-        const p = particles[particleIndex];
-        p.style.display = 'block';
-        p.style.left = mouseX + 'px';
-        p.style.top = mouseY + 'px';
-        p.style.opacity = '0.8';
-        setTimeout(() => { p.style.opacity = '0'; }, 100);
-        setTimeout(() => { p.style.display = 'none'; }, 600);
-
-        particleIndex = (particleIndex + 1) % particles.length;
+        // Trail de partículas
+        const trail = document.createElement('div');
+        trail.className = 'wow-trail';
+        trail.style.left = mouseX + 'px';
+        trail.style.top = mouseY + 'px';
+        document.body.appendChild(trail);
+        setTimeout(() => trail.remove(), 800);
     });
 
-    // Onda de choque al hacer clic
     document.addEventListener('mousedown', () => cursor.classList.add('click'));
     document.addEventListener('mouseup', () => cursor.classList.remove('click'));
-
-    // Agrandar sobre elementos interactivos
-    document.querySelectorAll('button, a, .btn, input, select, textarea').forEach(el => {
-        el.addEventListener('mouseenter', () => {
-            cursor.style.width = '40px';
-            cursor.style.height = '40px';
-        });
-        el.addEventListener('mouseleave', () => {
-            cursor.style.width = '28px';
-            cursor.style.height = '28px';
-        });
-    });
 })();
     </script>
 </body>
