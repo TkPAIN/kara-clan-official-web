@@ -60,16 +60,10 @@
   "share_target": {
     "action": "/kara-clan-official-web/",
     "method": "GET",
-    "params": {
-      "title": "title",
-      "text": "text",
-      "url": "url"
-    }
+    "params": { "title": "title", "text": "text", "url": "url" }
   },
   "file_handlers": [],
-  "launch_handler": {
-    "client_mode": "navigate-existing"
-  },
+  "launch_handler": { "client_mode": "navigate-existing" },
   "protocol_handlers": [],
   "widgets": [],
   "edge_side_panel": {},
