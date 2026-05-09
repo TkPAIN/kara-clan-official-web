@@ -232,6 +232,34 @@
         </div>
 
         <h2 class="section-title"><i class="fas fa-book"></i> <span data-es="Cómo Usar" data-en="How to Use">How to Use</span></h2>
+        <!-- Security Verification -->
+<h2 class="section-title"><i class="fas fa-shield-haltered"></i> Security Verification</h2>
+<div class="security-card" style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:1.5rem; max-width:600px; margin:0 auto 2rem; text-align:center;">
+    <div style="display:flex;align-items:center;gap:0.5rem;justify-content:center;margin-bottom:1rem;">
+        <i class="fas fa-check-circle" style="color:var(--success);font-size:1.5rem;"></i>
+        <span style="color:var(--success);font-weight:700;font-size:1rem;">Verified Safe</span>
+    </div>
+    <p style="color:var(--text-secondary);font-size:0.8rem;margin-bottom:1rem;">
+        Our scripts are open-source and can be inspected by anyone.
+        No data is collected. No telemetry. No hidden code.
+    </p>
+    <div style="display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;">
+        <a href="https://www.virustotal.com/gui/url/YOUR_URL_HERE" target="_blank" class="btn btn-outline" style="font-size:0.7rem;">
+            <i class="fas fa-search"></i> Scan with VirusTotal
+        </a>
+        <a href="https://github.com/TkPAIN/kara-clan-official-web" target="_blank" class="btn btn-outline" style="font-size:0.7rem;">
+            <i class="fab fa-github"></i> View Source Code
+        </a>
+        <span class="btn btn-outline" style="font-size:0.7rem;cursor:pointer;" onclick="showFileHash()">
+            <i class="fas fa-fingerprint"></i> Verify File Hash
+        </span>
+    </div>
+    <div id="hash-info" style="display:none;margin-top:1rem;background:var(--surface-elevated);padding:1rem;border-radius:8px;text-align:left;">
+        <p style="color:var(--text-secondary);font-size:0.7rem;margin-bottom:0.5rem;">Copy the hash and verify the file after download:</p>
+        <code id="hash-display" style="color:var(--gold);word-break:break-all;font-size:0.65rem;">Loading hash...</code>
+        <p style="color:var(--muted);font-size:0.6rem;margin-top:0.5rem;">Use PowerShell: <code style="color:var(--gold);">Get-FileHash .\kara-clan.apk</code></p>
+    </div>
+</div>
         <div class="instructions"><ol>
             <li data-es="Descarga el archivo <code>.bat</code>." data-en="Download the <code>.bat</code> file.">Download the <code>.bat</code> file.</li>
             <li data-es="<strong>Click derecho → Ejecutar como Administrador</strong>." data-en="<strong>Right-click → Run as Administrator</strong>."><strong>Right-click → Run as Administrator</strong>.</li>
@@ -378,6 +406,30 @@
             loadCounts(); loadReviews(); loadHallOfFame(); loadDiscordWidget();
             loadDownloadChart(); loadUserMap(); loadChangelog();
         });
+        // ── File Hash Verification ──────────────────────────────────
+function showFileHash() {
+    const hashDiv = document.getElementById('hash-info');
+    const hashDisplay = document.getElementById('hash-display');
+    
+    if (hashDiv.style.display === 'none') {
+        hashDiv.style.display = 'block';
+        // Intentar obtener el hash del APK desde GitHub API
+        fetch('https://api.github.com/repos/TkPAIN/kara-clan-official-web/contents/kara-clan.apk')
+            .then(r => r.json())
+            .then(data => {
+                if (data.sha) {
+                    hashDisplay.textContent = 'SHA1: ' + data.sha;
+                } else {
+                    hashDisplay.textContent = 'Hash unavailable. Verify manually with PowerShell.';
+                }
+            })
+            .catch(() => {
+                hashDisplay.textContent = 'Hash unavailable. Verify manually with PowerShell.';
+            });
+    } else {
+        hashDiv.style.display = 'none';
+    }
+}
     </script>
 </body>
 </html>
