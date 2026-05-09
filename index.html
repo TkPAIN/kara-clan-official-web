@@ -13,6 +13,45 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='20' fill='%23000'/><text x='50' y='55' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-weight='bold' font-size='72' fill='%23c9a84c'>K</text></svg>">
     <style>
+        /* ── CURSOR WOW ──────────────────────────── */
+body.custom-cursor,
+body.custom-cursor * {
+    cursor: none !important;
+}
+
+#wow-cursor {
+    position: fixed;
+    width: 28px;
+    height: 28px;
+    pointer-events: none;
+    z-index: 99999;
+    transform: translate(-50%, -50%);
+    transition: width 0.2s, height 0.2s;
+}
+
+#wow-cursor svg {
+    width: 100%;
+    height: 100%;
+    filter: drop-shadow(0 0 6px rgba(201, 168, 76, 0.7));
+}
+
+#wow-cursor.click {
+    width: 36px;
+    height: 36px;
+}
+
+/* Trail de partículas */
+.wow-particle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99998;
+    width: 4px;
+    height: 4px;
+    background: var(--gold);
+    border-radius: 50%;
+    opacity: 0.7;
+    transition: opacity 0.6s ease-out;
+}
         /* ─── TEMA OSCURO (default) ─── */
         :root {
             --gold: #c9a84c;
@@ -433,6 +472,79 @@ function showFileHash() {
         hashDiv.style.display = 'none';
     }
 }
+        // ── CURSOR WOW ──────────────────────────────
+(function wowCursor() {
+    // Solo en escritorio
+    if (!window.matchMedia('(pointer: fine)').matches) return;
+    document.body.classList.add('custom-cursor');
+
+    const cursor = document.getElementById('wow-cursor');
+    const particles = [];
+
+    // Crear pool de partículas
+    for (let i = 0; i < 20; i++) {
+        const p = document.createElement('div');
+        p.className = 'wow-particle';
+        p.style.display = 'none';
+        document.body.appendChild(p);
+        particles.push(p);
+    }
+    let particleIndex = 0;
+
+    let mouseX = 0, mouseY = 0;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+
+        cursor.style.left = mouseX + 'px';
+        cursor.style.top = mouseY + 'px';
+
+        // Soltar partícula
+        const p = particles[particleIndex];
+        p.style.display = 'block';
+        p.style.left = mouseX + 'px';
+        p.style.top = mouseY + 'px';
+        p.style.opacity = '0.8';
+        setTimeout(() => { p.style.opacity = '0'; }, 100);
+        setTimeout(() => { p.style.display = 'none'; }, 600);
+
+        particleIndex = (particleIndex + 1) % particles.length;
+    });
+
+    // Onda de choque al hacer clic
+    document.addEventListener('mousedown', () => cursor.classList.add('click'));
+    document.addEventListener('mouseup', () => cursor.classList.remove('click'));
+
+    // Agrandar sobre elementos interactivos
+    document.querySelectorAll('button, a, .btn, input, select, textarea').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.width = '40px';
+            cursor.style.height = '40px';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.width = '28px';
+            cursor.style.height = '28px';
+        });
+    });
+})();
     </script>
+    <!-- Cursor WoW -->
+<div id="wow-cursor">
+    <svg viewBox="0 0 48 48">
+        <defs>
+            <radialGradient id="orb">
+                <stop offset="0%" stop-color="#f0d080"/>
+                <stop offset="100%" stop-color="#a88830"/>
+            </radialGradient>
+            <filter id="glow">
+                <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+        </defs>
+        <circle cx="24" cy="24" r="18" fill="url(#orb)" stroke="#c9a84c" stroke-width="2" filter="url(#glow)"/>
+        <text x="24" y="24" text-anchor="middle" dominant-baseline="central" font-family="Cinzel,serif" font-weight="900" font-size="20" fill="#1a1a0a">K</text>
+    </svg>
+</div>
 </body>
 </html>
